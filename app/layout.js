@@ -18,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="ko">
-            <body className={notoSansKr.className}>
+            <body id={scss.wrapper} className={notoSansKr.className}>
                 <header id={scss.header}>
                     <h1><Image src="/images/logo_nextslam.svg" alt="Next Slam" width={355} height={40} /></h1>
                     <nav id={scss.gnb}>
