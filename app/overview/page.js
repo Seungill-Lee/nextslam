@@ -4,7 +4,7 @@ import main from "./page.module.css";
 export default function Overview() {
   return (
     <>
-        <h1>개요</h1>
+        <h2>개요</h2>
         <p>개요 입니다.</p>
     </>
   );
