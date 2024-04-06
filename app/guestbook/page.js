@@ -1,5 +1,5 @@
 import Image from "next/image";
-import main from "./page.module.css";
+import main from "./page.module.scss";
 
 export default function Guestbook() {
   return (
