@@ -1,5 +1,5 @@
 import Image from "next/image";
-import main from "./page.module.scss";
+import scss from "./page.module.scss";
 
 export default function Overview() {
   return (

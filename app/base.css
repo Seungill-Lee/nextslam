@@ -1,0 +1,37 @@
+body {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: #222222;
+    background-color: #E9E9E9;
+}
+a {
+    color: #222222;
+    text-decoration: none;
+}
+a:hover {
+    color: orangered;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin: 0px;
+    border-width: 0px;
+}
+h1,h2,h3,h4,h5 {
+    color: #222222;
+    font-weight: 600;
+    margin: 0px;
+}
+ul,ol {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+li {
+    padding: 0px;
+}
+hr {
+    display: none;
+}
