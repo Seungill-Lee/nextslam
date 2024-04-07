@@ -33,10 +33,11 @@ nav#gnb {
             font-size: 26px;
             text-transform: uppercase;
             a {
+                transition: 0.3s ease color;
                 &.active {
                     color: orangered;
                     text-decoration: underline 2px dotted orangered;
-                    text-underline-offset: 4px;
+                    text-underline-offset: 5px;
                 }
             }
         }

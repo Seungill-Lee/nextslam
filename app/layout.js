@@ -1,21 +1,8 @@
-import { Libre_Franklin } from "next/font/google";
-import { Noto_Sans_KR } from "next/font/google";
 import Link from 'next/link';
 import Image from 'next/image';
+import GNB from './gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
-
-const libreFranklin = Libre_Franklin({
-    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    subsets: ['latin'],
-    opticalSizing: "auto",
-});
-
-const notoSansKr = Noto_Sans_KR({
-    weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-    subsets: ['latin'],
-    opticalSizing: ["auto"],
-});
 
 export const metadata = {
     title: "Next Slam",
@@ -27,19 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="ko">
-            <body className={notoSansKr.className}>
+            <body>
                 <div id={scss.wrapper}>
                     <header id={scss.header}>
                         <h1><Image src="/images/logo_nextslam.svg" alt="Next Slam" width={355} height={40} /></h1>
-                        <nav id={scss.gnb}>
-                            <ul className={libreFranklin.className}>
-                                <li><Link href="./" className={scss.active}>Home</Link></li>
-                                <li><Link href="/overview">Overview</Link></li>
-                                <li><Link href="/character">Character</Link></li>
-                                <li><Link href="/developer">Developer</Link></li>
-                                <li><Link href="/guestbook">Guestbook</Link></li>
-                            </ul>
-                        </nav>
+                        <GNB />
                     </header>
                     
                     <hr />
