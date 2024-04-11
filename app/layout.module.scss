@@ -46,9 +46,11 @@ nav#gnb {
 
 /* Contents */
 main#contents {
+    max-width: 1400px;
     min-height: 100vh;
     padding: 100px;
     box-sizing: border-box;
+    margin: 0px auto;
 }
 
 
