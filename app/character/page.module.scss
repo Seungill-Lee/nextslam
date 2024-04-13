@@ -1,14 +1,10 @@
-article#character {
-    ul.team_member {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        width: 1600px;
+article#team {
+    ul.tm_list {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 40px;
         margin-top: 40px;
         li {
-            &:last-child {
-                order: 5;
-            }
             a {
                 display: block;
                 line-height: 0;
