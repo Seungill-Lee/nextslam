@@ -1,4 +1,42 @@
 {
+    "team": [
+        {
+            "id": "shohoku",
+            "orgName": "Shohoku",
+            "korName": "상북",
+            "logoSize": {
+                "width": 200, 
+                "height": 83
+            }
+        },
+        {
+            "id": "ryonan",
+            "orgName": "Ryonan",
+            "korName": "능남",
+            "logoSize": {
+                "width": 156, 
+                "height": 83
+            }
+        },
+        {
+            "id": "shoyo",
+            "orgName": "Shoyo",
+            "korName": "상양",
+            "logoSize": {
+                "width": 200,
+                "height": 56
+            }
+        },
+        {
+            "id": "kainan",
+            "orgName": "Kainan",
+            "korName": "해남",
+            "logoSize": {
+                "width": 174,
+                "height": 80
+            }
+        }
+    ],
     "shohoku" : [
         {
             "id": "akagi",

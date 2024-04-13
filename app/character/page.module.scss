@@ -38,45 +38,23 @@ article#charater {
                             }
                         }
                         &.shohoku {
-                            span {
-                                &.tm_logo {
-                                    img {
-                                        filter: background-color(red);
-                                    }
-                                }
-                                &.tm_txt {
-                                    color: red;
-                                }
+                            span.tm_txt {
+                                color: #BE0003;
                             }
                         }
                         &.ryonan {
-                            span {
-                                &.tm_logo {
-
-                                }
-                                &.tm_txt {
-                                    
-                                }
+                            span.tm_txt {
+                                color: #1A2B7D;
                             }
                         }
                         &.shoyo {
-                            span {
-                                &.tm_logo {
-
-                                }
-                                &.tm_txt {
-                                    
-                                }
+                            span.tm_txt {
+                                color: #278A2F;
                             }
                         }
                         &.kainan {
-                            span {
-                                &.tm_logo {
-
-                                }
-                                &.tm_txt {
-                                    
-                                }
+                            span.tm_txt {
+                                color: #552582;
                             }
                         }
                     }
