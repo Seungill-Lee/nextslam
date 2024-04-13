@@ -40,8 +40,8 @@
     "shohoku" : [
         {
             "id": "akagi",
-            "name": "채치수",
-            "realName": "아카기 타케노리(赤木 剛憲)",
+            "korName": "채치수",
+            "orgName": "아카기 타케노리(赤木 剛憲)",
             "grade": "3학년 6반",
             "tall": "197cm",
             "weight": "90kg",
@@ -53,8 +53,8 @@
         },
         {
             "id": "sakuragi",
-            "name": "강백호",
-            "realName": "사쿠라기 하나미치(桜木 花道)",
+            "korName": "강백호",
+            "orgName": "사쿠라기 하나미치(桜木 花道)",
             "grade": "1학년 7반",
             "tall": "188cm → 189.2cm",
             "weight": "83kg",
@@ -66,8 +66,8 @@
         },
         {
             "id": "rukawa",
-            "name": "서태웅",
-            "realName": "루카와 카에데(流川 楓)",
+            "korName": "서태웅",
+            "orgName": "루카와 카에데(流川 楓)",
             "grade": "1학년 10반",
             "tall": "187cm",
             "weight": "75kg",
@@ -79,8 +79,8 @@
         },
         {
             "id": "miyagi",
-            "name": "송태섭",
-            "realName": "미야기 료타(宮城 リョータ)",
+            "korName": "송태섭",
+            "orgName": "미야기 료타(宮城 リョータ)",
             "grade": "2학년 1반",
             "tall": "168cm",
             "weight": "59kg",
@@ -92,8 +92,8 @@
         },
         {
             "id": "mitsui",
-            "name": "정대만",
-            "realName": "미츠이 히사시(三井 寿)",
+            "korName": "정대만",
+            "orgName": "미츠이 히사시(三井 寿)",
             "grade": "3학년 3반",
             "tall": "184cm",
             "weight": "70kg",
@@ -105,8 +105,8 @@
         },
         {
             "id": "kogure",
-            "name": "권준호",
-            "realName": "코구레 키미노부(木暮 公延)",
+            "korName": "권준호",
+            "orgName": "코구레 키미노부(木暮 公延)",
             "grade": "3학년 6반",
             "tall": "178cm",
             "weight": "62kg",
@@ -118,18 +118,18 @@
         },
         {
             "id": "anzai",
-            "name": "안한수",
-            "realName": "안자이 미츠요시(木暮 公延)",
+            "korName": "안한수",
+            "orgName": "안자이 미츠요시(木暮 公延)",
             "position": "감독",
             "nickname": "안선생님, 영감님, 흰머리 호랑이, 흰머리 부처님",
             "intro": "한 때는 호랑이 감독으로 유명했지만 어떠한 사건을 계기로 온화한 감독이 되었다."
         },
         {
             "id": "ayako",
-            "name": "이한나",
+            "korName": "이한나",
             "grade": "2학년 1반",
             "tall": "164cm",
-            "realName": "아야코(彩子)",
+            "orgName": "아야코(彩子)",
             "position": "매니저",
             "intro": "상북고교 분위기 메이커. 송태섭이 짝사랑 하고 있는 여자이기도 하다."
         }
@@ -137,8 +137,8 @@
     "ryonan" : [
         {
             "id": "jun",
-            "name": "변덕규",
-            "realName": "우오즈미 준(魚住 純)",
+            "korName": "변덕규",
+            "orgName": "우오즈미 준(魚住 純)",
             "grade": "3학년",
             "tall": "202cm",
             "weight": "90kg",
@@ -150,8 +150,8 @@
         },
         {
             "id": "sendoh",
-            "name": "윤대협",
-            "realName": "센도 아키라(桜木 花道)",
+            "korName": "윤대협",
+            "orgName": "센도 아키라(桜木 花道)",
             "grade": "2학년",
             "tall": "190cm",
             "weight": "79kg",
@@ -163,8 +163,8 @@
         },
         {
             "id": "kiccho",
-            "name": "황태산",
-            "realName": "후쿠다 킷쵸(福田 吉兆)",
+            "korName": "황태산",
+            "orgName": "후쿠다 킷쵸(福田 吉兆)",
             "grade": "2학년",
             "tall": "188cm",
             "weight": "80kg",
@@ -175,8 +175,8 @@
         },
         {
             "id": "koshino",
-            "name": "안영수",
-            "realName": "코시노 히로아키(三井 寿)",
+            "korName": "안영수",
+            "orgName": "코시노 히로아키(三井 寿)",
             "grade": "2학년",
             "tall": "174cm",
             "weight": "62kg",
@@ -186,8 +186,8 @@
         },
         {
             "id": "ikegami",
-            "name": "허태환",
-            "realName": "이케가미 료지(池上 良治)",
+            "korName": "허태환",
+            "orgName": "이케가미 료지(池上 良治)",
             "grade": "3학년",
             "tall": "183cm",
             "position": "포워드(F)",
@@ -196,19 +196,19 @@
         },
         {
             "id": "taoka",
-            "name": "유명호",
-            "realName": "타오카 모이치(田岡 茂一)",
+            "korName": "유명호",
+            "orgName": "타오카 모이치(田岡 茂一)",
             "position": "감독",
             "nickname": "도내 폭탄, 꼰대 아저씨",
             "intro": "선수들을 키우는데 있어선 훌륭한 감독. 하지만 상대팀 선수들의 능력치를 파악하는 능력이 최악이다. 능남고교 농구부의 전국대회진출 실패의 원흉."
         },
         {
             "id": "hikoich",
-            "name": "박경태",
+            "korName": "박경태",
             "grade": "1학년",
             "tall": "165cm",
             "weight": "52kg",
-            "realName": "아이다 히코이치(相田 彦一)",
+            "orgName": "아이다 히코이치(相田 彦一)",
             "intro": "능남고교 농구부 2군 선수. 농구연습 보단 상대팀 전력을 분석하는 일에 더 공을 드리고 있다. <br />같은 동급생인 강백호(상북고교)를 '백호 형'이라고 부르며 존경하고 있다."
         }
     ]
