@@ -9,7 +9,7 @@ import scss from "./page.module.scss";
 export default function Character() {
     const pathname = usePathname()
 
-    if(pathname.split("/").pop() == "shoyo" || pathname.split("/").pop() == "kainan") {
+    if(pathname.split("/").pop() == "kainan") {
         return (
             <>준비 중 입니다</>
         )
