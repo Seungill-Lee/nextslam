@@ -70,45 +70,84 @@ ul.team_list {
                         display: none;
                     }
                     figcaption {
-                        padding: 10px;
+                        padding: 12px 20px;
+                        border-radius: 12px;
                         margin-top: 0px;
+                        transition: 0.3s ease background-color,0.3s ease color;
                         span {
-                            display: flex;
-                            width: 100%;
-                            justify-content: center;
-                            align-items: center;
-                            text-align: center;
-                            line-height: 1;
                             &.tm_logo {
-                                height: 83px;
-                                img {
-                                    width: auto;
-                                    max-height: 100%;
-                                }
+                                height: 42px;
                             }
                             &.tm_txt {
-                                margin-top: 20px;
-                                font-weight: bold;
+                                margin-top: 8px;
+                                font-size: 14px;
+                                color: 0.3s ease color;
                             }
                         }
                         &.shohoku {
-                            span.tm_txt {
-                                color: #BE0003;
+                            span.tm_logo {
+                                img {
+                                    width: 100px;
+                                    height: 42px;
+                                }
                             }
                         }
                         &.ryonan {
-                            span.tm_txt {
-                                color: #1A2B7D;
+                            span.tm_logo {
+                                img {
+                                    width: 78px;
+                                    height: 39px;
+                                }
                             }
                         }
                         &.shoyo {
-                            span.tm_txt {
-                                color: #278A2F;
+                            span.tm_logo {
+                                img {
+                                    width: 100px;
+                                    height: 28px;
+                                }
                             }
                         }
                         &.kainan {
+                            span.tm_logo {
+                                img {
+                                    width: 87px;
+                                    height: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+                &:hover {
+                    figcaption {
+                        background-color: #D9D9D9;
+                        box-shadow: inset 0 0 4px #B9B9B9;
+                    }
+                }
+                &.active {
+                    figcaption {
+                        &.shohoku {
+                            background-color: #BE0003;
                             span.tm_txt {
-                                color: #552582;
+                                color: black;
+                            }
+                        }
+                        &.ryonan {
+                            background-color: #1A2B7D;
+                            span.tm_txt {
+                                color: #87CEEB;
+                            }
+                        }
+                        &.shoyo {
+                            background-color: #278A2F;
+                            span.tm_txt {
+                                color: white;
+                            }
+                        }
+                        &.kainan {
+                            background-color: #552582;
+                            span.tm_txt {
+                                color: #FDB927;
                             }
                         }
                     }
