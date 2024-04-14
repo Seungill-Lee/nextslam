@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 export default function ExampleClientComponent() {
   const params = usePathname() 
 
-  console.log({params})
+  //console.log({params})
  
   return (
     <>{params.split("/").pop()}</>

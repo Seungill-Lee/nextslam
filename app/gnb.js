@@ -21,7 +21,7 @@ export default function GNB() {
                 {
                     menuData.map((a, i) => {
                         return (
-                            <li key={i}><Link href={a.path} className={pathname == a.path ? scss.active : ''}>{a.name}</Link></li>
+                            <li key={i}><Link href={a.path} className={pathname == a.path || pathname.indexOf(a.path+"/") > -1 ? scss.active : ''}>{a.name}</Link></li>
                         )
                     })
                 }

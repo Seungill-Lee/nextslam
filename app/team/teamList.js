@@ -10,8 +10,6 @@ import scss from "./teamList.module.scss";
 export default function GNB() {
     const pathname = usePathname();
 
-    console.log(pathname)
-
     return (
         <ul className={`${scss.team_list} ${pathname.split("/").pop() != "team" ? scss.reduce : ''}`}>
             {
