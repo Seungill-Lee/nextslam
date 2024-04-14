@@ -20,10 +20,13 @@ export default function Character() {
                     data[pathname.split("/").pop()].map((a, i) => {
                         return (
                             <li key={i}>
+                                <div className={scss.photo}>
+                                    <Image src={"/images/character/photo_sdc_"+a.id+".jpg"} alt={a.korName} width={638} height={360} />
+                                </div>
                                 <dl className={scss.info}>
                                     <>
                                         <dt>이름</dt>
-                                        <dd>{a.korName}[{a.orgName}]</dd>
+                                        <dd>{a.korName} [{a.orgName}]</dd>
                                     </>
                                     {a.grade != null ? 
                                         <>

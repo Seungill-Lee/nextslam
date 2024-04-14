@@ -49,6 +49,9 @@ ul,ol {
 li {
     padding: 0px;
 }
+dl,dt,dd {
+    margin: 0px;
+}
 hr {
     display: none;
 }

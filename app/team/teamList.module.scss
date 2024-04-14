@@ -1,8 +1,8 @@
 /* 팀 목록 */
 ul.team_list {
     display: flex;
-    gap: 40px;
-    margin-top: 40px;
+    gap: 50px;
+    margin-top: 50px;
     li {
         width: 25%;
         a {
@@ -62,6 +62,7 @@ ul.team_list {
         }
     }
     &.reduce {
+        gap: 30px;
         li {
             width: auto;
             a {
