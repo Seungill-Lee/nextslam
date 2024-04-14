@@ -4,19 +4,22 @@ import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from "next/image";
-import scss from "./page.module.scss";
 import data from './data.json';
+import scss from "./teamList.module.scss";
 
 export default function GNB() {
-    const pathname = usePathname()
+    const pathname = usePathname();
+    const [team, currentTeam] = useState(pathname);
+
+    console.log(pathname)
 
     return (
-        <ul className={scss.team_list}>
+        <ul className={`${scss.team_list} ${team.split("/").pop() != "team" ? scss.reduce : ''}`}>
             {
                 data.team.map((a, i) => {
                     return (
                         <li key={i}>
-                            <Link href={"/"+a.name} className={pathname == "/"+a.name ? scss.active : ''}>
+                            <Link href={"/team/"+a.id} className={pathname == "/team/"+a.id ? scss.active : ''} onClick={() => {currentTeam(a.id)}}>
                                 <figure>
                                     <div className={scss.tm_photo}><Image src={"/images/team/photo_sdt_"+a.id+".jpg"} alt="" width={403} height={596} /></div>
                                     <figcaption className={scss[a.id]}>

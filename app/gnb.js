@@ -2,12 +2,12 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import scss from "./layout.module.scss";
+import scss from "./gnb.module.scss";
 
 const menuData = [
     {name: "Home", path: "/"},
     {name: "Overview", path: "/overview"},
-    {name: "Character", path: "/character"},
+    {name: "Character", path: "/team"},
     {name: "Developer", path: "/developer"},
     {name: "Guestbook", path: "/guestbook"},
 ]

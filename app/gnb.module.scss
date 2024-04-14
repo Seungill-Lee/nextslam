@@ -1,0 +1,20 @@
+
+/* GNB */
+nav#gnb {
+    padding-top: 16px;
+    ul {
+        li {
+            margin-top: 36px;
+            font-size: 26px;
+            text-transform: uppercase;
+            a {
+                transition: 0.3s ease color;
+                &.active {
+                    color: orangered;
+                    text-decoration: underline 2px dotted orangered;
+                    text-underline-offset: 5px;
+                }
+            }
+        }
+    }
+}
