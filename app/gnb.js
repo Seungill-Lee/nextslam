@@ -8,7 +8,7 @@ const menuData = [
     {name: "Home", path: "/"},
     {name: "Overview", path: "/overview"},
     {name: "Character", path: "/team"},
-    {name: "Developer", path: "/developer"},
+    {name: "Soundtrack", path: "/soundtrack"},
     {name: "Guestbook", path: "/guestbook"},
 ]
 
