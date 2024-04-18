@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import scss from "./test_player.module.scss";
+import scss from "./testPlayer.module.scss";
 
 export default function TestPlayer({ trackNum }) {
     return (

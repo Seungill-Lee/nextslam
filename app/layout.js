@@ -3,7 +3,7 @@ import Image from 'next/image';
 import GNB from './gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
-import TestPlayer from "./soundtrack/test_player.js";
+import TestPlayer from "./soundtrack/testPlayer.js";
 
 export const metadata = {
     title: "Next Slam",

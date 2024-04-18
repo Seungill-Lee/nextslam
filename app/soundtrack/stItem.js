@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import TestPlayer from "./test_player.js";
+import TestPlayer from "./testPlayer.js";
 
 
 export default function STItem({ songTit,trackNum }) {
