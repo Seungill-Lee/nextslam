@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-import Team from './teamList.js';
+import Team from '../../components/team/teamList.js';
 import scss from "./layout.module.scss";
 
 export const metadata = {

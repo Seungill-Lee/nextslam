@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import Image from "next/image";
 import scss from "./page.module.scss";
-import STItem from "./stItem.js";
+import STItem from "../../components/soundtrack/stItem.js";
 
 export const metadata = {
     title: "사운드트랙 | Next Slam",

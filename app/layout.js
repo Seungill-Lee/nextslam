@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import GNB from './gnb.js';
+import GNB from '../components/gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
-import RecoilRoot from "./RecoilRootWrapper.js"
-import TestPlayer from "./soundtrack/testPlayer.js";
+import RecoilRoot from "../components/recoilRootWrapper.js"
+import TestPlayer from "../components/soundtrack/testPlayer.js";
 
 export const metadata = {
     title: "Next Slam",

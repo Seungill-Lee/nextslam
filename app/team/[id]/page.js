@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from "next/image";
-import data from '../data.json';
+import data from '../../../components/team/data.json';
 import scss from "./page.module.scss";
  
 export default function Character() {
