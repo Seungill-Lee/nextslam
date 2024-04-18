@@ -3,10 +3,14 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import TestPlayer from "./testPlayer.js";
+import { useRecoilState } from "recoil";
+import { trackNum } from "../atom.js"
 
 
-export default function STItem({ songTit,trackNum }) {
+export default function STItem(props) {
+    const [count,setCount] = useRecoilState(trackNum)
+
     return (
-        <li><a href="javascript:void(0)" onClick={() => console.log(trackNum)}>{songTit}</a></li>
+        <li key={props.tkNum}><button type="button" onClick={() => setCount(props.tkNum)}>{props.songTit}</button></li>
     )
 }

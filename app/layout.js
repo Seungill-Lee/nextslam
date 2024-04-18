@@ -3,6 +3,7 @@ import Image from 'next/image';
 import GNB from './gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
+import RecoilRoot from "./RecoilRootWrapper.js"
 import TestPlayer from "./soundtrack/testPlayer.js";
 
 export const metadata = {
@@ -25,7 +26,10 @@ export default function RootLayout({ children }) {
                     <hr />
 
                     <main id={scss.contents}>
-                        {children}
+                        <RecoilRoot>
+                            {children}
+                            <TestPlayer />
+                        </RecoilRoot>
                     </main>
 
                     <hr />
@@ -37,7 +41,6 @@ export default function RootLayout({ children }) {
                         </p>
                     </footer>
                 </div>
-                <TestPlayer trackNum="0" />
             </body>
         </html>
     );

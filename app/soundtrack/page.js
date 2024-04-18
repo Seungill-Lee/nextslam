@@ -13,9 +13,9 @@ export default function Developer() {
         <>
             <h2>사운드트랙</h2>
             <ul className="soundtrack">
-                <STItem songTit="너를좋아한다고" trackNum="1" />
-                <STItem songTit="Crazy for you" trackNum="2" />
-                <STItem songTit="빛나는 순간에 사로잡혀" trackNum="3" />
+                <STItem songTit="너를좋아한다고" tkNum="1" />
+                <STItem songTit="Crazy for you" tkNum="2" />
+                <STItem songTit="빛나는 순간에 사로잡혀" tkNum="3" />
             </ul>
         </>
     );
