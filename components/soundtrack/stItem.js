@@ -4,13 +4,15 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import TestPlayer from "./bgmPlayer.js";
 import { useRecoilState } from "recoil";
-import { bgmPlayerID } from "../atom.js"
+import { bgmPlayerID,bgmPlaying } from "../atom.js"
+import scss from "./stitem.module.scss";
 
 
 export default function STItem(props) {
-    const [trackNum,setTrackNum] = useRecoilState(bgmPlayerID)
+    const [playID,setPlayID] = useRecoilState(bgmPlayerID)
+    const [playing,setPlaying] = useRecoilState(bgmPlaying)
 
     return (
-        <li><button type="button" onClick={() => setTrackNum(props.trackNum)}>{props.songTit}</button></li>
+        <li className={playID == props.trackNum ? scss["active"] : ""}><button type="button" onClick={() => {setPlayID(props.trackNum); setPlaying(true)}}>{props.songTit}</button></li>
     )
 }

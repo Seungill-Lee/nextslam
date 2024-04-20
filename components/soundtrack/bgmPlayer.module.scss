@@ -1,10 +1,15 @@
-#playlist {
+#bgm_player {
     position: fixed;
     z-index: 99;
-    bottom: 0px;
+    bottom: -100%;
     left: 0px;
     width: 100%;
+    overflow: hidden;
     text-align: center;
     padding: 20px;
     background-color: white;
+    transition: 0.7s ease bottom;
+    &.active {
+        bottom: 0px;
+    }
 }

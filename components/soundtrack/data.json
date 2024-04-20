@@ -1,27 +1,32 @@
 [
     {
-        "id": "1",
+        "id": 1,
         "title": "너를 좋아한다고 외치고 싶어",
+        "artist": "BAAD",
         "url": "https://music.youtube.com/watch?v=u9GaMpzDQnw&si=lSB5GMX0iRo4bBdQ"
     },
     {
-        "id": "2",
+        "id": 2,
         "title": "Crazy for you",
+        "artist": "박상민",
         "url": "https://music.youtube.com/watch?v=gO51ulyUQWg&si=Zb8FTwo4DHkyqqff"
     },
     {
-        "id": "3",
+        "id": 3,
         "title": "빛나는 순간에 사로잡혀",
+        "artist": "Manish",
         "url": "https://music.youtube.com/watch?v=x0vao3trmfM&si=3PLLTv9eSxzPcU-M"
     },
     {
-        "id": "4",
+        "id": 4,
         "title": "너와 함께라면",
+        "artist": "Faith",
         "url": "https://music.youtube.com/watch?v=I9pBb3mcruM&si=WJY0IRkFXzS4faxb"
     },
     {
-        "id": "5",
+        "id": 5,
         "title": "React is the Best",
+        "artist": "애플코딩",
         "url": "https://music.youtube.com/watch?v=pVQPfTleC_4&si=c9EocFrDn5ARys71"
     }
 ]
