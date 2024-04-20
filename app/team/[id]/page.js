@@ -3,8 +3,8 @@
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from "next/image";
-import data from '../../../components/team/data.json';
 import scss from "./page.module.scss";
+import data from '../../../components/team/data.json';
  
 export default function Character() {
     const pathname = usePathname()

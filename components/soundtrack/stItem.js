@@ -11,6 +11,6 @@ export default function STItem(props) {
     const [trackNum,setTrackNum] = useRecoilState(bgmPlayerID)
 
     return (
-        <li key={props.trackNum}><button type="button" onClick={() => setTrackNum(props.trackNum)}>{props.songTit}</button></li>
+        <li><button type="button" onClick={() => setTrackNum(props.trackNum)}>{props.songTit}</button></li>
     )
 }
