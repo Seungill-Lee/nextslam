@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const trackNum = atom({
-    key: "count",
+export const bgmPlayerID = atom({
+    key: "bgmPlayerID",
     default: 0
 })

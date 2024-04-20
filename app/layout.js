@@ -4,7 +4,7 @@ import GNB from '../components/gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
 import RecoilRoot from "../components/recoilRootWrapper.js"
-import TestPlayer from "../components/soundtrack/testPlayer.js";
+import BgmPlayer from "../components/soundtrack/bgmPlayer.js";
 
 export const metadata = {
     title: "Next Slam",
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
                     <main id={scss.contents}>
                         <RecoilRoot>
                             {children}
-                            <TestPlayer />
+                            <BgmPlayer />
                         </RecoilRoot>
                     </main>
 

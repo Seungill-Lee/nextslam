@@ -2,15 +2,15 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import TestPlayer from "./testPlayer.js";
+import TestPlayer from "./bgmPlayer.js";
 import { useRecoilState } from "recoil";
-import { trackNum } from "../atom.js"
+import { bgmPlayerID } from "../atom.js"
 
 
 export default function STItem(props) {
-    const [count,setCount] = useRecoilState(trackNum)
+    const [trackNum,setTrackNum] = useRecoilState(bgmPlayerID)
 
     return (
-        <li key={props.tkNum}><button type="button" onClick={() => setCount(props.tkNum)}>{props.songTit}</button></li>
+        <li key={props.trackNum}><button type="button" onClick={() => setTrackNum(props.trackNum)}>{props.songTit}</button></li>
     )
 }
