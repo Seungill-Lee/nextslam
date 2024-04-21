@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from "next/image";
-import Team from '../../components/team/teamList.js';
+import TeamList from '../../components/team/teamList.js';
 import scss from "./layout.module.scss";
 
 export const metadata = {
@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
     return (
         <article id={scss.team}>
             <h2>등장인물</h2>
-            <Team />
+            <TeamList />
             { children }
         </article>
     );

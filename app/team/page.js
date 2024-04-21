@@ -6,7 +6,7 @@ export const metadata = {
   title: "등장인물 | Next Slam",
 };
 
-export default function Team() {
+export default function TeamList() {
     return (
         <></>
     );
