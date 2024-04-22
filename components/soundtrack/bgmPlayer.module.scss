@@ -1,15 +1,156 @@
 #bgm_player {
     position: fixed;
     z-index: 99;
-    bottom: -100%;
+    bottom: -100px;
     left: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    overflow: hidden;
-    text-align: center;
-    padding: 20px;
+    padding: 20px 40px;
+    box-sizing: border-box;
     background-color: white;
-    transition: 0.7s ease bottom;
+    transition: 0.75s ease bottom;
     &.active {
         bottom: 0px;
+    }
+    .progress_bar {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: calc(100% + 11px);
+        input[type="range"] {
+            position: absolute;
+            z-index: 2;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 7px;
+            margin: 0px;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+            &::-webkit-slider-runnable-track {
+                width: 100%;
+                height: 100%;
+                appearance: none;
+                background-color: transparent;
+            }
+            &::-webkit-slider-thumb {
+                position: relative;
+                top: -4px;
+                left: 0px;
+                width: 11px;
+                height: 11px;
+                border-radius: 50%;
+                appearance: none;
+                background-color: deepskyblue;
+            }
+        }
+        progress {
+            position: absolute;
+            z-index: 1;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 3px;
+            appearance: none;
+            &::-webkit-progress-bar {
+                overflow: hidden;
+                width: 100%;
+                border-radius: 0px;
+                background-color: #C9C9C9;
+              }
+              &::-webkit-progress-value {
+                border-radius: 0px;
+                background-color: deepskyblue;
+              }
+        }
+    }
+    span.btn_ctrl_set {
+        display: inline-flex;
+        align-items: center;
+        button {
+            text-indent: -9999px;
+            overflow: hidden;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+        }
+    }
+    .main_controls {
+        display: flex;
+        align-items: center;
+        gap: 0px 30px;
+        span.btn_ctrl_set {
+            gap: 0px 15px;
+            button {
+                width: 30px;
+                height: 30px;
+                &.btn_prev {
+                    background-image: url(/images/bgmPlayer/btn_prev.png);
+                }
+                &.btn_next {
+                    background-image: url(/images/bgmPlayer/btn_next.png);
+                }
+                &.btn_player {
+                    width: 50px;
+                    height: 50px;
+                    &.pause {
+                        background-image: url(/images/bgmPlayer/btn_pause.png);
+                    }
+                    &.play {
+                        background-image: url(/images/bgmPlayer/btn_play.png);
+                    }
+                }
+            }
+        }
+        span.play_time {
+            font-size: 14px;
+            line-height: 1;
+            opacity: 0.8;
+        }
+    }
+    .sub_controls {
+        span.btn_ctrl_set {
+            gap: 0px 30px;
+            button {
+                width: 40px;
+                height: 40px;
+                border: 5px solid transparent;
+                border-radius: 5px;
+                &.btn_repeat {
+                    position: relative;
+                    background-image: url(/images/bgmPlayer/btn_repeat.png);
+                    &.only1 {
+                        &:after {
+                            position: absolute;
+                            top: calc(50% - 6px);
+                            left: 0px;
+                            content: '1';
+                            display: block;
+                            width: 100%;
+                            text-indent: 0px;
+                            text-align: center;
+                            font-size: 12px;
+                            line-height: 1;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                &.btn_playlist {
+                    background-image: url(/images/bgmPlayer/btn_playlist.png);
+                    &:disabled {
+                        opacity: 0.3;
+                    }
+                }
+                &.btn_close {
+                    background-image: url(/images/bgmPlayer/btn_close.png);
+                }
+            }
+        }
     }
 }

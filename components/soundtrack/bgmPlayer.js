@@ -22,6 +22,7 @@ export default function BgmPlayer() {
     const bgmLen = data.length;
     const videoRef = useRef(null);
     const [currentTime,updateCurrentTime] = useState(0);
+    const [targetRepeat,stateTargetRepeat] = useState(false)
     const pathname = usePathname();
     const router = useRouter();
 
@@ -29,20 +30,18 @@ export default function BgmPlayer() {
         <div id={scss.bgm_player} className={playID > 0 ? scss["active"] : ""}>
             {isClient == true ?
                 <>
-                    <ReactPlayer url={playID > 0 ? data[playID-1].url : ''} ref={videoRef} onStart={() => updateCurrentTime(0)} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{position:"absolute",top:"-9999px",left:"-9999px"}} />
-                    <div className={scss.playing_condition}>
+                    <ReactPlayer url={playID > 0 ? data[playID-1].url : ''} ref={videoRef} onStart={() => updateCurrentTime(0)} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
+                    <div className={scss.progress_bar}>
                         <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999.99} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
-                    </div>
-                    <div className={scss.playing_condition}>
                         <progress value={playID > 0 ? currentTime*1000 : 0} max={999.99}></progress>
                     </div>
                     <div className={scss.main_controls}>
                         <span className={scss.btn_ctrl_set}>
-                            <button type="button" onClick={() => playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} disabled={playID == 0 ? true : false}>Prev</button>
-                            <button type="button" onClick={() => playing ? setPlaying(false) : setPlaying(true)} disabled={playID == 0 ? true : false}>{playing ? "Pause" : "Play"}</button>
-                            <button type="button" onClick={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} disabled={playID == 0 ? true : false}>Next</button>
+                            <button type="button" className={scss.btn_prev} onClick={() => {`${playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}>Prev</button>
+                            <button type="button" className={`${scss.btn_player} ${playing ? scss.pause : scss.play}`} onClick={() => playing ? setPlaying(false) : setPlaying(true)} disabled={playID == 0 ? true : false}>{playing ? "Pause" : "Play"}</button>
+                            <button type="button" className={scss.btn_next} onClick={() => {`${playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}>Next</button>
                         </span>
-                        <span className={scss.timeline}>
+                        <span className={scss.play_time}>
                             {playID > 0 ? <TimeConverter millisecond={videoRef.current.getCurrentTime()} /> : "00:00"} / {playID > 0 ? <TimeConverter millisecond={videoRef.current.getDuration()} /> : "00:00"}
                         </span>
                     </div>
@@ -57,8 +56,11 @@ export default function BgmPlayer() {
                         
                     </div>
                     <div className={scss.sub_controls}>
-                        <button type="button" onClick={() => {router.push("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}>List</button>
-                        <button type="button" onClick={() => {setPlaying(false); setPlayID(0)}}>Close</button>
+                        <span className={scss.btn_ctrl_set}>
+                            <button type="button" className={`${scss.btn_repeat} ${targetRepeat ? scss.only1 : ""}`} onClick={() => !targetRepeat ? stateTargetRepeat(true) : stateTargetRepeat(false)}>{!targetRepeat ? "Target" : "All"} Repeat</button>
+                            <button type="button" className={scss.btn_playlist} onClick={() => {router.replace("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}>Playlist</button>
+                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying(false); setPlayID(0); updateCurrentTime(0)}}>Close</button>
+                        </span>
                     </div>
                 </> : ''
             }

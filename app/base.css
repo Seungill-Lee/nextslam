@@ -19,6 +19,16 @@ a {
 a:hover {
     color: orangered;
 }
+button {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    border-radius: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+}
 img {
     max-width: 100%;
     height: auto;
