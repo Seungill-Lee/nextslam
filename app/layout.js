@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import HeaderLogo from '../components/headerLogo.js';
 import GNB from '../components/gnb.js';
 import "./base.css";
 import scss from "./layout.module.scss";
@@ -19,7 +20,8 @@ export default function RootLayout({ children }) {
             <body>
                 <div id={scss.wrapper}>
                     <header id={scss.header}>
-                        <h1><Image src="/images/logo_nextslam.svg" alt="Next Slam" width={355} height={40} /></h1>
+                        {/* <h1><Image src="/images/logo_nextslam.svg" alt="Next Slam" width={355} height={40} /></h1> */}
+                        <h1><HeaderLogo aria-label="Next Slam" /></h1>
                         <GNB />
                     </header>
                     

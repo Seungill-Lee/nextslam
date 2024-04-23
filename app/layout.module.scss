@@ -17,9 +17,10 @@ header#header {
     box-sizing: border-box;
     text-align: center;
     h1 {
-        line-height: 1;
-        img {
+        line-height: 0;
+        svg {
             width: 100%;
+            fill: #222222;
         }
     }
 }
