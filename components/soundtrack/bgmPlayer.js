@@ -2,7 +2,7 @@
 
 import { usePathname,useRouter } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react'
-import ReactPlayer from 'react-player/lazy';
+import ReactPlayer from 'react-player/youtube';
 import { useRecoilState } from "recoil";
 import { bgmPlayerID,bgmPlaying } from "/components/atom.js"
 import scss from "/components/soundtrack/bgmPlayer.module.scss";
@@ -30,7 +30,7 @@ export default function BgmPlayer() {
         <div id={scss.bgm_player} className={playID > 0 ? scss["active"] : ""}>
             {isClient == true ?
                 <>
-                    <ReactPlayer url={playID > 0 ? data[playID-1].url : ''} ref={videoRef} onStart={() => updateCurrentTime(0)} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
+                    <ReactPlayer url={playID > 0 && playing ? data[playID-1].url : ''} ref={videoRef} onStart={() => updateCurrentTime(0)} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
                     <div className={scss.progress_bar}>
                         <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999.99} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
                         <progress value={playID > 0 ? currentTime*1000 : 0} max={999.99}></progress>
