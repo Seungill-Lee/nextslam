@@ -1,13 +1,14 @@
 'use client'
 
-import { usePathname,useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import scss from "/components/soundtrack/bgmPlayer.module.scss";
 import { useState, useEffect, useRef } from 'react'
 import ReactPlayer from 'react-player/youtube';
 import { useRecoilState } from "recoil";
 import { bgmPlayerID,bgmPlaying } from "/components/atom.js"
-import scss from "/components/soundtrack/bgmPlayer.module.scss";
 import data from '/components/soundtrack/data.json';
 import TimeConverter from "/components/timeConverter.js"
+import BpIcon from "/components/soundtrack/bpIconSet.js"
 
 export default function BgmPlayer() {
     const [isClient, setIsClient] = useState(false);
@@ -37,9 +38,9 @@ export default function BgmPlayer() {
                     </div>
                     <div className={scss.main_controls}>
                         <span className={scss.btn_ctrl_set}>
-                            <button type="button" className={scss.btn_prev} onClick={() => {`${playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}>Prev</button>
-                            <button type="button" className={`${scss.btn_player} ${playing ? scss.pause : scss.play}`} onClick={() => playing ? setPlaying(false) : setPlaying(true)} disabled={playID == 0 ? true : false}>{playing ? "Pause" : "Play"}</button>
-                            <button type="button" className={scss.btn_next} onClick={() => {`${playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}>Next</button>
+                            <button type="button" className={scss.btn_prev} onClick={() => {`${playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Prev" /></button>
+                            <button type="button" className={`${scss.btn_player} ${playing ? scss.pause : scss.play}`} onClick={() => playing ? setPlaying(false) : setPlaying(true)} disabled={playID == 0 ? true : false}><BpIcon shape={playing ? "Pause" : "Play"} /></button>
+                            <button type="button" className={scss.btn_next} onClick={() => {`${playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Next" /></button>
                         </span>
                         <span className={scss.play_time}>
                             {playID > 0 ? <TimeConverter millisecond={videoRef.current.getCurrentTime()} /> : "00:00"} / {playID > 0 ? <TimeConverter millisecond={videoRef.current.getDuration()} /> : "00:00"}
@@ -57,9 +58,9 @@ export default function BgmPlayer() {
                     </div>
                     <div className={scss.sub_controls}>
                         <span className={scss.btn_ctrl_set}>
-                            <button type="button" className={`${scss.btn_repeat} ${targetRepeat ? scss.only1 : ""}`} onClick={() => !targetRepeat ? stateTargetRepeat(true) : stateTargetRepeat(false)}>{!targetRepeat ? "Target" : "All"} Repeat</button>
-                            <button type="button" className={scss.btn_playlist} onClick={() => {router.replace("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}>Playlist</button>
-                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying(false); setPlayID(0); updateCurrentTime(0)}}>Close</button>
+                            <button type="button" className={`${scss.btn_repeat} ${targetRepeat ? scss.only1 : ""}`} onClick={() => !targetRepeat ? stateTargetRepeat(true) : stateTargetRepeat(false)}><BpIcon shape="Repeat" alt={!targetRepeat ? "Target Repeat" : "All Repeat"} /></button>
+                            <button type="button" className={scss.btn_playlist} onClick={() => {router.replace("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}><BpIcon shape="Playlist" /></button>
+                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying(false); setPlayID(0); updateCurrentTime(0)}}><BpIcon shape="Close" /></button>
                         </span>
                     </div>
                 </> : ''

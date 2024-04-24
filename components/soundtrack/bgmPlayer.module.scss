@@ -74,42 +74,30 @@
         display: inline-flex;
         align-items: center;
         button {
-            text-indent: -9999px;
-            overflow: hidden;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
+            fill: black;
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
     }
     .main_controls {
         display: flex;
         align-items: center;
-        gap: 0px 30px;
+        gap: 0px 40px;
         span.btn_ctrl_set {
-            gap: 0px 15px;
+            gap: 0px 20px;
             button {
-                width: 30px;
-                height: 30px;
-                &.btn_prev {
-                    background-image: url(/images/bgmPlayer/btn_prev.png);
-                }
-                &.btn_next {
-                    background-image: url(/images/bgmPlayer/btn_next.png);
-                }
+                width: 25px;
+                height: 25px;
                 &.btn_player {
                     width: 50px;
                     height: 50px;
-                    &.pause {
-                        background-image: url(/images/bgmPlayer/btn_pause.png);
-                    }
-                    &.play {
-                        background-image: url(/images/bgmPlayer/btn_play.png);
-                    }
                 }
             }
         }
         span.play_time {
-            font-size: 14px;
+            font-size: 13px;
             line-height: 1;
             opacity: 0.8;
         }
@@ -124,7 +112,6 @@
                 border-radius: 5px;
                 &.btn_repeat {
                     position: relative;
-                    background-image: url(/images/bgmPlayer/btn_repeat.png);
                     &.only1 {
                         &:after {
                             position: absolute;
@@ -141,14 +128,8 @@
                         }
                     }
                 }
-                &.btn_playlist {
-                    background-image: url(/images/bgmPlayer/btn_playlist.png);
-                    &:disabled {
-                        opacity: 0.3;
-                    }
-                }
-                &.btn_close {
-                    background-image: url(/images/bgmPlayer/btn_close.png);
+                &.btn_playlist:disabled {
+                    opacity: 0.3;
                 }
             }
         }
