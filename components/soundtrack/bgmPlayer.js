@@ -1,9 +1,10 @@
 'use client'
 
 import { usePathname, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import scss from "/components/soundtrack/bgmPlayer.module.scss";
 import { useState, useEffect, useRef } from 'react'
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player/lazy';
 import { useRecoilState } from "recoil";
 import { bgmPlayerID,bgmPlaying } from "/components/atom.js"
 import data from '/components/soundtrack/data.json';
@@ -31,30 +32,29 @@ export default function BgmPlayer() {
         <div id={scss.bgm_player} className={playID > 0 ? scss["active"] : ""}>
             {isClient == true ?
                 <>
-                    <ReactPlayer url={playID > 0 && playing ? data[playID-1].url : ''} ref={videoRef} onStart={() => updateCurrentTime(0)} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
+                    <ReactPlayer url={playID > 0 ? data[playID-1].playerUrl : ""} ref={videoRef} onProgress={({played}) => updateCurrentTime(played)} controls={false} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
                     <div className={scss.progress_bar}>
-                        <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999.99} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
-                        <progress value={playID > 0 ? currentTime*1000 : 0} max={999.99}></progress>
+                        <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
+                        <progress value={playID > 0 ? currentTime*1000 : 0} max={999}></progress>
                     </div>
                     <div className={scss.main_controls}>
                         <span className={scss.btn_ctrl_set}>
-                            <button type="button" className={scss.btn_prev} onClick={() => {`${playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Prev" /></button>
+                            <button type="button" className={scss.btn_prev} onClick={() => {`${playID == 1 ? setPlayID(bgmLen) : setPlayID(playID-1)} ${setTimeout(() => setPlaying(true),300)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Prev" /></button>
                             <button type="button" className={`${scss.btn_player} ${playing ? scss.pause : scss.play}`} onClick={() => playing ? setPlaying(false) : setPlaying(true)} disabled={playID == 0 ? true : false}><BpIcon shape={playing ? "Pause" : "Play"} /></button>
-                            <button type="button" className={scss.btn_next} onClick={() => {`${playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} ${setPlaying(true)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Next" /></button>
+                            <button type="button" className={scss.btn_next} onClick={() => {`${playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} ${setTimeout(() => setPlaying(true),300)}`}} disabled={playID == 0 ? true : false}><BpIcon shape="Next" /></button>
                         </span>
                         <span className={scss.play_time}>
                             {playID > 0 ? <TimeConverter millisecond={videoRef.current.getCurrentTime()} /> : "00:00"} / {playID > 0 ? <TimeConverter millisecond={videoRef.current.getDuration()} /> : "00:00"}
                         </span>
                     </div>
-                    <div className="playing_info">
+                    <div className={scss.playing_info}>
                         <div className={scss.album_cover}>
-
+                            {playID > 0 ? <Image src={data[playID-1].coverUrl ? data[playID-1].coverUrl : ""} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : ""}
                         </div>
                         <ul>
-                            <li>제목: {playID > 0 ? data[playID-1].title : '노래를 선택해주세요.'}</li>
-                            <li>아티스트: {playID > 0 ? data[playID-1].artist : ''}</li>
+                            <li className={scss.title}>{playID > 0 ? data[playID-1].title : "노래를 선택해주세요."}</li>
+                            <li className={scss.artist}>{playID > 0 ? data[playID-1].artist : ""}</li>
                         </ul>
-                        
                     </div>
                     <div className={scss.sub_controls}>
                         <span className={scss.btn_ctrl_set}>

@@ -4,60 +4,89 @@
         "id": 1,
         "title": "너에게로 가는 길",
         "artist": "박상민",
-        "url": "https://music.youtube.com/watch?v=gO51ulyUQWg&si=Zb8FTwo4DHkyqqff"
+        "playerUrl": "https://music.youtube.com/watch?v=gO51ulyUQWg&si=Zb8FTwo4DHkyqqff",
+        "time": "2:49",
+        "coverUrl": "/images/soundtrack/albumCover/op1_kor.jpg",
+        "albumName": "한국판 오프닝"
     },
     {
         "id": 2,
         "title": "너와 함께라면",
         "artist": "Faith",
-        "url": "https://music.youtube.com/watch?v=I9pBb3mcruM&si=WJY0IRkFXzS4faxb"
+        "playerUrl": "https://music.youtube.com/watch?v=I9pBb3mcruM&si=WJY0IRkFXzS4faxb",
+        "time": "3:38",
+        "coverUrl": "/images/soundtrack/albumCover/ed1_kor.jpg",
+        "albumName": "한국판 엔딩"
     },
     {
         "id": 3,
         "title": "너에게로 가는 길2",
         "artist": "박상민",
-        "url": "https://music.youtube.com/watch?v=RByFW08NPtg&si=LLxa3WOs2aEpQxkz"
+        "playerUrl": "https://music.youtube.com/watch?v=RByFW08NPtg&si=LLxa3WOs2aEpQxkz",
+        "time": "3:40",
+        "coverUrl": "/images/soundtrack/albumCover/theme1_kor.jpg"
     },
     {
         "id": 4,
         "title": "너를 좋아한다고 외치고 싶어",
         "artist": "BAAD",
-        "url": "https://music.youtube.com/watch?v=u9GaMpzDQnw&si=lSB5GMX0iRo4bBdQ"
+        "playerUrl": "https://music.youtube.com/watch?v=u9GaMpzDQnw&si=lSB5GMX0iRo4bBdQ",
+        "time": "3:52",
+        "coverUrl": "/images/soundtrack/albumCover/op1.jpg",
+        "albumName": "1기 오프닝"
     },
     {
         "id": 5,
         "title": "당신만 바라보고 있어(2019 Remastered)",
         "artist": "오구로 마키",
-        "url": "https://music.youtube.com/watch?v=d9eudCNJv1E&si=fHH0CfwY3MsQtpsJ"
+        "playerUrl": "https://music.youtube.com/watch?v=d9eudCNJv1E&si=fHH0CfwY3MsQtpsJ",
+        "time": "4:44",
+        "coverUrl": "/images/soundtrack/albumCover/ed1.jpg",
+        "albumName": "1기 엔딩"
     },
     {
         "id": 6,
         "title": "세상이 끝날 때까지(WANDS第5期ver.)",
         "artist": "WANDS",
-        "url": "https://music.youtube.com/watch?v=Ymgx49rbnZA&si=2BagLw90GWF2roIR"
+        "playerUrl": "https://music.youtube.com/watch?v=Ymgx49rbnZA&si=2BagLw90GWF2roIR",
+        "time": "5:15",
+        "coverUrl": "/images/soundtrack/albumCover/ed2.jpg",
+        "albumName": "2기 엔딩"
     },
     {
         "id": 7,
         "title": "절대로 누구도",
         "artist": "ZYYG",
-        "url": "https://music.youtube.com/watch?v=tUzkUfUCL2s&si=PhPhcHC5UjvdVtMt"
+        "playerUrl": "https://music.youtube.com/watch?v=tUzkUfUCL2s&si=PhPhcHC5UjvdVtMt",
+        "time": "3:20",
+        "coverUrl": "/images/soundtrack/albumCover/op2.jpg",
+        "albumName": "2기 오프닝"
     },
     {
         "id": 8,
         "title": "빛나는 순간에 사로잡혀",
         "artist": "Manish",
-        "url": "https://music.youtube.com/watch?v=x0vao3trmfM&si=3PLLTv9eSxzPcU-M"
+        "playerUrl": "https://music.youtube.com/watch?v=x0vao3trmfM&si=3PLLTv9eSxzPcU-M",
+        "time": "4:18",
+        "coverUrl": "/images/soundtrack/albumCover/ed3.jpg",
+        "albumName": "3기 엔딩"
     },
     {
         "id": 9,
         "title": "My Friend",
         "artist": "ZARD",
-        "url": "https://music.youtube.com/watch?v=5huHr8EZ0rc&si=qICSGN5DWxMPUE0r"
+        "playerUrl": "https://music.youtube.com/watch?v=5huHr8EZ0rc&si=qICSGN5DWxMPUE0r",
+        "time": "4:20",
+        "coverUrl": "/images/soundtrack/albumCover/ed4.jpg",
+        "albumName": "4기 엔딩"
     },
     {
         "id": 10,
         "title": "React is the Best",
         "artist": "애플코딩",
-        "url": "https://music.youtube.com/watch?v=pVQPfTleC_4&si=c9EocFrDn5ARys71"
+        "playerUrl": "https://music.youtube.com/watch?v=pVQPfTleC_4&si=c9EocFrDn5ARys71",
+        "time": "1:27",
+        "coverUrl": "/images/soundtrack/albumCover/react_best.jpg",
+        "albumName": ""
     }
 ]
