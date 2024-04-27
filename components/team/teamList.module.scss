@@ -32,7 +32,7 @@ ul.team_list {
                         text-align: center;
                         line-height: 1;
                         &.tm_logo {
-                            height: 83px;
+                            height: 3.2422vw;
                             img {
                                 width: auto;
                                 max-height: 100%;
@@ -56,6 +56,10 @@ ul.team_list {
                     &.shoyo {
                         span.tm_txt {
                             color: #278A2F;
+                        }
+                        img {
+                            width:7.8125vw;
+                            height:2.1875vw;
                         }
                     }
                     &.kainan {
