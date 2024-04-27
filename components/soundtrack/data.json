@@ -6,7 +6,7 @@
         "artist": "박상민",
         "playerUrl": "https://music.youtube.com/watch?v=gO51ulyUQWg&si=Zb8FTwo4DHkyqqff",
         "time": "2:49",
-        "coverUrl": "/images/soundtrack/albumCover/op1_kor.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/op1_kor.jpg",
         "albumName": "한국판 오프닝",
         "albumBgInfo": "linear-gradient(45deg, #D35D17 0%, #D00532 40%, #CE7E65 60%, #822b24 100%)",
         "albumTxtColor": "#FFCC00"
@@ -17,7 +17,7 @@
         "artist": "Faith",
         "playerUrl": "https://music.youtube.com/watch?v=I9pBb3mcruM&si=WJY0IRkFXzS4faxb",
         "time": "3:38",
-        "coverUrl": "/images/soundtrack/albumCover/ed1_kor.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed1_kor.jpg",
         "albumName": "한국판 엔딩",
         "albumBgInfo": "linear-gradient(15deg, #F4F4F4 50%, #8F8F8F 100%)",
         "albumTxtColor": "#E96360"
@@ -28,7 +28,7 @@
         "artist": "박상민",
         "playerUrl": "https://music.youtube.com/watch?v=RByFW08NPtg&si=LLxa3WOs2aEpQxkz",
         "time": "3:40",
-        "coverUrl": "/images/soundtrack/albumCover/theme1_kor.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/theme1_kor.jpg",
         "albumBgInfo": "linear-gradient(45deg, #F8E4B2 0%, #EDD29B 100%)",
         "albumTxtColor": "#E25327"
     },
@@ -38,7 +38,7 @@
         "artist": "BAAD",
         "playerUrl": "https://music.youtube.com/watch?v=u9GaMpzDQnw&si=lSB5GMX0iRo4bBdQ",
         "time": "3:52",
-        "coverUrl": "/images/soundtrack/albumCover/op1.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/op1.jpg",
         "albumName": "1기 오프닝",
         "albumBgInfo": "linear-gradient(45deg, #722C2E 0%, #3A211D 100%)",
         "albumTxtColor": "#F5DE78"
@@ -49,7 +49,7 @@
         "artist": "오구로 마키",
         "playerUrl": "https://music.youtube.com/watch?v=d9eudCNJv1E&si=fHH0CfwY3MsQtpsJ",
         "time": "4:44",
-        "coverUrl": "/images/soundtrack/albumCover/ed1.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed1.jpg",
         "albumName": "1기 엔딩",
         "albumBgInfo": "linear-gradient(45deg, #14285A 0%, #050F4C 100%)",
         "albumTxtColor": "#FFFBBC"
@@ -60,7 +60,7 @@
         "artist": "WANDS",
         "playerUrl": "https://music.youtube.com/watch?v=Ymgx49rbnZA&si=2BagLw90GWF2roIR",
         "time": "5:15",
-        "coverUrl": "/images/soundtrack/albumCover/ed2.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed2.jpg",
         "albumName": "2기 엔딩",
         "albumBgInfo": "linear-gradient(45deg, #1B5259 0%, #0C3A37 100%)",
         "albumTxtColor": "#F7AF03"
@@ -71,7 +71,7 @@
         "artist": "ZYYG",
         "playerUrl": "https://music.youtube.com/watch?v=tUzkUfUCL2s&si=PhPhcHC5UjvdVtMt",
         "time": "3:20",
-        "coverUrl": "/images/soundtrack/albumCover/op2.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/op2.jpg",
         "albumName": "2기 오프닝",
         "albumBgInfo": "white",
         "albumTxtColor": "#EF4023"
@@ -82,7 +82,7 @@
         "artist": "Manish",
         "playerUrl": "https://music.youtube.com/watch?v=x0vao3trmfM&si=3PLLTv9eSxzPcU-M",
         "time": "4:18",
-        "coverUrl": "/images/soundtrack/albumCover/ed3.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed3.jpg",
         "albumName": "3기 엔딩",
         "albumBgInfo": "linear-gradient(45deg, #f7d95f 30%, #9A774D 100%)",
         "albumTxtColor": "#4475b5"
@@ -93,7 +93,7 @@
         "artist": "ZARD",
         "playerUrl": "https://music.youtube.com/watch?v=5huHr8EZ0rc&si=qICSGN5DWxMPUE0r",
         "time": "4:20",
-        "coverUrl": "/images/soundtrack/albumCover/ed4.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed4.jpg",
         "albumName": "4기 엔딩",
         "albumBgInfo": "linear-gradient(45deg, #7986A9 0%, #5D6A59 100%)",
         "albumTxtColor": "#FDFDFD"
@@ -104,7 +104,7 @@
         "artist": "코딩애플",
         "playerUrl": "https://music.youtube.com/watch?v=pVQPfTleC_4&si=c9EocFrDn5ARys71",
         "time": "1:27",
-        "coverUrl": "/images/soundtrack/albumCover/react_best.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/react_best.jpg",
         "albumName": "",
         "albumBgInfo": "linear-gradient(35deg, #e05343 0%, #07060b 40%, #07060b 60%, #68bfd6 100%)",
         "albumTxtColor": "#F2D300"

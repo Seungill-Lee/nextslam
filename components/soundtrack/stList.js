@@ -23,8 +23,8 @@ export default function STItem(props) {
                             <li key={i}>
                                 <a href="/" onClick={(e) => {setPlayID(a.id); {!playing ? setTimeout(() => setPlaying(true),300) : null}; e.preventDefault()}} className={playID == a.id ? scss["active"] : ""}>
                                     <div className={scss.album_cover}>
-                                        {a.coverUrl ?
-                                            <Image src={a.coverUrl} alt={a.albumName ? a.albumName : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
+                                        {a.coverImgSrc ?
+                                            <Image src={a.coverImgSrc} alt={a.albumName ? a.albumName : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                                         }
                                         {playID == a.id && playing ? <SoundWaveIcon className={scss.sound_wave} /> : ""}
                                     </div>

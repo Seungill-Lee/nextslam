@@ -15,8 +15,8 @@ export default function StDetail(props) {
     return (
         <div className={`${scss.st_detail} ${playID > 0 ? scss.active : ""}`} style={{"background":playID > 0 && data[playID-1].albumBgInfo ? data[playID-1].albumBgInfo : "#222222"}}>
             <div className={scss.cover}>
-                {playID > 0 && data[playID-1].coverUrl ?
-                    <Image src={data[playID-1].coverUrl} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
+                {playID > 0 && data[playID-1].coverImgSrc ?
+                    <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                 }
             </div>
             {playID > 0 ? 
