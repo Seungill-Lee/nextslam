@@ -35,8 +35,8 @@ export default function BgmPlayer() {
                 <>
                     <ReactPlayer url={playID > 0 ? data[playID-1].playerUrl : ""} ref={videoRef} onProgress={({played}) => updateCurrentTime(played)} controls={true} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
                     <div className={scss.progress_bar}>
-                        <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999.5} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
-                        <progress value={playID > 0 ? currentTime*1000 : 0} max={999.5}></progress>
+                        <input type="range" value={playID > 0 ? currentTime*1000 : 0} min={0} max={999} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
+                        <progress value={playID > 0 ? currentTime*1000 : 0} max={999}></progress>
                     </div>
                     <div className={scss.main_controls}>
                         <span className={scss.btn_ctrl_set}>
@@ -51,7 +51,7 @@ export default function BgmPlayer() {
                     <div className={scss.playing_info}>
                         <div className={scss.album_cover}>
                             {playID > 0 && data[playID-1].coverUrl ? 
-                                <Image src={data[playID-1].coverUrl} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : <EmptyCover className={scss.ico_empty} />
+                                <Image src={data[playID-1].coverUrl} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : <EmptyCover className={scss.empty} />
                             }
                         </div>
                         <ul>
