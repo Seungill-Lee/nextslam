@@ -9,10 +9,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <article id={scss.team}>
+        <>
             <h2>등장인물</h2>
             <TeamList />
             { children }
-        </article>
+        </>
     );
 }

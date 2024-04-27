@@ -83,7 +83,7 @@
     {
         "id": 10,
         "title": "React is the Best",
-        "artist": "애플코딩",
+        "artist": "코딩애플",
         "playerUrl": "https://music.youtube.com/watch?v=pVQPfTleC_4&si=c9EocFrDn5ARys71",
         "time": "1:27",
         "coverUrl": "/images/soundtrack/albumCover/react_best.jpg",

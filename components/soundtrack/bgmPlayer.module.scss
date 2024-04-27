@@ -3,8 +3,8 @@
     z-index: 99;
     bottom: -100px;
     left: 0px;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 250px auto 180px;
     align-items: center;
     width: 100%;
     height: 100px;
@@ -106,6 +106,7 @@
     .playing_info {
         display: flex;
         gap: 0px 20px;
+        justify-content: center;
         align-items: center;
         .album_cover {
             width: 60px;

@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function Overview() {
     return (
-        <article id={scss.overview}>
+        <div className={scss.overview}>
             <h2>개요</h2>
             <div className={scss.banner_photo}>
                 <Image src="/images/photo_overview_visual.jpg" alt="" width={1000} height={556} />
@@ -28,6 +28,6 @@ export default function Overview() {
             <p>중학교 3년간에 50명의 여성에게 딱지를 맞은 불량 소년 사쿠라기 하나미치는 상북고교(쇼호쿠 고교)에 입학한 후 농구부의 주장의 여동생, 아카기 하루코에게 농구부로의 입부를 추천받았다. 그녀에게 한눈에 반한〈초심자〉하나미치는 연습·시합을 통해서 서서히 바스켓의 재미에 눈을 떠서 가 재능을 개화시키면서 전국 제패를 목표로 해 간다.</p>
             <h3>주요 무대</h3>
             <p>주인공의 학교인 북산/상북고교(쇼호쿠 고등학교) 및 능남, 상양 그리고 해남고교 등 원작에 나오는 고등학교와 체육관의 무대는 가나가와현의 가마쿠라시를 비롯한 쇼난 해안가의 소도시를 배경으로 한다.</p>
-        </article>
+        </div>
     );
 }

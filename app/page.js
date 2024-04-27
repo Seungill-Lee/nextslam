@@ -4,7 +4,7 @@ import scss from "./page.module.scss";
 
 export default function Home() {
     return (
-        <article id={scss.home}>
+        <div className={scss.home}>
             <h2>Welcome to Next Slam.</h2>
             <p className={scss.intro_msg}>
                 Next Slam에 방문하신 것을 진심으로 환영합니다. <br />
@@ -13,6 +13,6 @@ export default function Home() {
             <div className={scss.banner_photo}>
                 <Image src="/images/photo_home_visual.jpg" alt="" width={1460} height={1020} />
             </div>
-        </article>
+        </div>
     );
 }
