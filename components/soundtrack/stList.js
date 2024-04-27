@@ -6,6 +6,8 @@ import { useRecoilState } from "recoil";
 import { bgmPlayerID,bgmPlaying } from "../atom.js"
 import scss from "./stList.module.scss";
 import data from './data.json';
+import EmptyCover from "./emptyCover.js";
+import SoundWaveIcon from "./soundWaveIcon.js";
 
 export default function STItem(props) {
     const [playID,setPlayID] = useRecoilState(bgmPlayerID)
@@ -16,10 +18,13 @@ export default function STItem(props) {
             {
                 data.map((a,i) => {
                     return (
-                        <li className={playID == a.id ? scss["active"] : ""} key={i}>
-                            <a href="/" onClick={(e) => {setPlayID(a.id); {!playing ? setTimeout(() => setPlaying(true),300) : null}; e.preventDefault()}}>
+                        <li key={i}>
+                            <a href="/" onClick={(e) => {setPlayID(a.id); {!playing ? setTimeout(() => setPlaying(true),300) : null}; e.preventDefault()}} className={playID == a.id ? scss["active"] : ""}>
                                 <div className={scss.album_cover}>
-                                    <Image src={a.coverUrl ? a.coverUrl : ""} alt={a.albumName ? a.albumName : ""} width={100} height={100} />
+                                    {a.coverUrl ?
+                                        <Image src={a.coverUrl} alt={a.albumName ? a.albumName : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.ico_empty} />
+                                    }
+                                    {playID == a.id && playing ? <SoundWaveIcon className={scss.sound_wave} /> : ""}
                                 </div>
                                 <div className={scss.title}>{a.title}</div>
                                 <div className={scss.artist}>{a.artist}</div>

@@ -10,6 +10,7 @@ import { bgmPlayerID,bgmPlaying } from "/components/atom.js"
 import data from '/components/soundtrack/data.json';
 import TimeConverter from "/components/timeConverter.js"
 import BpIcon from "/components/soundtrack/bpIconSet.js"
+import EmptyCover from "/components/soundtrack/emptyCover.js"
 
 export default function BgmPlayer() {
     const [isClient, setIsClient] = useState(false);
@@ -49,7 +50,9 @@ export default function BgmPlayer() {
                     </div>
                     <div className={scss.playing_info}>
                         <div className={scss.album_cover}>
-                            {playID > 0 ? <Image src={data[playID-1].coverUrl ? data[playID-1].coverUrl : ""} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : ""}
+                            {playID > 0 && data[playID-1].coverUrl ? 
+                                <Image src={data[playID-1].coverUrl} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : <EmptyCover className={scss.ico_empty} />
+                            }
                         </div>
                         <ul>
                             <li className={scss.title}>{playID > 0 ? data[playID-1].title : "노래를 선택해주세요."}</li>
