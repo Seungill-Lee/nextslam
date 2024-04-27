@@ -13,6 +13,8 @@ export default function STItem(props) {
     const [playing,setPlaying] = useRecoilState(bgmPlaying)
 
     return (
-        <li className={playID == props.trackNum ? scss["active"] : ""}><button type="button" onClick={() => {setPlayID(props.trackNum); setTimeout(() => setPlaying(true),300)}}>{props.songTit}</button></li>
+        <li className={playID == props.trackNum ? scss["active"] : ""}>
+            <a href="/" onClick={(e) => {setPlayID(props.trackNum); {!playing ? setTimeout(() => setPlaying(true),300) : null}; e.preventDefault()}}>{props.songTit}</a>
+        </li>
     )
 }
