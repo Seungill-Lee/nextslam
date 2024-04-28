@@ -26,7 +26,7 @@ export default function STItem(props) {
                                         {a.coverImgSrc ?
                                             <Image src={a.coverImgSrc} alt={a.albumName ? a.albumName : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                                         }
-                                        {playID == a.id && playing ? <SoundWaveIcon className={scss.sound_wave} /> : ""}
+                                        {playID == a.id ? <SoundWaveIcon className={scss.sound_wave} playIs={playing ? true : false} /> : ""}
                                     </div>
                                     <ul className={scss.album_info}>
                                         <li className={scss.title}>{a.title}</li>
