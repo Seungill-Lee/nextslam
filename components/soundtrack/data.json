@@ -106,7 +106,7 @@
         "time": "1:27",
         "coverImgSrc": "/images/soundtrack/albumCover/react_best.jpg",
         "albumName": "",
-        "albumBgInfo": "linear-gradient(35deg, #e05343 0%, #07060b 40%, #07060b 60%, #68bfd6 100%)",
+        "albumBgInfo": "linear-gradient(40deg, #e05343 0%, #07060b 40%, #07060b 60%, #68bfd6 100%)",
         "albumTxtColor": "#F2D300"
     }
 ]

@@ -1,7 +1,10 @@
 .soundtrack {
+    display: grid;
+    grid-template-columns: auto 0px;
+    gap: 0px 0px;
     margin-top: 40px;
+    transition: 0.75s ease grid-template-columns,0.75s ease gap;
     &.view_detail {
-        display: grid;
         grid-template-columns: auto 600px;
         gap: 0px 60px;
     }

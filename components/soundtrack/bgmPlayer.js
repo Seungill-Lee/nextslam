@@ -14,11 +14,15 @@ import EmptyCover from "/components/soundtrack/emptyCover.js"
 
 export default function BgmPlayer() {
     const [isClient, setIsClient] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
-    //SSR로딩 끝나고 CSR로딩 시작 타이밍 체크(App Router 이슈)
+    //SSR로딩 끝나고 CSR로딩 시작 타이밍 체크(App Router 이슈, 사운드트랙 접근 전 Preload방지)
     useEffect(() => {
-        setIsClient(true)
-    }, [])
+        if(pathname == "/soundtrack") {
+            setIsClient(true)
+        }
+    }, [pathname])
 
     const [playing,setPlaying] = useRecoilState(bgmPlaying);
     const [playID,setPlayID] = useRecoilState(bgmPlayerID);
@@ -26,8 +30,8 @@ export default function BgmPlayer() {
     const videoRef = useRef(null);
     const [currentTime,updateCurrentTime] = useState(0);
     const [targetRepeat,stateTargetRepeat] = useState(false)
-    const pathname = usePathname();
-    const router = useRouter();
+
+    //console.log(isClient)
 
     return (
         <div id={scss.bgm_player} className={playID > 0 ? scss["active"] : ""}>
@@ -56,17 +60,17 @@ export default function BgmPlayer() {
                         </div>
                         <ul>
                             <li className={scss.title}>{playID > 0 ? data[playID-1].title : "노래를 선택해주세요."}</li>
-                            <li className={scss.artist}>{playID > 0 ? data[playID-1].artist : ""}</li>
+                            <li className={scss.artist}>{playID > 0 ? data[playID-1].artist : "노래를 선택해주세요."}</li>
                         </ul>
                     </div>
                     <div className={scss.sub_controls}>
                         <span className={scss.btn_ctrl_set}>
                             <button type="button" className={`${scss.btn_repeat} ${targetRepeat ? scss.only1 : ""}`} onClick={() => !targetRepeat ? stateTargetRepeat(true) : stateTargetRepeat(false)}><BpIcon shape="Repeat" alt={!targetRepeat ? "Target Repeat" : "All Repeat"} /></button>
                             <button type="button" className={scss.btn_playlist} onClick={() => {router.replace("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}><BpIcon shape="Playlist" /></button>
-                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying(false); setPlayID(0); updateCurrentTime(0)}}><BpIcon shape="Close" /></button>
+                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying(false); updateCurrentTime(0); setPlayID(0);}}><BpIcon shape="Close" /></button>
                         </span>
                     </div>
-                </> : ''
+                </> : null
             }
         </div>
     )

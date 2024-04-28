@@ -13,19 +13,24 @@ export default function StDetail(props) {
     const [playing,setPlaying] = useRecoilState(bgmPlaying)
 
     return (
-        <div className={`${scss.st_detail} ${playID > 0 ? scss.active : ""}`} style={{"background":playID > 0 && data[playID-1].albumBgInfo ? data[playID-1].albumBgInfo : "#222222"}}>
+        <div className={`${scss.st_detail} ${playID > 0 ? scss.active : ""}`} style={{"background":playID > 0 && data[playID-1].albumBgInfo ? data[playID-1].albumBgInfo : ""}}>
             <div className={scss.cover}>
                 {playID > 0 && data[playID-1].coverImgSrc ?
                     <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                 }
             </div>
-            {playID > 0 ? 
-            <ul className={scss.info} style={{"color":playID > 0 && data[playID-1].albumTxtColor ? data[playID-1].albumTxtColor : "#222222"}}>
-                {data[playID-1].title ? <li><span className={scss.category}>제목:</span><span className={scss.value}>{data[playID-1].title}</span></li> : ""}
-                {data[playID-1].artist ? <li><span className={scss.category}>아티스트:</span><span className={scss.value}>{data[playID-1].artist}</span></li> : ""}
-                {data[playID-1].albumName ? <li><span className={scss.category}>앨범명:</span><span className={scss.value}>{data[playID-1].albumName}</span></li> : ""}
-                {data[playID-1].time ? <li><span className={scss.category}>재생시간:</span><span className={scss.value}>{data[playID-1].time}</span></li> : ""}
-            </ul> : ""}
+            <div  className={scss.info}>
+                {playID > 0 ? 
+                    <ul style={{"color":playID > 0 && data[playID-1].albumTxtColor ? data[playID-1].albumTxtColor : ""}}>
+                        {data[playID-1].title ? <li><span className={scss.category}>제목:</span><span className={scss.value}>{data[playID-1].title}</span></li> : ""}
+                        {data[playID-1].artist ? <li><span className={scss.category}>아티스트:</span><span className={scss.value}>{data[playID-1].artist}</span></li> : ""}
+                        {data[playID-1].albumName ? <li><span className={scss.category}>앨범명:</span><span className={scss.value}>{data[playID-1].albumName}</span></li> : ""}
+                        {data[playID-1].time ? <li><span className={scss.category}>재생시간:</span><span className={scss.value}>{data[playID-1].time}</span></li> : ""}
+                    </ul>
+                    : 
+                    <p className={scss.not_connect}>노래를 선택해주세요.</p>
+                }
+            </div>
         </div>
     )
 }
