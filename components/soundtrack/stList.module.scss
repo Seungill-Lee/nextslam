@@ -1,26 +1,21 @@
 .soundtrack {
     display: grid;
     grid-template-columns: auto 0px;
-    gap: 0px 0px;
+    gap: 0px 60px;
     margin-top: 40px;
-    transition: 0.75s ease grid-template-columns,0.75s ease gap;
-    &.view_detail {
-        grid-template-columns: auto 600px;
-        gap: 0px 60px;
-    }
-    ul.st_list {
+    transition: 0.75s ease grid-template-columns;
+    > ul.st_list {
         border-top: 1px solid #C9C9C9;
-        li {
+        > li {
             border-bottom: 1px solid #C9C9C9;
             line-height: 0;
-            a {
+            > a {
                 display: grid;
                 gap: 0px 20px;
                 align-items: center;
-                grid-template-columns: 60px auto 16% 30% 100px;
+                grid-template-columns: 60px auto;
                 padding: 10px 0px;
                 line-height: 1;
-                text-align: center;
                 .album_cover {
                     position: relative;
                     line-height: 0;
@@ -39,8 +34,15 @@
                         background-color: #C9C9C9;
                     }
                 }
-                .title {
-                    text-align: left;
+                > ul.album_info {
+                    display: grid;
+                    grid-template-columns: auto 25% 25% 60px;
+                    gap: 0px 20px;
+                    align-items: center;
+                }
+                &:hover {
+                    color: orangered;
+                    transition: 0.3s ease color;
                 }
                 &.active {
                     font-weight: 500;
@@ -62,6 +64,52 @@
                                 left: 9px;
                                 width: 40px !important;
                                 height: 40px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.view_detail {
+        grid-template-columns: auto 600px;
+        > ul.st_list {
+            > li {
+                > a {
+                    > ul.album_info {
+                        position: relative;
+                        display: block;
+                        > li {
+                            line-height: 1;
+                            &.title {
+                                font-weight: 500;
+                            }
+                            &.artist {
+                                font-size: 15px;
+                                opacity: 0.8;
+                                margin-top: 8px;
+                            }
+                            &.album_name {
+                                display: none;
+                            }
+                            &.time {
+                                position: absolute;
+                                top: 50%;
+                                right: 0px;
+                                width: 60px;
+                                opacity: 0.8;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                    &:hover,
+                    &.active {
+                        > ul.album_info {
+                            > li {
+                                &.artist,
+                                &.time {
+                                    opacity: 1;
+                                }
                             }
                         }
                     }

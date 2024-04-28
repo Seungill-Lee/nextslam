@@ -28,10 +28,12 @@ export default function STItem(props) {
                                         }
                                         {playID == a.id && playing ? <SoundWaveIcon className={scss.sound_wave} /> : ""}
                                     </div>
-                                    <div className={scss.title}>{a.title}</div>
-                                    <div className={scss.artist}>{a.artist}</div>
-                                    <div className={scss.album_name}>{a.albumName}</div>
-                                    <div className={scss.time}>{a.time}</div>
+                                    <ul className={scss.album_info}>
+                                        <li className={scss.title}>{a.title}</li>
+                                        <li className={scss.artist}>{a.artist}</li>
+                                        <li className={scss.album_name}>{a.albumName}</li>
+                                        <li className={scss.time}>{a.time}</li>
+                                    </ul>
                                 </a>
                             </li>
                         )
