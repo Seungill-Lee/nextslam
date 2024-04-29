@@ -1,7 +1,7 @@
 "use client"
 
 import Lottie from "react-lottie-player";
-import lottieJson from "/components/soundtrack/soundWaveLottie.json";
+import lottieJson from "./soundWaveLottie.json";
 
 export default function SoundWaveIcon(props) {
     return (

@@ -2,15 +2,15 @@
 
 import { usePathname, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import scss from "/components/soundtrack/bgmPlayer.module.scss";
+import scss from "./bgmPlayer.module.scss";
 import { useState, useEffect, useRef } from 'react'
 import ReactPlayer from 'react-player/lazy';
 import { useRecoilState } from "recoil";
-import { bgmPlayerID,bgmPlaying } from "/components/atom.js"
-import data from '/components/soundtrack/data.json';
-import TimeConverter from "/components/timeConverter.js"
-import BpIcon from "/components/soundtrack/bpIconSet.js"
-import EmptyCover from "/components/soundtrack/emptyCover.js"
+import { bgmPlayerID,bgmPlaying } from "../atom.js"
+import data from './data.json';
+import TimeConverter from "../timeConverter.js"
+import BpIcon from "./bpIconSet.js"
+import EmptyCover from "./emptyCover.js"
 
 export default function BgmPlayer() {
     const [isClient, setIsClient] = useState(false);

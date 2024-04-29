@@ -5,7 +5,6 @@ export const metadata = {
     title: "방명록",
 };
 
-
 export default function Guestbook() {
     return (
         <>

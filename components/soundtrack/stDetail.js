@@ -2,15 +2,14 @@
 
 import Link from 'next/link';
 import Image from "next/image";
-import { useRecoilState } from "recoil";
-import { bgmPlayerID,bgmPlaying } from "../atom.js"
+import { useRecoilValue } from "recoil";
+import { bgmPlayerID } from "../atom.js"
 import scss from "./stDetail.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 
-export default function StDetail(props) {
-    const [playID,setPlayID] = useRecoilState(bgmPlayerID)
-    const [playing,setPlaying] = useRecoilState(bgmPlaying)
+export default function StDetail() {
+    const playID = useRecoilValue(bgmPlayerID)
 
     return (
         <div className={`${scss.st_detail} ${playID > 0 ? scss.active : ""}`} style={{"background":playID > 0 && data[playID-1].albumBgInfo ? data[playID-1].albumBgInfo : ""}}>

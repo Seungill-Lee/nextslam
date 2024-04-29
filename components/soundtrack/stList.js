@@ -8,9 +8,9 @@ import scss from "./stList.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 import SoundWaveIcon from "./soundWaveIcon.js";
-import StDetail from "/components/soundtrack/stDetail.js";
+import StDetail from "./stDetail.js";
 
-export default function STItem(props) {
+export default function STItem() {
     const [playID,setPlayID] = useRecoilState(bgmPlayerID)
     const [playing,setPlaying] = useRecoilState(bgmPlaying)
 
