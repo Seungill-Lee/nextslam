@@ -4,7 +4,7 @@ import TeamList from '../../components/team/teamList.js';
 import scss from "./layout.module.scss";
 
 export const metadata = {
-    title: "등장인물 | Next Slam",
+    title: "등장인물",
 };
 
 export default function RootLayout({ children }) {

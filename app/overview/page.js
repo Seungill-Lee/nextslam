@@ -2,7 +2,7 @@ import Image from "next/image";
 import scss from "./page.module.scss";
 
 export const metadata = {
-    title: "개요 | Next Slam",
+    title: "개요",
 };
 
 export default function Overview() {

@@ -2,7 +2,7 @@ import Image from "next/image";
 import scss from "./page.module.scss";
 
 export const metadata = {
-    title: "방명록 | Next Slam",
+    title: "방명록",
 };
 
 

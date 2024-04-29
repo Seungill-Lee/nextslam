@@ -5,7 +5,7 @@ import StList from "/components/soundtrack/stList.js";
 import scss from "./page.module.scss";
 
 export const metadata = {
-    title: "사운드트랙 | Next Slam",
+    title: "사운드트랙",
 };
 
 export default function Developer() {

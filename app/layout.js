@@ -8,7 +8,10 @@ import RecoilRoot from "../components/recoilRootWrapper.js"
 import BgmPlayer from "../components/soundtrack/bgmPlayer.js";
 
 export const metadata = {
-    title: "Next Slam",
+    title: {
+        template: "%s | Next Slam",
+        default: "Next Slam"
+    },
     author : "이승일 Seungill Lee",
     generator : "Next.js 14",
     description: "Next.js로 제작된 슬램덩크 팬사이트",

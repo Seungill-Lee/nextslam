@@ -1,18 +1,13 @@
-'use client'
- 
-import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from "next/image";
 import scss from "./page.module.scss";
-import data from '../../../components/team/data.json';
+import data from '/components/team/data.json';
  
-export default function Character() {
-    const pathname = usePathname()
-
+export default function Character(props) {
     return (
         <ul className={scss.charater_list}>
             {
-                data[pathname.split("/").pop()].map((a, i) => {
+                data[props.params.id].map((a, i) => {
                     return (
                         <li key={i}>
                             <div className={scss.photo}>
