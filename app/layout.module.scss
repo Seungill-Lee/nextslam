@@ -12,14 +12,14 @@ header#header {
     width: 361px;
     height: 100%;
     padding: 100px 40px;
-    border-right: 1px solid #C9C9C9;
+    border-right: 1px solid var(--line-color);
     box-sizing: border-box;
     text-align: center;
     h1 {
         line-height: 0;
         svg {
             width: 100%;
-            fill: #222222;
+            fill: var(--basic-txt-color);
         }
     }
 }
@@ -44,10 +44,10 @@ footer#footer {
         left: 40px;
         right: 40px;
         height: 1px;
-        background-color: #D9D9D9;
+        background-color: var(--label-bg-color);
     }
     p.copyright {
         font-size: 14px;
-        color: #666666;
+        color: var(--support-txt-color);
     }
 }

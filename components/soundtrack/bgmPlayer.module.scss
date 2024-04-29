@@ -10,7 +10,7 @@
     height: 100px;
     padding: 0px 40px;
     box-sizing: border-box;
-    background-color: white;
+    background-color: var(--focus-bg-white);
     transition: 0.75s ease bottom;
     &.active {
         bottom: 0px;
@@ -63,7 +63,7 @@
                 overflow: hidden;
                 width: 100%;
                 border-radius: 0px;
-                background-color: #C9C9C9;
+                background-color: var(--line-color);
               }
               &::-webkit-progress-value {
                 border-radius: 0px;
@@ -75,7 +75,7 @@
         display: inline-flex;
         align-items: center;
         button {
-            fill: black;
+            fill: var(--focus-txt-black);
             img {
                 width: 100%;
                 height: 100%;
@@ -111,7 +111,7 @@
         .album_cover {
             width: 60px;
             height: 60px;
-            border: 1px solid #E9E9E9;
+            border: 1px solid var(--basic-bg-color);
             box-sizing: border-box;
             line-height: 0;
             overflow: hidden;
@@ -123,8 +123,8 @@
             svg.empty {
                 width: 100%;
                 height: 100%;
-                fill: #C9C9C9;
-                background-color: #E9E9E9;
+                fill: var(--line-color);
+                background-color: var(--basic-bg-color);
             }
         }
         ul {

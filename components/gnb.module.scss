@@ -10,8 +10,8 @@ nav#gnb {
             a {
                 transition: 0.3s ease color;
                 &.active {
-                    color: orangered;
-                    text-decoration: underline 2px dotted orangered;
+                    color: var(--point-color);
+                    text-decoration: underline 2px dotted var(--point-color);
                     text-underline-offset: 6px;
                 }
             }

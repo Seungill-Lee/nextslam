@@ -5,7 +5,7 @@ ul.charater_list {
     li {
         .photo {
             line-height: 1;
-            background-color: #C9C9C9;
+            background-color: var(--empty-bg-color);
             img {
                 width: 100%;
                 height: auto;
@@ -23,11 +23,11 @@ ul.charater_list {
                 padding: 10px 15px;
             }
             dt {
-                color: #444444;
-                background-color: #D9D9D9;
+                color: var(--label-txt-color);
+                background-color: var(--label-bg-color);
             }
             dd {
-                background-color: white;
+                background-color: var(--focus-bg-white);
             }
         }
     }

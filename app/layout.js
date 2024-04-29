@@ -17,6 +17,13 @@ export const metadata = {
     description: "Next.js로 제작된 슬램덩크 팬사이트",
 };
 
+export const viewport = {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false
+}
+
 export default function RootLayout({ children }) {
     return (
         <html lang="ko">

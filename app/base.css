@@ -1,7 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap&subset=korean');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap&subset=latin');
 
-
+:root {
+    --focus-txt-black: #000000;
+    --basic-txt-color: #222222;
+    --label-txt-color: #444444;
+    --support-txt-color: #666666;
+    --point-color: orangered;
+    --point-alpha-color: rgba(255, 69, 0, 0.1);
+    --focus-bg-white: #FFFFFF;
+    --basic-bg-color: #E9E9E9;
+    --label-bg-color: #D9D9D9;
+    --empty-bg-color: #A9A9A9;
+    --modal-bg-color: rgba(34,34,34,0.7);
+    --line-color: #C9C9C9;
+}
 body {
     margin: 0px;
     font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
@@ -9,15 +22,15 @@ body {
     font-weight: 400;
     word-break: keep-all;
     line-height: 150%;
-    color: #222222;
+    color: var(--basic-txt-color);
     background-color: #E9E9E9;
 }
 a {
-    color: #222222;
+    color: var(--basic-txt-color);
     text-decoration: none;
 }
 a:hover {
-    color: orangered;
+    color: var(--point-color);
 }
 button {
     padding: 0px;
@@ -37,7 +50,7 @@ img {
     vertical-align: middle;
 }
 h1,h2,h3,h4,h5 {
-    color: #222222;
+    color: var(--basic-txt-color);
     font-weight: 600;
     margin: 0px;
 }
