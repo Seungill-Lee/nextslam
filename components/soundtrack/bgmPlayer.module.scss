@@ -10,7 +10,7 @@
     height: 100px;
     padding: 0px 40px;
     box-sizing: border-box;
-    background-color: var(--focus-bg-white);
+    background-color: var(--focus-bg-color);
     transition: 0.75s ease bottom;
     &.active {
         bottom: 0px;
@@ -48,7 +48,7 @@
                 height: 11px;
                 border-radius: 50%;
                 appearance: none;
-                background-color: deepskyblue;
+                background-color: var(--progressing-color);
             }
         }
         progress {
@@ -67,7 +67,7 @@
               }
               &::-webkit-progress-value {
                 border-radius: 0px;
-                background-color: deepskyblue;
+                background-color: var(--progressing-color);
               }
         }
     }
@@ -75,10 +75,10 @@
         display: inline-flex;
         align-items: center;
         button {
-            fill: var(--focus-txt-black);
-            img {
+            svg {
                 width: 100%;
                 height: 100%;
+                fill: var(--basic-txt-color);
             }
         }
     }
@@ -94,6 +94,9 @@
                 &.btn_player {
                     width: 50px;
                     height: 50px;
+                }
+                &:disabled {
+                    opacity: 0.3;
                 }
             }
         }
@@ -167,7 +170,7 @@
                         }
                     }
                 }
-                &.btn_playlist:disabled {
+                &:disabled {
                     opacity: 0.3;
                 }
             }

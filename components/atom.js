@@ -9,3 +9,9 @@ export const bgmPlaying = atom({
     key: "bgmPlaying",
     default: true
 })
+
+
+export const bgmPlayError = atom({
+    key: "bgmPlayError",
+    default: false
+})

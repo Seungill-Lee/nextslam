@@ -2,18 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap&subset=latin');
 
 :root {
-    --focus-txt-black: #000000;
+    --focus-txt-color: black;
     --basic-txt-color: #222222;
     --label-txt-color: #444444;
     --support-txt-color: #666666;
     --point-color: orangered;
     --point-alpha-color: rgba(255, 69, 0, 0.1);
-    --focus-bg-white: #FFFFFF;
+    --focus-bg-color: white;
     --basic-bg-color: #E9E9E9;
     --label-bg-color: #D9D9D9;
     --empty-bg-color: #A9A9A9;
     --modal-bg-color: rgba(34,34,34,0.7);
     --line-color: #C9C9C9;
+    --progressing-color: deepskyblue;
 }
 body {
     margin: 0px;
@@ -41,6 +42,9 @@ button {
     -webkit-appearance: none;
     background-color: transparent;
     cursor: pointer;
+}
+button:disabled {
+    cursor: default;
 }
 img {
     max-width: 100%;
