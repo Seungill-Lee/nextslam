@@ -1,9 +1,8 @@
 'use client'
 
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter, redirect } from 'next/navigation';
 import Image from 'next/image';
 import scss from "./gbWrite.module.scss";
-import { useState, useEffect } from 'react'
 
 export default function GbWrite() {
     const router = useRouter();
@@ -12,6 +11,7 @@ export default function GbWrite() {
     return(
         <form onSubmit={(e) => {
             e.preventDefault();
+
             let data = {
                 name: e.target.name.value,
                 email: e.target.email.value,
@@ -27,7 +27,7 @@ export default function GbWrite() {
                 body: JSON.stringify(data)
             }
             fetch("http://localhost:9999/guestbook",options).then(resp=>resp.json()).then(result=> {
-                console.log(result)
+                router.refresh();
             });
         }}>
             <input type="hidden" name="date" value={`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`} />
