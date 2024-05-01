@@ -1,0 +1,32 @@
+{
+    "guestbook": [
+        {
+            "id": "1",
+            "name": "이승일",
+            "email": "ever9415@nate.com",
+            "password": "1234",
+            "content": "동해물과 백두산이 마르고 닳도록...."
+        },
+        {
+            "id": "2",
+            "name": "이승규",
+            "email": "song033@naver.com",
+            "password": "1234",
+            "content": "하느님이 보우하사 우리나라만세"
+        },
+        {
+            "id": "3",
+            "name": "송은경",
+            "email": "song033@naver.com",
+            "password": "1234",
+            "content": "무궁화 삼천리 화려강산"
+        },
+        {
+            "id": "4",
+            "name": "이성빈",
+            "email": "song033@naver.com",
+            "password": "1234",
+            "content": "대한사랑 대한으로 길이 보전하세.."
+        }
+    ]
+}
