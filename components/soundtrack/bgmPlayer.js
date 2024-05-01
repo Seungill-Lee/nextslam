@@ -8,7 +8,7 @@ import ReactPlayer from 'react-player/lazy';
 import { useRecoilState } from "recoil";
 import { bgmPlayerID, bgmPlaying, bgmPlayError } from "../atom.js"
 import data from './data.json';
-import TimeConverter from "../timeConverter.js"
+import TimeConverter from "./timeConverter.js"
 import BpIcon from "./bpIconSet.js"
 import EmptyCover from "./emptyCover.js"
 
