@@ -9,8 +9,8 @@ import { useState, useEffect } from 'react'
 export default function GbList() {
     const [guestbook,setGuestbook] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:9999/guestbook",{cache: "no-cache"}).then(resp=>resp.json()).then(result=> {
-            setGuestbook(result)
+        fetch("http://localhost:9999/guestbook").then(resp=>resp.json()).then(result=> {
+            setGuestbook(result.reverse())
         });
     },[guestbook])
 
@@ -24,6 +24,10 @@ export default function GbList() {
                                 <div className="field">
                                     <dt>이름:</dt>
                                     <dd>{gb.name}</dd>
+                                </div>
+                                <div className="field">
+                                    <dt>작성일:</dt>
+                                    <dd>{gb.date}</dd>
                                 </div>
                                 <div className="field">
                                     <dt>이메일:</dt>

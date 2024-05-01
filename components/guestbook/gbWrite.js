@@ -14,8 +14,9 @@ export default function GbWrite() {
             e.preventDefault();
             let data = {
                 name: e.target.name.value,
-                password: e.target.password.value,
                 email: e.target.email.value,
+                password: e.target.password.value,
+                date: e.target.date.value,
                 content: e.target.content.value
             }
             const options = {
@@ -29,6 +30,7 @@ export default function GbWrite() {
                 console.log(result)
             });
         }}>
+            <input type="hidden" name="date" value={`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`} />
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
