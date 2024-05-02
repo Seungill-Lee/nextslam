@@ -86,3 +86,26 @@ hr {
 figure {
     margin: 0px;
 }
+fieldset {
+    border-width: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+legend {
+    height: 0px;
+    visibility: hidden;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    border-radius: 0px;
+    border-width: 0px;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: transparent;
+}
+textarea {
+    resize: none;
+}

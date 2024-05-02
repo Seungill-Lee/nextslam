@@ -1,6 +1,7 @@
 import Image from "next/image";
 import scss from "./page.module.scss";
 import GbWrite from "/components/guestbook/gbWrite.js";
+import GravatarN from "/components/guestbook/gravatar.js";
 
 export const metadata = {
     title: "방명록",
@@ -21,30 +22,26 @@ export default async function Guestbook() {
                             guestbook.reverse().map((gb,i) => {
                                 return (
                                     <li key={gb.id}>
-                                        <dl>
-                                            <div className="field">
-                                                <dt>이름:</dt>
-                                                <dd>{gb.name}</dd>
+                                        <div className={scss.profile}>
+                                            <div className={scss.photo}>
+                                                <GravatarN email={gb.email} />
                                             </div>
-                                            <div className="field">
-                                                <dt>작성일:</dt>
-                                                <dd>{gb.dateTime}</dd>
+                                            <div className={scss.info}>
+                                                <div className={scss.name}>{gb.name}</div>
+                                                <div className={scss.date_time}>{gb.dateTime}</div>
                                             </div>
-                                            <div className="field">
-                                                <dt>이메일:</dt>
-                                                <dd>{gb.email}</dd>
-                                            </div>
-                                            <div className="field">
-                                                <dt>내용:</dt>
-                                                <dd>
-                                                    {
-                                                        `${gb.content}`.split("\n").map(line => {
-                                                            return (<>{line}<br /></>)
-                                                        })
-                                                    }
-                                                </dd>
-                                            </div>
-                                        </dl>
+                                        </div>
+                                        <div className={scss.content}>
+                                            {
+                                                `${gb.content}`.split("\n").map(line => {
+                                                    return (<>{line}<br /></>)
+                                                })
+                                            }
+                                        </div>
+                                        {/* <div className="field">
+                                            <dt>이메일:</dt>
+                                            <dd>{gb.email}</dd>
+                                        </div> */}
                                     </li>
                                 )
                             })
