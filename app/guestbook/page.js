@@ -7,49 +7,55 @@ export const metadata = {
 };
 
 export default async function Guestbook() {
-    const resp = await fetch("http://localhost:9999/guestbook",{cache:"no-store"});
-    const guestbook = await resp.json();
+    try {
+        const resp = await fetch("http://localhost:9999/guestbook",{cache:"no-store"});
+        const guestbook = await resp.json();
 
-    return (
-        <>
-            <div className={scss.guestbook}>
-                <h2>방명록</h2>
-                <GbWrite />
-                <ul className={scss.gb_list}>
-                    {
-                        guestbook.reverse().map((gb,i) => {
-                            return (
-                                <li key={gb.id}>
-                                    <dl>
-                                        <div className="field">
-                                            <dt>이름:</dt>
-                                            <dd>{gb.name}</dd>
-                                        </div>
-                                        <div className="field">
-                                            <dt>작성일:</dt>
-                                            <dd>{gb.dateTime}</dd>
-                                        </div>
-                                        <div className="field">
-                                            <dt>이메일:</dt>
-                                            <dd>{gb.email}</dd>
-                                        </div>
-                                        <div className="field">
-                                            <dt>내용:</dt>
-                                            <dd>
-                                                {
-                                                    `${gb.content}`.split("\n").map(line => {
-                                                        return (<>{line}<br /></>)
-                                                    })
-                                                }
-                                            </dd>
-                                        </div>
-                                    </dl>
-                                </li>
-                            )
-                        })
-                    }
-                </ul>
-            </div>
-        </>
-    );
+        return (
+            <>
+                <div className={scss.guestbook}>
+                    <h2>방명록</h2>
+                    <GbWrite />
+                    <ul className={scss.gb_list}>
+                        {
+                            guestbook.reverse().map((gb,i) => {
+                                return (
+                                    <li key={gb.id}>
+                                        <dl>
+                                            <div className="field">
+                                                <dt>이름:</dt>
+                                                <dd>{gb.name}</dd>
+                                            </div>
+                                            <div className="field">
+                                                <dt>작성일:</dt>
+                                                <dd>{gb.dateTime}</dd>
+                                            </div>
+                                            <div className="field">
+                                                <dt>이메일:</dt>
+                                                <dd>{gb.email}</dd>
+                                            </div>
+                                            <div className="field">
+                                                <dt>내용:</dt>
+                                                <dd>
+                                                    {
+                                                        `${gb.content}`.split("\n").map(line => {
+                                                            return (<>{line}<br /></>)
+                                                        })
+                                                    }
+                                                </dd>
+                                            </div>
+                                        </dl>
+                                    </li>
+                                )
+                            })
+                        }
+                    </ul>
+                </div>
+            </>
+        );
+    } catch(error) {
+        return (
+            <p>DB 연결 오류</p>
+        )
+    }
 }
