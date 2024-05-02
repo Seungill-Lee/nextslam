@@ -27,7 +27,7 @@ export default async function Guestbook() {
                                         </div>
                                         <div className="field">
                                             <dt>작성일:</dt>
-                                            <dd>{gb.date}</dd>
+                                            <dd>{gb.dateTime}</dd>
                                         </div>
                                         <div className="field">
                                             <dt>이메일:</dt>
@@ -35,7 +35,13 @@ export default async function Guestbook() {
                                         </div>
                                         <div className="field">
                                             <dt>내용:</dt>
-                                            <dd>{gb.content}</dd>
+                                            <dd>
+                                                {
+                                                    `${gb.content}`.split("\n").map(line => {
+                                                        return (<>{line}<br /></>)
+                                                    })
+                                                }
+                                            </dd>
                                         </div>
                                     </dl>
                                 </li>

@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter, redirect } from 'next/navigation';
 import Image from 'next/image';
+import moment from 'moment';
 import scss from "./gbWrite.module.scss";
 
 export default function GbWrite() {
@@ -12,12 +13,14 @@ export default function GbWrite() {
         <form onSubmit={(e) => {
             e.preventDefault();
 
+            let orgCont = e.target.content.value;
+
             let data = {
                 name: e.target.name.value,
                 email: e.target.email.value,
                 password: e.target.password.value,
-                date: e.target.date.value,
-                content: e.target.content.value
+                dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
+                content: orgCont
             }
             const options = {
                 method: "POST",
@@ -30,7 +33,6 @@ export default function GbWrite() {
                 router.refresh();
             });
         }}>
-            <input type="hidden" name="date" value={`${new Date().getFullYear()}/${new Date().getMonth() + 1}/${new Date().getDate()}`} />
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
