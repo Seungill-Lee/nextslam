@@ -3,5 +3,5 @@
 import Gravatar from 'react-gravatar'
 
 export default function GravatarN(props) {
-    return <Gravatar email={props.email} size={100} />
+    return <Gravatar email={props.email} size={50} />
 }

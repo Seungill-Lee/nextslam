@@ -38,6 +38,9 @@ button {
     margin: 0px;
     border: 0px;
     border-radius: 0px;
+    font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     appearance: none;
     -webkit-appearance: none;
     background-color: transparent;
@@ -100,11 +103,15 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 textarea {
+    font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
     border-radius: 0px;
     border-width: 0px;
     appearance: none;
     -webkit-appearance: none;
     background-color: transparent;
+    outline: 0px;
 }
 textarea {
     resize: none;
