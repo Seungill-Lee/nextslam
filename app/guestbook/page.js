@@ -5,7 +5,7 @@ import GravatarN from "/components/guestbook/gravatar.js";
 import GbIcon from "/components/guestbook/gbIconSet.js";
 
 export const metadata = {
-    title: "방명록2",
+    title: "방명록",
 };
 
 export default async function Guestbook() {
