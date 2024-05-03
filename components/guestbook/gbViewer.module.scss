@@ -1,0 +1,70 @@
+.gb_viewer {
+    .profile {
+        display: flex;
+        gap: 0px 12px;
+        align-items: center;
+        .photo {
+            width: 50px;
+            height: 50px;
+            line-height: 0;
+            box-sizing: border-box;
+            background-color: var(--line-color);
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .info {
+            line-height: 1;
+            .name {
+                font-weight: 500;
+            }
+            .date_time {
+                opacity: 0.8;
+                font-size: 12px;
+                margin-top: 8px;
+            }
+        }
+    }
+    .content {
+        margin-top: 16px;
+    }
+    .btn_set {
+        position: absolute;
+        top: 24px;
+        right: 0px;
+        display: flex;
+        gap: 0px 8px;
+        button {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding: 3px;
+            line-height: 0;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid var(--line-color);
+            box-sizing: border-box;
+            transition: 0.5s ease border-color;
+            svg {
+                width: 20px;
+                height: 20px;
+                fill: var(--support-txt-color);
+                transition: 0.5s ease fill;
+            }
+            span.txt {
+                position: absolute;
+                top: -999px;
+                left: -999px;
+            }
+            &:hover {
+                border-color: var(--point-color);
+                svg {
+                    fill: var(--focus-txt-color);
+                }
+            }
+        }
+    }
+}
