@@ -2,6 +2,7 @@ import Image from "next/image";
 import scss from "./page.module.scss";
 import GbWrite from "/components/guestbook/gbWrite.js";
 import GravatarN from "/components/guestbook/gravatar.js";
+import GbIcon from "/components/guestbook/gbIconSet.js";
 
 export const metadata = {
     title: "방명록",
@@ -38,10 +39,10 @@ export default async function Guestbook() {
                                                 })
                                             }
                                         </div>
-                                        {/* <div className="field">
-                                            <dt>이메일:</dt>
-                                            <dd>{gb.email}</dd>
-                                        </div> */}
+                                        <div className={scss.btn_set}>
+                                            <button type="button" className={scss.btn_edit}><GbIcon shape="Edit" /><span className={scss.txt}>수정</span></button>
+                                            <button type="button" className={scss.btn_delete}><GbIcon shape="Delete" /><span className={scss.txt}>삭제</span></button>
+                                        </div>
                                     </li>
                                 )
                             })
