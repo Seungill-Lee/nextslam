@@ -12,6 +12,7 @@
     --basic-bg-color: #E9E9E9;
     --label-bg-color: #D9D9D9;
     --empty-bg-color: #A9A9A9;
+    --support-bg-color: #898989;
     --modal-bg-color: rgba(34,34,34,0.7);
     --line-color: #C9C9C9;
     --progressing-color: deepskyblue;
@@ -45,6 +46,7 @@ button {
     -webkit-appearance: none;
     background-color: transparent;
     cursor: pointer;
+    outline: 0px;
 }
 button:disabled {
     cursor: default;

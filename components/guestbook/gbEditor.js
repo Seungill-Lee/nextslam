@@ -94,6 +94,7 @@ export default function GbWrite(props) {
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
+                    {props.mode == "PATCH" ? <button type="button">돌아가기</button> : ""}
                     <button type="submit">{props.mode == "PATCH" ? "수정하기" : "등록하기"}</button>
                 </div>
             </fieldset>
