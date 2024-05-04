@@ -4,46 +4,72 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import moment from 'moment';
 import scss from "./gbEditor.module.scss";
-import { useId, useState, useEffect } from 'react';
+import { useId, useState, useEffect, useRef } from 'react';
 
 export default function GbWrite(props) {
     const router = useRouter();
     const Labeling = useId();
+    const mode = props.mode;
     const gb = props.data;
+    let checkPwd;
+    const pwField = useRef();
 
     const [gbName,setGbName] = useState();
+    const [gbPassword,setGbPassword] = useState();
+    const [orgPassword,checkOrgPassword] = useState();
     const [gbEmail,setGbEmail] = useState();
     const [gbContent,setGbContent] = useState();
 
     useEffect(() => {
         if(gb) {
             setGbName(gb.name)
+            setGbPassword(null);
             setGbEmail(gb.email)
             setGbContent(gb.content)
+
+            if(mode == "PATCH") {
+                checkOrgPassword(gb.password)
+            }
         }
     },[])
-
-    
 
     return(
         <form className={scss.gb_editor} onSubmit={(e) => {
             e.preventDefault();
 
+            const gbEditform = e.target;
+
             let data = {
-                name: e.target.name.value,
-                email: e.target.email.value,
-                password: e.target.password.value,
+                name: gbEditform.name.value,
+                email: gbEditform.email.value,
+                password: gbEditform.password.value,
                 dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
-                content: e.target.content.value
+                content: gbEditform.content.value
             }
+
+            if(mode == "PATCH") {
+                if(orgPassword != gbPassword) {
+                    alert("비밀번호가 틀렸어요")
+                    setGbPassword("")
+                    pwField.current.focus();
+                    return false;
+                }
+            }
+
             const options = {
-                method: props.mode,
+                method: mode,
                 headers: {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify(data)
             }
-            fetch(`http://localhost:9999/guestbook/${gb.id ? gb.id : ""}`,options).then(resp=>resp.json()).then(result=> {
+            fetch(`http://localhost:9999/guestbook/${mode == "PATCH" ? gb.id : ""}`,options).then(resp=>resp.json()).then(result=> {
+                setGbPassword(null); //비밀번호는 무조건 빈값으로 리셋
+                if(mode == "POST") {
+                    setGbName(null);
+                    setGbEmail(null);
+                    setGbContent(null);
+                }
                 router.refresh();
             });
         }}>
@@ -56,7 +82,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
-                        <dd><input type="password" name="password" id={`${Labeling}password`} required /></dd>
+                        <dd><input type="password" name="password" id={`${Labeling}password`} ref={pwField} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
