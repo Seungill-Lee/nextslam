@@ -51,6 +51,11 @@
                     dt {
                         font-weight: 500;
                     }
+                    dd {
+                        input,textarea {
+                            color: var(--focus-txt-color);
+                        }
+                    }
                 }
             }
         }

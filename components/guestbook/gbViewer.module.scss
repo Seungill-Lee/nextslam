@@ -59,7 +59,7 @@
                 top: -999px;
                 left: -999px;
             }
-            &:hover {
+            &:hover,&:focus {
                 border-color: var(--point-color);
                 svg {
                     fill: var(--focus-txt-color);
