@@ -1,3 +1,57 @@
-.gb_deletor {
-    
+form.gb_deletor {
+    padding: 48px 0px;
+    text-align: center;
+    p.msg {
+        font-size: 20px;
+    }
+    .field {
+        margin: 24px 0px;
+        input[type="password"] {
+            width: 332px;
+            height: 50px;
+            padding: 10px 14px 12px;
+            box-sizing: border-box;
+            text-align: center;
+            line-height: 150%;
+            vertical-align: top;
+            border: 1px solid var(--line-color);
+            border-radius: 6px;
+            background-color: var(--focus-bg-color);
+            transition: 0.5s ease color,0.5s ease box-shadow;
+            &:focus {
+                color: var(--focus-txt-color);
+                box-shadow: 0px 0px 12px var(--support-bg-color);
+            }
+        }
+    }
+    .btn_delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px 12px;
+        margin-top: 12px;
+        text-align: right;
+        line-height: 1;
+        button {
+            padding: 12px 14px;
+            line-height: 1;
+            border-radius: 6px;
+            transition: 0.5s ease box-shadow;
+            &[type="submit"] {
+                font-weight: 500;
+                color: var(--focus-bg-color);
+                background-color: var(--point-color);
+                &:hover,&:focus {
+                    box-shadow: 0px 0px 12px var(--point-color);
+                }
+            }
+            &[type="button"] {
+                color: var(--basic-txt-color);
+                background-color: var(--line-color);
+                &:hover,&:focus {
+                    box-shadow: 0px 0px 12px var(--support-bg-color);
+                }
+            }
+        }
+    }
 }

@@ -25,14 +25,6 @@
       "content": "나의 승리다. 강백호~!\n나의 승리야... 강백호~!!!"
     },
     {
-      "id": 4,
-      "name": "이성빈",
-      "email": "song033@naver.com",
-      "password": "1234",
-      "dateTime": "2024-01-01 00:00:00",
-      "content": "대한사랑 대한으로 길이 보전하세.."
-    },
-    {
       "name": "천재승일",
       "email": "sdfsdf@naver.com",
       "password": "sdfs",
@@ -81,10 +73,10 @@
       "id": 11
     },
     {
-      "name": "박종원",
+      "name": "백종원",
       "email": "song033@naver.com",
       "password": "1234",
-      "dateTime": "2024-05-04 10:06:26",
+      "dateTime": "2024-05-05 17:55:05",
       "content": "바가지가 너무 싫다.\n노양심이 너무 싫다.",
       "id": 12
     },
