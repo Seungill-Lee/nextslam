@@ -9,8 +9,8 @@ import { gbItemID , gbItemMode } from "../atom.js"
 
 export default function GbViewer(props) {
     const gb = props.data;
-    const [ gbId, setGbId ] = useRecoilState(gbItemID)
-    const [ gbMode, setGbMode ] = useRecoilState(gbItemMode)
+    const [gbId, setGbId] = useRecoilState(gbItemID)
+    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
 
     //console.log(gbId,gbMode)
 

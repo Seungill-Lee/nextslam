@@ -1,23 +1,52 @@
 'use client'
 
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import scss from "./gbDeletor.module.scss";
+import { useState, useEffect } from 'react';
 import { useRecoilState } from "recoil";
 import { gbItemID , gbItemMode } from "../atom.js"
 
 export default function GbDeletor(props) {
-    const [ gbId, setGbId ] = useRecoilState(gbItemID)
-    const [ gbMode, setGbMode ] = useRecoilState(gbItemMode)
+    const router = useRouter();
+    const gb = props.data;
+    const [gbId, setGbId] = useRecoilState(gbItemID)
+    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
+    const [gbPassword,setGbPassword] = useState();
+    const [orgPassword,checkOrgPassword] = useState();
+
+    useEffect(() => {
+        checkOrgPassword(gb.password)
+    },[])
 
     return(
         <div className={scss.gb_deletor}>
             <p className={scss.msg}>정말 삭제하시겠습니까??</p>
-            <form>
+            <form onSubmit={e => {
+                e.preventDefault();
+
+                const gbDeleteform = e.target;
+
+                if(orgPassword != gbPassword) {
+                    alert("비밀번호가 틀렸어요")
+                    setGbPassword("");
+                    gbDeleteform.password.focus();
+                    return false;
+                }
+
+                const options = {
+                    method: "DELETE"
+                }
+                console.log(gb.id)
+                
+                fetch(`http://localhost:9999/guestbook/${gb.id}`,options).then(resp => resp.json()).then(result => {
+                    router.refresh();
+                })
+            }}>
                 <div className={scss.field}>
-                    <input type="password" placeholder="비빌번호 확인" title="해당 게시물의 비밀번호를 입력해주세요." />
+                    <input type="password" name="password" placeholder="비빌번호 확인" title="해당 게시물의 비밀번호를 입력해주세요." value={gbPassword || ""} onChange={(e) => setGbPassword(e.target.value)} />
                 </div>
                 <div className={scss.btn_set}>
-                    <button type="button">돌아가기</button>
+                    <button type="button" onClick={() => `${setGbId(gb.id)} ${setGbMode("GET")}`}>돌아가기</button>
                     <button type="submit">삭제하기</button>
                 </div>
             </form>

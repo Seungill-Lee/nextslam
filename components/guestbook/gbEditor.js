@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import moment from 'moment';
 import scss from "./gbEditor.module.scss";
-import { useId, useState, useEffect, useRef } from 'react';
+import { useId, useState, useEffect } from 'react';
 import { useRecoilState } from "recoil";
 import { gbItemID , gbItemMode } from "../atom.js"
 
@@ -13,7 +13,6 @@ export default function GbWrite(props) {
     const Labeling = useId();
     const mode = props.mode;
     const gb = props.data;
-    const pwField = useRef();
 
     const [gbName,setGbName] = useState();
     const [gbPassword,setGbPassword] = useState();
@@ -21,8 +20,8 @@ export default function GbWrite(props) {
     const [gbEmail,setGbEmail] = useState();
     const [gbContent,setGbContent] = useState();
     
-    const [ gbId, setGbId ] = useRecoilState(gbItemID)
-    const [ gbMode, setGbMode ] = useRecoilState(gbItemMode)
+    const [gbId, setGbId] = useRecoilState(gbItemID)
+    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
 
     useEffect(() => {
         if(gb) {
@@ -54,8 +53,8 @@ export default function GbWrite(props) {
             if(mode == "PATCH") {
                 if(orgPassword != gbPassword) {
                     alert("비밀번호가 틀렸어요")
-                    setGbPassword("")
-                    pwField.current.focus();
+                    setGbPassword("");
+                    gbEditform.password.focus();
                     return false;
                 }
             }
@@ -89,7 +88,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
-                        <dd><input type="password" name="password" id={`${Labeling}password`} ref={pwField} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} required /></dd>
+                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
