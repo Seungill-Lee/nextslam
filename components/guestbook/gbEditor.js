@@ -5,13 +5,14 @@ import Image from 'next/image';
 import moment from 'moment';
 import scss from "./gbEditor.module.scss";
 import { useId, useState, useEffect, useRef } from 'react';
+import { useRecoilState } from "recoil";
+import { gbItemID , gbItemMode } from "../atom.js"
 
 export default function GbWrite(props) {
     const router = useRouter();
     const Labeling = useId();
     const mode = props.mode;
     const gb = props.data;
-    let checkPwd;
     const pwField = useRef();
 
     const [gbName,setGbName] = useState();
@@ -19,6 +20,9 @@ export default function GbWrite(props) {
     const [orgPassword,checkOrgPassword] = useState();
     const [gbEmail,setGbEmail] = useState();
     const [gbContent,setGbContent] = useState();
+    
+    const [ gbId, setGbId ] = useRecoilState(gbItemID)
+    const [ gbMode, setGbMode ] = useRecoilState(gbItemMode)
 
     useEffect(() => {
         if(gb) {
@@ -69,6 +73,9 @@ export default function GbWrite(props) {
                     setGbName(null);
                     setGbEmail(null);
                     setGbContent(null);
+                } else if(mode == "PATCH") {
+                    setGbId(gb.id)
+                    setGbMode("GET")
                 }
                 router.refresh();
             });
@@ -94,7 +101,7 @@ export default function GbWrite(props) {
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
-                    {props.mode == "PATCH" ? <button type="button">돌아가기</button> : ""}
+                    {props.mode == "PATCH" ? <button type="button" onClick={() => `${setGbId(gb.id)} ${setGbMode("GET")}`}>돌아가기</button> : ""}
                     <button type="submit">{props.mode == "PATCH" ? "수정하기" : "등록하기"}</button>
                 </div>
             </fieldset>

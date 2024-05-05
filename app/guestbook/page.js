@@ -16,7 +16,7 @@ export default async function Guestbook() {
                     <ul className={scss.gb_list}>
                         {guestbook.reverse().map((gb, i) => {
                             return (
-                                <GbListItem key={gb.id} data={gb} />
+                                <GbListItem key={gb.id} post_id={gb.id} data={gb} />
                             );
                         })}
                     </ul>

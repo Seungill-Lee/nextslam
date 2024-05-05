@@ -1,13 +1,18 @@
 'use client'
 
 import { Fragment } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
 import GbIcon from "/components/guestbook/gbIconSet.js";
 import GravatarN from "/components/guestbook/gravatar.js";
 import scss from "./gbViewer.module.scss";
+import { useRecoilState } from "recoil";
+import { gbItemID , gbItemMode } from "../atom.js"
 
 export default function GbViewer(props) {
-    const gb = props.data
+    const gb = props.data;
+    const [ gbId, setGbId ] = useRecoilState(gbItemID)
+    const [ gbMode, setGbMode ] = useRecoilState(gbItemMode)
+
+    //console.log(gbId,gbMode)
 
     return(
         <div className={scss.gb_viewer} key={gb.id}>
@@ -26,8 +31,8 @@ export default function GbViewer(props) {
                 })}
             </div>
             <div className={scss.btn_set}>
-                <button type="button" className={scss.btn_edit}><GbIcon shape="Edit" /><span className={scss.txt}>수정</span></button>
-                <button type="button" className={scss.btn_delete}><GbIcon shape="Delete" /><span className={scss.txt}>삭제</span></button>
+                <button type="button" className={scss.btn_edit} onClick={() => `${setGbId(gb.id)} ${setGbMode("PATCH")}`}><GbIcon shape="Edit" /><span className={scss.txt}>수정</span></button>
+                <button type="button" className={scss.btn_delete} onClick={() => `${setGbId(gb.id)} ${setGbMode("DELETE")}`}><GbIcon shape="Delete" /><span className={scss.txt}>삭제</span></button>
             </div>
         </div>
     )
