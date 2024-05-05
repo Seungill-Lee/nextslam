@@ -1,0 +1,9 @@
+ul.gb_list {
+    margin-top: 40px;
+    border-top: 1px dashed var(--line-color);
+    li {
+        position: relative;
+        padding: 24px 0px;
+        border-bottom: 1px dashed var(--line-color);
+    }
+}

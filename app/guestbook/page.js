@@ -1,27 +1,23 @@
 import Image from "next/image";
 import scss from "./page.module.scss";
 import GbEditor from "/components/guestbook/gbEditor.js";
-import GbListItem from "/components/guestbook/gbListItem.js";
+import GbList from "/components/guestbook/gbList.js";
+
+export const metadata = {
+    title: "방명록",
+};
 
 export default async function Guestbook() {
     try {
         const resp = await fetch("http://localhost:9999/guestbook", { cache: "no-store" });
-        const guestbook = await resp.json();
+        const gbData = await resp.json();
 
         return (
-            <>
-                <div className={scss.guestbook}>
-                    <h2>방명록</h2>
-                    <GbEditor mode="POST" />
-                    <ul className={scss.gb_list}>
-                        {guestbook.reverse().map((gb, i) => {
-                            return (
-                                i >= 0 && i < 10 ? <GbListItem key={gb.id} post_id={gb.id} data={gb} /> : null
-                            );
-                        })}
-                    </ul>
-                </div>
-            </>
+            <div className={scss.guestbook}>
+                <h2>방명록</h2>
+                <GbEditor mode="POST" />
+                <GbList data={gbData.reverse()} />
+            </div>
         );
     } catch (error) {
         return (

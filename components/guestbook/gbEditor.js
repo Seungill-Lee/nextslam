@@ -14,11 +14,11 @@ export default function GbWrite(props) {
     const mode = props.mode;
     const gb = props.data;
 
-    const [gbName,setGbName] = useState();
-    const [gbPassword,setGbPassword] = useState();
-    const [orgPassword,checkOrgPassword] = useState();
-    const [gbEmail,setGbEmail] = useState();
-    const [gbContent,setGbContent] = useState();
+    const [gbName, setGbName] = useState();
+    const [gbPassword, setGbPassword] = useState();
+    const [orgPassword, checkOrgPassword] = useState();
+    const [gbEmail, setGbEmail] = useState();
+    const [gbContent, setGbContent] = useState();
     
     const [gbId, setGbId] = useRecoilState(gbItemID)
     const [gbMode, setGbMode] = useRecoilState(gbItemMode)
