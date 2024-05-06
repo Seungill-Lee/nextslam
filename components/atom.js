@@ -7,7 +7,7 @@ export const bgmPlayerID = atom({
 })
 export const bgmPlaying = atom({
     key: "bgmPlaying",
-    default: true
+    default: false
 })
 export const bgmPlayError = atom({
     key: "bgmPlayError",
