@@ -72,6 +72,7 @@ export default function GbWrite(props) {
                     setGbName(null);
                     setGbEmail(null);
                     setGbContent(null);
+                    router.push("/guestbook");
                 } else if(mode == "PATCH") {
                     setGbId(gb.id)
                     setGbMode("GET")

@@ -9,14 +9,6 @@
       "content": "동해물과 백두산이 마르고 닳도록....\n그런데 너무 아래에 있으면 어떻게 처리할꺼야???"
     },
     {
-      "id": 2,
-      "name": "송은경",
-      "email": "song033@naver.com",
-      "password": "1234",
-      "dateTime": "2024-05-03 16:02:07",
-      "content": "무궁화 삼천리 화려강산\n대한사랑 대한으로 길이보전하세\n무궁화 삼천리 화려강산\n대한사랑 대한으로 길이보전하세"
-    },
-    {
       "id": 3,
       "name": "황태산",
       "email": "ever9415@naver.com",
@@ -57,14 +49,6 @@
       "id": 9
     },
     {
-      "name": "햇갈승일",
-      "email": "ever9415@nate.com",
-      "password": "1234",
-      "dateTime": "2024-05-03 16:47:55",
-      "content": "다시 최초 등록이 제대로 될까???",
-      "id": 10
-    },
-    {
       "name": "바가지",
       "email": "theborn@theborn.com",
       "password": "123",
@@ -81,14 +65,6 @@
       "id": 12
     },
     {
-      "name": "123",
-      "email": "12312313@naver.com",
-      "password": "1234",
-      "dateTime": "2024-05-05 11:12:13",
-      "content": "대체 이게 뭐냐...\n힘들다 힘들어... ㅠ",
-      "id": 13
-    },
-    {
       "name": "아이브",
       "email": "ive@naver.com",
       "password": "1234",
@@ -100,16 +76,16 @@
       "name": "크레이지",
       "email": "crazy@for.you",
       "password": "1234",
-      "dateTime": "2024-05-05 11:08:43",
-      "content": "슬슬 많이 힘든네...\n그래도 편집&글쓰기 파트 성공한거 같다.",
+      "dateTime": "2024-05-06 17:53:52",
+      "content": "슬슬 많이 힘든네...\n그래도 편집&글쓰기 파트 성공한거 같다.\n그리고 튜닝은 좀 나중에 해라.. ㅎ",
       "id": 15
     },
     {
       "name": "크로커다일",
       "email": "save@guitar.com",
       "password": "1234",
-      "dateTime": "2024-05-04 11:33:56",
-      "content": "선물은 없어.\n국물도 없어.\n연금도 없어... 이야호\n비밀번호 제대로 입력했지롱~!!\n수정 후에 비번 제대로 리셋되나..",
+      "dateTime": "2024-05-06 17:52:13",
+      "content": "선물은 없어.\n국물도 없어.\n연금도 없어... 이야호\n아이고... 배고프다.",
       "id": 16
     },
     {
@@ -143,6 +119,62 @@
       "dateTime": "2024-05-06 08:34:11",
       "content": "밥먹자. 배고프다.\n근데 정말 힘들다...\n서버사이드 컴포넌트랑 클라이언트 컴포넌트랑 섞어 쓰기 힘들다.",
       "id": 20
+    },
+    {
+      "name": "테스트승일",
+      "email": "gng@google.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:14:24",
+      "content": "하.... 정말 힘들다..\n그래도 거의다 온거 같네.",
+      "id": 21
+    },
+    {
+      "name": "재발승일",
+      "email": "jebal@codepartners.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:25:17",
+      "content": "재발재발재발",
+      "id": 24
+    },
+    {
+      "name": "빡세승일",
+      "email": "song3434@nate.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:35:45",
+      "content": "빡세승일\n빡세승일\n빡세승일\n빡세승일",
+      "id": 25
+    },
+    {
+      "name": "세이버승일",
+      "email": "ever9415@nate.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:57:46",
+      "content": "useRouter에 의존하고 있는데 useState를 왜 또 쓰는거냐??\n정신 좀 차려라....!!",
+      "id": 26
+    },
+    {
+      "name": "정신승일",
+      "email": "ever9415@nate.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:42:38",
+      "content": "드디어 끝났다.\n그런데 정신차리고 개념도 좀 챙겨라...\nuseState가 아무리 좋다지만...\n아무데나 남발하면 오늘처럼 엄청나게 삽질할꺼야...\n그러니깐 개념을 챙겨가며 React Hook을 사용하여라..",
+      "id": 27
+    },
+    {
+      "name": "마지막승일",
+      "email": "song033@naver.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 17:54:18",
+      "content": "마지막... 이제 재발 끝내자..\n그리고 밥 먹으러 가자.",
+      "id": 28
+    },
+    {
+      "name": "돌아승일",
+      "email": "dora@yahoo.com",
+      "password": "1234",
+      "dateTime": "2024-05-06 18:06:13",
+      "content": "애라모르겠다.\n밥 처먹자",
+      "id": 29
     }
   ]
 }
