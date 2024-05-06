@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap&subset=korean');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap&subset=latin');
-
 :root {
     --focus-txt-color: black;
     --basic-txt-color: #222222;
@@ -19,7 +16,7 @@
 }
 body {
     margin: 0px;
-    font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
+    font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: 16px;
     font-weight: 400;
     word-break: keep-all;
@@ -39,7 +36,7 @@ button {
     margin: 0px;
     border: 0px;
     border-radius: 0px;
-    font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
+    font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: 16px;
     font-weight: 400;
     appearance: none;
@@ -105,7 +102,7 @@ input[type="password"],
 input[type="email"],
 input[type="tel"],
 textarea {
-    font-family: "Libre Franklin", "Noto Sans KR", sans-serif;
+    font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--basic-txt-color);

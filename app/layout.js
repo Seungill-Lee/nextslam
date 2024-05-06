@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { Libre_Franklin, Noto_Sans_KR } from "next/font/google";
 import "./base.css";
 import scss from "./layout.module.scss";
 import HeaderLogo from '../components/headerLogo.js';
@@ -24,9 +25,21 @@ export const viewport = {
     userScalable: false
 }
 
+export const libre_franklin = Libre_Franklin({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--libre-franklin',
+})
+   
+export const noto_sans_kr = Noto_Sans_KR({
+    subsets: [],
+    display: 'swap',
+    variable: '--noto-sans-kr',
+})
+
 export default function RootLayout({ children }) {
     return (
-        <html lang="ko">
+        <html lang="ko" className={`${libre_franklin.variable} ${noto_sans_kr.variable}`}>
             <body>
                 <div id={scss.wrapper}>
                     <header id={scss.header}>
