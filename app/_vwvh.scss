@@ -1,0 +1,9 @@
+@function get-vw($target,$deviceW) {
+    $vw-context: ($deviceW * 0.01);
+    @return calc($target / $vw-context) * 1vw;
+}
+
+@function get-vh($target,$deviceH) {
+    $vh-context: ($deviceH * 0.01);
+    @return calc($target / $vh-context) * 1vh;
+}

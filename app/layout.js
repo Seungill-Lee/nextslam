@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Libre_Franklin, Noto_Sans_KR } from "next/font/google";
-import "./base.css";
+import "./base.scss";
 import scss from "./layout.module.scss";
 import HeaderLogo from '../components/headerLogo.js';
 import GNB from '../components/gnb.js';

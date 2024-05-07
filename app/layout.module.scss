@@ -1,7 +1,16 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 /* Wrapper */
 #wrapper {
     position: relative;
     padding-left: 361px;
+    /* height: 100vh;
+    height: -webkit-fill-available;
+    overflow-x: hidden;
+    overflow-y: auto; */
 }
 
 /* Header */
@@ -11,7 +20,7 @@ header#header {
     left: 0px;
     width: 361px;
     height: 100%;
-    padding: 100px 40px;
+    padding: get-vh(100px,$divceHeight) 40px;
     border-right: 1px solid var(--line-color);
     box-sizing: border-box;
     text-align: center;
@@ -27,7 +36,8 @@ header#header {
 /* Contents */
 main#contents {
     min-height: 100vh;
-    padding: 100px 80px;
+    /* min-height: -webkit-fill-available; */
+    padding: get-vh(100px,$divceHeight) 80px;
     box-sizing: border-box;
 }
 

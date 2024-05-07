@@ -142,6 +142,7 @@ ul.team_list {
                 }
                 &.active {
                     figcaption {
+                        box-shadow: inset 0 0 4px transparent !important;
                         &.shohoku {
                             background-color: #BE0003;
                             span.tm_txt {
@@ -162,6 +163,30 @@ ul.team_list {
                         }
                         &.kainan {
                             background-color: #552582;
+                            span.tm_txt {
+                                color: #FDB927;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (prefers-color-scheme: dark) {
+    ul.team_list {
+        li {
+            a {
+                figure {
+                    figcaption {
+                        &.ryonan {
+                            span.tm_txt {
+                                color: #FDF31A;
+                            }
+                        }
+                        &.kainan {
                             span.tm_txt {
                                 color: #FDB927;
                             }

@@ -1,3 +1,11 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
+html {
+    height: -webkit-fill-available;
+}
 :root {
     --focus-txt-color: black;
     --basic-txt-color: #222222;
@@ -22,7 +30,8 @@ body {
     word-break: keep-all;
     line-height: 150%;
     color: var(--basic-txt-color);
-    background-color: #E9E9E9;
+    background-color: var(--basic-bg-color);
+    /* height: -webkit-fill-available; */
 }
 a {
     color: var(--basic-txt-color);
@@ -115,4 +124,22 @@ textarea {
 }
 textarea {
     resize: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --focus-txt-color: white;
+        --basic-txt-color: #EEEEEE;
+        --label-txt-color: #DDDDDD;
+        --support-txt-color: #BBBBBB;
+        --point-color: darkorange;
+        --point-alpha-color: rgba(255, 69, 0, 0.1);
+        --focus-bg-color: #292929;
+        --basic-bg-color: #191919;
+        --label-bg-color: #393939;
+        --empty-bg-color: #696969;
+        --modal-bg-color: rgba(41,41,41,0.7);
+        --line-color: #494949;
+        --progressing-color: lawngreen;
+    }
 }
