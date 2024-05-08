@@ -1,0 +1,27 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
+.not_found {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - get-vh(200px,$divceHeight));
+    .msg {
+        text-align: center;
+        h2 {
+            line-height: 1;
+            img {
+                width: get-vw(328px,$divceWidth);
+                height: auto;
+            }
+        }
+        p {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1;
+        }
+    }
+}

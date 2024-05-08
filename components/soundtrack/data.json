@@ -17,10 +17,10 @@
         "artist": "Faith",
         "playerUrl": "https://music.youtube.com/watch?v=I9pBb3mcruM&si=WJY0IRkFXzS4faxb",
         "time": "3:38",
-        "acoverImgSrc": "/images/soundtrack/albumCover/ed1_kor.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/ed1_kor.jpg",
         "albumName": "한국판 엔딩",
-        "aalbumBgInfo": "linear-gradient(15deg, #F4F4F4 50%, #8F8F8F 100%)",
-        "aalbumTxtColor": "#E96360"
+        "albumBgInfo": "linear-gradient(15deg, #F4F4F4 50%, #8F8F8F 100%)",
+        "albumTxtColor": "#E96360"
     },
     {
         "id": 3,
