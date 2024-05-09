@@ -37,7 +37,7 @@ header#header {
 main#contents {
     min-height: 100vh;
     /* min-height: -webkit-fill-available; */
-    padding: get-vh(100px,$divceHeight) 80px;
+    padding: get-vh(96px,$divceHeight) 80px get-vh(100px,$divceHeight);
     box-sizing: border-box;
 }
 
