@@ -1,7 +1,13 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 .soundtrack {
     display: grid;
     grid-template-columns: auto 0px;
-    gap: 0px 60px;
+    gap: 0px;
+    overflow: hidden;
     margin-top: 40px;
     transition: 0.75s ease grid-template-columns;
     > ul.st_list {
@@ -83,7 +89,7 @@
         }
     }
     &.view_detail {
-        grid-template-columns: auto 600px;
+        grid-template-columns: auto calc(get-vw(600px,$divceWidth) + 40px);
         > ul.st_list {
             > li {
                 > a {
@@ -96,7 +102,7 @@
                                 font-weight: 500;
                             }
                             &.artist {
-                                font-size: 14px;
+                                font-size: var(--name-f-size);
                                 opacity: 0.8;
                                 margin-top: 8px;
                             }

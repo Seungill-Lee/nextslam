@@ -1,3 +1,8 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 /* 팀 목록 */
 ul.team_list {
     display: flex;
@@ -32,14 +37,15 @@ ul.team_list {
                         text-align: center;
                         line-height: 1;
                         &.tm_logo {
-                            height: 3.2422vw;
+                            height: get-vw(83px,$divceWidth);
                             img {
                                 width: auto;
                                 max-height: 100%;
                             }
                         }
                         &.tm_txt {
-                            margin-top: 20px;
+                            margin-top: 12px;
+                            font-size: var(--name-f-size);
                             font-weight: bold;
                         }
                     }
@@ -94,7 +100,6 @@ ul.team_list {
                             }
                             &.tm_txt {
                                 margin-top: 8px;
-                                font-size: 14px;
                                 transition: 0.3s ease color;
                             }
                         }

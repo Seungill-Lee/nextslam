@@ -5,7 +5,7 @@ nav#gnb {
     ul {
         li {
             margin-top: 36px;
-            font-size: 26px;
+            font-size: var(--stit-f-size);
             text-transform: uppercase;
             a {
                 transition: 0.3s ease color;

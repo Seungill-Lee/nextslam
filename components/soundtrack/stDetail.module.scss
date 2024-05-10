@@ -1,22 +1,30 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 .st_detail {
-    width: 0px;
-    padding: 60px 0px;
+    position: relative;
+    width: get-vw(600px,$divceWidth);
+    margin-left: 40px;
     box-sizing: border-box;
     overflow: hidden;
     background-color: var(--label-bg-color);
     transition: 0.75s ease width;
-    &.active {
-        width: 600px;
+    .detail_inner {
+        position: absolute;
+        inset: get-vw(60px,$divceWidth) get-vw(60px,$divceWidth) auto auto;
+        width: get-vw(480px,$divceWidth);
+        &.fixed {
+            position: fixed;
+            right: calc(get-vw(60px,$divceWidth) + 80px)
+        }
     }
     .cover {
-        width: 480px;
-        height: 480px;
-        margin: 0px 60px;
         box-sizing: border-box;
         img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
         }
         svg.empty {
             fill: var(--empty-bg-color);
@@ -24,8 +32,7 @@
         }
     }
     .info {
-        margin: 25px 60px 0px;
-        width: 480px;
+        margin-top: 25px;
         ul {
             color: var(--support-txt-color);
             li {

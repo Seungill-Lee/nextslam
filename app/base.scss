@@ -3,10 +3,11 @@
 $divceWidth: 2560px;
 $divceHeight: 1440px;
 
-html {
+/* html {
     height: -webkit-fill-available;
-}
+} */
 :root {
+    /* Color Set */
     --focus-txt-color: black;
     --basic-txt-color: #222222;
     --label-txt-color: #444444;
@@ -21,11 +22,18 @@ html {
     --modal-bg-color: rgba(34,34,34,0.7);
     --line-color: #C9C9C9;
     --progressing-color: deepskyblue;
+
+    /* Font Size */
+    --tit-f-size: 40px;
+    --stit-f-size: 24px;
+    --base-f-size: 16px;
+    --name-f-size: 14px;
+    --datetime-f-size: 12px;
 }
 body {
     margin: 0px;
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
-    font-size: 16px;
+    font-size: var(--base-f-size);
     font-weight: 400;
     word-break: keep-all;
     line-height: 150%;
@@ -46,7 +54,7 @@ button {
     border: 0px;
     border-radius: 0px;
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
-    font-size: 16px;
+    font-size: var(--base-f-size);
     font-weight: 400;
     appearance: none;
     -webkit-appearance: none;
@@ -70,11 +78,11 @@ h1,h2,h3,h4,h5 {
     margin: 0px;
 }
 h2 {
-    font-size: 40px;
+    font-size: var(--tit-f-size);
     line-height: 1;
 }
 h3 {
-    font-size: 24px;
+    font-size: var(--stit-f-size);
     line-height: 1;
 }
 p {
@@ -112,7 +120,7 @@ input[type="email"],
 input[type="tel"],
 textarea {
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
-    font-size: 16px;
+    font-size: var(--base-f-size);
     font-weight: 400;
     color: var(--basic-txt-color);
     border-radius: 0px;
@@ -126,6 +134,7 @@ textarea {
     resize: none;
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
     :root {
         --focus-txt-color: white;
@@ -141,5 +150,16 @@ textarea {
         --modal-bg-color: rgba(41,41,41,0.7);
         --line-color: #494949;
         --progressing-color: lawngreen;
+    }
+}
+
+/* Full HD */
+@media all and (max-width:1920px) {
+    :root {
+        --tit-f-size: 40px;
+        --stit-f-size: 26px;
+        --base-f-size: 16px;
+        --name-f-size: 14px;
+        --datetime-f-size: 12px;
     }
 }
