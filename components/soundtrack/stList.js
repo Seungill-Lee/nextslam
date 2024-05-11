@@ -16,7 +16,7 @@ export default function STItem() {
     const [playID,setPlayID] = useRecoilState(bgmPlayerID);
     const [playing,setPlaying] = useRecoilState(bgmPlaying); //Play, Pause, Error, Ready, Stop
 
-    console.log(playing)
+    //console.log(playing)
 
     return (
         <div className={`${scss.soundtrack} ${playID > 0 ? scss.view_detail : ""}`}>
