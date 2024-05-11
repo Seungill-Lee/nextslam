@@ -7,11 +7,7 @@ export const bgmPlayerID = atom({
 })
 export const bgmPlaying = atom({
     key: "bgmPlaying",
-    default: false
-})
-export const bgmPlayError = atom({
-    key: "bgmPlayError",
-    default: false
+    default: "Stop" //Play, Pause, Error, Ready, Stop
 })
 
 //방명록 관련
@@ -21,5 +17,5 @@ export const gbItemID = atom({
 })
 export const gbItemMode = atom({
     key: "gbItemMode",
-    default: "GET"
+    default: "GET" //GET, POST, PATCH, DELETE
 })

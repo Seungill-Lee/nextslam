@@ -6,7 +6,7 @@ import lottieJson from "./loadingLottie.json";
 export default function LoadingIcon(props) {
     return (
         <div className={props.className}>
-            <Lottie loop animationData={lottieJson} play={props.playIs} />
+            <Lottie loop animationData={lottieJson} play={true} />
         </div>
     )
 }
