@@ -6,7 +6,7 @@ $divceHeight: 1440px;
 /* Wrapper */
 #wrapper {
     position: relative;
-    padding-left: 321px;
+    padding-left: 361px;
     /* height: 100vh;
     height: -webkit-fill-available;
     overflow-x: hidden;
@@ -18,7 +18,7 @@ header#header {
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 321px;
+    width: 361px;
     height: 100%;
     padding: get-vh(100px,$divceHeight) 40px;
     border-right: 1px solid var(--line-color);
@@ -63,5 +63,18 @@ footer#footer {
     p.copyright {
         font-size: var(--name-f-size);
         color: var(--support-txt-color);
+    }
+}
+
+
+@media all and (max-width:1920px) {
+    /* Wrapper */
+    #wrapper {
+        padding-left: 321px;
+    }
+
+    /* Header */
+    header#header {
+        width: 321px;
     }
 }

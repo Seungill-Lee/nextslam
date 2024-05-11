@@ -1,20 +1,27 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 .home {
-    max-width: 1024px;
-    margin: 0px auto;
     text-align: center;
     h2 {
-        font-size: 60px;
+        font-size: get-vw(62px,$divceWidth);
         line-height: 1;
     }
     p.intro_msg {
-        margin: 40px 0px;
-        font-size: 20px;
+        margin: get-vw(36px,$divceWidth) 0px get-vw(44px,$divceWidth);
+        font-size: get-vw(22px,$divceWidth);
         line-height: 160%;
+        a {
+            transition: 0.3s ease color;
+        }
     }
     .banner_photo {
         img {
-            width: 100%;
-            max-height: auto;
+            height: get-vh(870px,$divceHeight);
+            width: auto;
+            max-width: 100%;
         }
     }
 }

@@ -25,7 +25,7 @@ $divceHeight: 1440px;
 
     /* Font Size */
     --tit-f-size: 40px;
-    --stit-f-size: 24px;
+    --stit-f-size: 26px;
     --base-f-size: 16px;
     --desc-f-size: 16px;
     --name-f-size: 14px;
@@ -157,8 +157,8 @@ textarea {
 /* Full HD */
 @media all and (max-width:1920px) {
     :root {
-        --tit-f-size: 40px;
-        --stit-f-size: 26px;
+        --tit-f-size: 36px;
+        --stit-f-size: 24px;
         --base-f-size: 16px;
         --desc-f-size: 15px;
         --name-f-size: 14px;
