@@ -14,7 +14,7 @@ import StDetail from "./stDetail.js";
 export default function STItem() {
     const [playID,setPlayID] = useRecoilState(bgmPlayerID);
     const [playing,setPlaying] = useRecoilState(bgmPlaying);
-    const [playError,statePlayError] = useRecoilState(bgmPlayError);
+    const [playError,setPlayError] = useRecoilState(bgmPlayError);
 
     return (
         <div className={`${scss.soundtrack} ${playID > 0 ? scss.view_detail : ""}`}>
@@ -30,7 +30,7 @@ export default function STItem() {
                                         }
                                         {playID == a.id ? 
                                             (playError ? 
-                                                <PlayErrorIcon className={scss.ico_error} /> : <SoundWaveIcon className={scss.sound_wave} playIs={playing ? true : false} />
+                                                <PlayErrorIcon className={scss.ico_error} /> : <SoundWaveIcon className={scss.ico_sound_wave} playIs={playing ? true : false} />
                                             )
                                          : ""}
                                     </div>

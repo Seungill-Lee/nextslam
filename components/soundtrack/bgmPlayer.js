@@ -26,7 +26,7 @@ export default function BgmPlayer() {
 
     const [playing,setPlaying] = useRecoilState(bgmPlaying);
     const [playID,setPlayID] = useRecoilState(bgmPlayerID);
-    const [playError,statePlayError] = useRecoilState(bgmPlayError);
+    const [playError,setPlayError] = useRecoilState(bgmPlayError);
     const bgmLen = data.length;
     const videoRef = useRef(null);
     const [currentTime,updateCurrentTime] = useState(0);
@@ -38,7 +38,7 @@ export default function BgmPlayer() {
         <div id={scss.bgm_player} className={playID > 0 ? scss["active"] : ""}>
             {isClient == true ?
                 <>
-                    <ReactPlayer url={playID > 0 ? data[playID-1].playerUrl : ""} ref={videoRef} onReady={() => playError ? statePlayError(false) : ''} onProgress={({played}) => updateCurrentTime(played)} controls={true} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} onError={() => statePlayError(true)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
+                    <ReactPlayer url={playID > 0 ? data[playID-1].playerUrl : ""} ref={videoRef} onReady={() => playError ? setPlayError(false) : ""} onProgress={({played}) => updateCurrentTime(played)} controls={true} playing={playing} loop={targetRepeat ? true : false} onEnded={() => playID == bgmLen ? setPlayID(1) : setPlayID(playID+1)} onError={() => setPlayError(true)} style={{"position":"absolute","top":"-9999px","left":"-9999px"}} />
                     <div className={scss.progress_bar}>
                         <input type="range" value={playID > 0 && !playError ? currentTime*1000 : 0} min={0} max={999} onChange={e => {updateCurrentTime(parseFloat(e.target.value/1000)); videoRef.current.seekTo(parseFloat(e.target.value/1000));}} />
                         <progress value={playID > 0 && !playError ? currentTime*1000 : 0} max={999}></progress>
