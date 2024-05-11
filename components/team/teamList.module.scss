@@ -6,9 +6,9 @@ $divceHeight: 1440px;
 /* 팀 목록 */
 ul.team_list {
     display: flex;
-    gap: 1.9531vw;
+    gap: get-vw(50px,$divceWidth);
     padding: 20px 0px 15px;
-    margin: 30px 0px 35px;
+    margin: 20px 0px 25px;
     background-color: var(--basic-bg-color);
     &:last-child {
         padding-bottom: 0px;
@@ -28,7 +28,7 @@ ul.team_list {
                 }
                 figcaption {
                     padding: 10px;
-                    margin-top: 20px;
+                    margin-top: 15px;
                     span {
                         display: flex;
                         width: 100%;
@@ -40,7 +40,7 @@ ul.team_list {
                             height: get-vw(83px,$divceWidth);
                             img {
                                 width: auto;
-                                max-height: 100%;
+                                height: get-vw(83px,$divceWidth);
                             }
                         }
                         &.tm_txt {
@@ -58,14 +58,20 @@ ul.team_list {
                         span.tm_txt {
                             color: #1A2B7D;
                         }
+                        span.tm_logo {
+                            img {
+                                height: get-vw(79px,$divceWidth);
+                            }
+                        }
                     }
                     &.shoyo {
                         span.tm_txt {
                             color: #278A2F;
                         }
-                        img {
-                            width:7.8125vw;
-                            height:2.1875vw;
+                        span.tm_logo {
+                            img {
+                                height: get-vw(57px,$divceWidth);
+                            }
                         }
                     }
                     &.kainan {

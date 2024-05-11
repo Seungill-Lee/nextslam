@@ -19,7 +19,7 @@ export default function TeamList() {
                                 <figure>
                                     <div className={scss.tm_photo}><Image src={"/images/team/photo_sdt_"+a.id+"_upscale.jpg"} alt="" width={403} height={596} /></div>
                                     <figcaption className={scss[a.id]}>
-                                        <span className={scss.tm_logo}><Image src={pathname == "/team/"+a.id ? "/images/team/logo_sdt_"+a.id+"_on.webp" : "/images/team/logo_sdt_"+a.id+"_off.webp"} alt={a.orgName} width={a.logoSize.width} height={a.logoSize.height} /></span>
+                                        <span className={scss.tm_logo}><Image src={pathname == "/team/"+a.id ? "/images/team/logo_sdt_"+a.id+"_on.png" : "/images/team/logo_sdt_"+a.id+"_off.png"} alt={a.orgName} width={a.logoSize.width} height={a.logoSize.height} /></span>
                                         <span className={scss.tm_txt}>{a.korName}</span>
                                     </figcaption>
                                 </figure>

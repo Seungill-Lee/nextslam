@@ -1,7 +1,12 @@
+@import "/app/vwvh";
+
+$divceWidth: 2560px;
+$divceHeight: 1440px;
+
 ul.charater_list {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 1.9531vw;
+    gap: get-vw(50px,$divceWidth);
     li {
         .photo {
             line-height: 1;
