@@ -103,11 +103,12 @@ nav#gnb {
         }
     }
     #bg_modal_gnb {
+        visibility: hidden;
         position: fixed;
         z-index: 9;
         inset: 80px 0px 0px;
         background-color: transparent;
-        transition: 0.3s ease background-color;
+        transition: 0.3s ease all;
         &.on {
             visibility: visible;
             background-color: var(--modal-bg-color);

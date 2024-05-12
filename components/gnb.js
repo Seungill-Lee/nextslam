@@ -14,8 +14,8 @@ const menuData = [
 ]
 
 export default function GNB() {
-    const pathname = usePathname()
-    const [gnbOpen,stateGnbOepn] = useState(false)
+    const pathname = usePathname();
+    const [gnbOpen,stateGnbOepn] = useState(false);
 
     return (
         <>
