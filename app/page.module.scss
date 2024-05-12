@@ -19,9 +19,9 @@ $divceHeight: 1440px;
     }
     .banner_photo {
         img {
-            height: get-vh(870px,$divceHeight);
             width: auto;
-            max-width: 100%;
+            height: 100%;
+            max-height: get-vh(870px,$divceHeight);
         }
     }
 }

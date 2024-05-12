@@ -1,5 +1,8 @@
 
 /* GNB */
+button#btn_gnb {
+    display: none;
+}
 nav#gnb {
     padding-top: 16px;
     ul {
@@ -15,6 +18,99 @@ nav#gnb {
                     text-underline-offset: 6px;
                 }
             }
+        }
+    }
+}
+.bg_modal_gnb {
+    visibility: hidden;
+}
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    button#btn_gnb {
+        position: absolute;
+        top: 27px;
+        right: 40px;
+        display: block;
+        width: 28px;
+        height: 25px;
+        overflow: hidden;
+        span {
+            position: absolute;
+            display: block;
+            &.bar {
+                width: 28px;
+                height: 3px;
+                background-color: var(--basic-txt-color);
+                transition: 0.3s ease all;
+                &:nth-child(1) {
+                    left: 0px;
+                    top: 0px;
+                }
+                &:nth-child(2) {
+                    right: 0px;
+                    top: 11px;
+                }
+                &:nth-child(3) {
+                    left: 0px;
+                    bottom: 0px;
+                }
+            }
+            &.txt {
+                top: -999%;
+                left: -999%;
+            }
+        }
+        &.on {
+            span.bar {
+                &:nth-child(1) {
+                    top: 8px;
+                    left: -2px;
+                    width: 20px;
+                    transform: rotate(-45deg);
+                }
+                &:nth-child(2) {
+                    top: 8px;
+                    right: -2px;
+                    width: 20px;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+    nav#gnb {
+        position: relative;
+        z-index: 10;
+        overflow: hidden;
+        height: 0px;
+        padding: 0px;
+        background-color: var(--basic-bg-color);
+        transition: 0.3s ease all;
+        ul {
+            visibility: hidden;
+            li {
+                &:first-child {
+                    margin-top: 0px;
+                }
+            }
+        }
+        &.on {
+            height: 264px;
+            padding: 16px 0px 40px;
+            ul {
+                visibility: visible;
+            }
+        }
+    }
+    #bg_modal_gnb {
+        position: fixed;
+        z-index: 9;
+        inset: 80px 0px 0px;
+        background-color: transparent;
+        transition: 0.3s ease background-color;
+        &.on {
+            visibility: visible;
+            background-color: var(--modal-bg-color);
         }
     }
 }
