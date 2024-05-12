@@ -78,6 +78,9 @@ footer#footer {
 
 /* Tablet */
 @media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
     /* Wrapper */
     #wrapper {
         padding-left: 0px;
@@ -110,8 +113,21 @@ footer#footer {
 
     /* Contents */
     main#contents {
+        min-height: 100vh;
         min-height: -webkit-fill-available;
-        padding: 120px 40px 80px;
+        padding: 140px 40px 80px;
         box-sizing: border-box;
+    }
+
+    /* 새로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        $divceWidth: 1024px;
+        $divceHeight: 1366px;
+
+        /* Contents */
+        main#contents {
+            min-height: calc(100vh - 100px);
+            min-height: calc(-webkit-fill-available - 100px);
+        }
     }
 }

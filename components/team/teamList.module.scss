@@ -6,7 +6,7 @@ $divceHeight: 1440px;
 /* 팀 목록 */
 ul.team_list {
     display: flex;
-    gap: get-vw(50px,$divceWidth);
+    gap: get-vw(40px,$divceWidth);
     padding: 20px 0px 15px;
     margin: 20px 0px 25px;
     background-color: var(--basic-bg-color);
@@ -86,7 +86,7 @@ ul.team_list {
     &.reduce {
         position: sticky;
         top: 0px;
-        gap: 25px;
+        gap: get-vw(20px,$divceWidth);
         box-shadow: 0px 5px 5px 5px var(--basic-bg-color);
         li {
             width: auto;
@@ -96,7 +96,7 @@ ul.team_list {
                         display: none;
                     }
                     figcaption {
-                        padding: 12px 20px;
+                        padding: 12px 24px;
                         border-radius: 12px;
                         margin-top: 0px;
                         transition: 0.3s ease color,0.3s ease background-color,0.3s ease box-shadow;
@@ -185,7 +185,7 @@ ul.team_list {
     }
 }
 
-
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
     ul.team_list {
         li {
@@ -201,6 +201,55 @@ ul.team_list {
                             span.tm_txt {
                                 color: #FDB927;
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    /* 팀 목록 */
+    ul.team_list {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: get-vw(40px,$divceWidth);
+        background-color: var(--basic-bg-color);
+        li {
+            width: 100%;
+            a {
+                figure {
+                    position: relative;
+                    figcaption {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        visibility: hidden;
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+        &.reduce {
+            top: 80px;
+            grid-template-columns: repeat(4,1fr);
+            gap: get-vw(40px,$divceWidth);
+            li {
+                width: auto;
+                a {
+                    figure {
+                        .tm_photo {
+                            display: none;
+                        }
+                        figcaption {
+                            position: static;
+                            visibility: visible;
+                            padding: 12px 0px;
                         }
                     }
                 }

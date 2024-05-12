@@ -136,3 +136,63 @@ $divceHeight: 1440px;
         }
     }
 }
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    .soundtrack {
+        > ul.st_list {
+            > li {
+                > a {
+                    > ul.album_info {
+                        position: relative;
+                        display: block;
+                        > li {
+                            line-height: 1;
+                            &.title {
+                                font-weight: 500;
+                            }
+                            &.artist {
+                                font-size: var(--name-f-size);
+                                opacity: 0.8;
+                                margin-top: 8px;
+                            }
+                            &.album_name {
+                                display: none;
+                            }
+                            &.time {
+                                position: absolute;
+                                top: 50%;
+                                right: 0px;
+                                width: 60px;
+                                opacity: 0.8;
+                                transform: translateY(-50%);
+                            }
+                        }
+                    }
+                    &:hover,
+                    &.active {
+                        > ul.album_info {
+                            > li {
+                                &.artist,
+                                &.time {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &.view_detail {
+            grid-template-columns: auto 0px;
+        }
+    }
+
+    /* 새로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        
+    }
+}

@@ -25,3 +25,59 @@ $divceHeight: 1440px;
         }
     }
 }
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    .home {
+        h2 {
+            font-size: get-vh(62px,$divceHeight);
+            line-height: 1;
+        }
+        p.intro_msg {
+            margin: get-vh(24px,$divceHeight) 0px get-vh(36px,$divceHeight);
+            font-size: get-vh(20px,$divceHeight);
+            line-height: 160%;
+            a {
+                transition: 0.3s ease color;
+            }
+        }
+        .banner_photo {
+            img {
+                width: auto;
+                height: 100%;
+                max-height: get-vh(540px,$divceHeight);
+            }
+        }
+    }
+
+    /* 세로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        $divceWidth: 1024px;
+        $divceHeight: 1366px;
+
+        .home {
+            h2 {
+                font-size: get-vh(58px,$divceHeight);
+                line-height: 1;
+            }
+            p.intro_msg {
+                margin: get-vh(34px,$divceHeight) 0px get-vh(42px,$divceHeight);
+                font-size: get-vh(20px,$divceHeight);
+                line-height: 160%;
+                a {
+                    transition: 0.3s ease color;
+                }
+            }
+            .banner_photo {
+                img {
+                    width: auto;
+                    height: 100%;
+                    max-height: get-vh(700px,$divceHeight);
+                }
+            }
+        }
+    }
+}

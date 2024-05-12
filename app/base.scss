@@ -166,6 +166,7 @@ textarea {
 /* Tablet */
 @media all and (max-width:1366px) {
     html,body {
+        height: 100vh;
         height: -webkit-fill-available;
     }
 }

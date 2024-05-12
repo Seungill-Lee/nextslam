@@ -6,7 +6,7 @@ $divceHeight: 1440px;
 ul.charater_list {
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: get-vw(50px,$divceWidth);
+    gap: get-vw(40px,$divceWidth);
     li {
         .photo {
             line-height: 1;
@@ -34,6 +34,40 @@ ul.charater_list {
             }
             dd {
                 background-color: var(--focus-bg-color);
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    ul.charater_list {
+        grid-template-columns: repeat(2,1fr);
+        gap: get-vw(40px,$divceWidth);
+        li {
+            .photo {
+                img {
+                    height: get-vh(300px,$divceHeight);
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    /* 새로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        $divceWidth: 1024px;
+        $divceHeight: 1366px;
+
+        ul.charater_list {
+            grid-template-columns: repeat(1,1fr);
+            li {
+                dl.info {
+                    grid-template-columns: 125px auto;
+                }
             }
         }
     }

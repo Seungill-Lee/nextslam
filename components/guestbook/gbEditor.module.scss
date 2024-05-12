@@ -95,3 +95,27 @@
         }
     }
 }
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    /* 새로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        .gb_editor {
+            fieldset {
+                dl {
+                    .field {
+                        grid-template-columns: 120px auto;
+                        dd {
+                            textarea {
+                                height: 200px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

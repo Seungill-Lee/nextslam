@@ -49,13 +49,12 @@ export default function RootLayout({ children }) {
                     </header>
                     
                     <hr />
-
-                    <main id={scss.contents}>
-                        <RecoilRoot>
+                    <RecoilRoot>
+                        <main id={scss.contents}>
                             {children}
-                            <BgmPlayer />
-                        </RecoilRoot>
-                    </main>
+                        </main>
+                        <BgmPlayer />
+                    </RecoilRoot>
 
                     <hr />
 
