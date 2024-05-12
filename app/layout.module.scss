@@ -7,10 +7,6 @@ $divceHeight: 1440px;
 #wrapper {
     position: relative;
     padding-left: 361px;
-    /* height: 100vh;
-    height: -webkit-fill-available;
-    overflow-x: hidden;
-    overflow-y: auto; */
 }
 
 /* Header */
@@ -85,6 +81,10 @@ footer#footer {
     /* Wrapper */
     #wrapper {
         padding-left: 0px;
+        height: 100vh;
+        height: -webkit-fill-available;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     /* Header */
@@ -111,7 +111,7 @@ footer#footer {
     /* Contents */
     main#contents {
         min-height: -webkit-fill-available;
-        padding: 179px 40px 100px;
+        padding: 120px 40px 80px;
         box-sizing: border-box;
     }
 }

@@ -3,9 +3,6 @@
 $divceWidth: 2560px;
 $divceHeight: 1440px;
 
-/* html {
-    height: -webkit-fill-available;
-} */
 :root {
     /* Color Set */
     --focus-txt-color: black;
@@ -163,5 +160,12 @@ textarea {
         --desc-f-size: 15px;
         --name-f-size: 14px;
         --datetime-f-size: 12px;
+    }
+}
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    html,body {
+        height: -webkit-fill-available;
     }
 }

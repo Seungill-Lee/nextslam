@@ -89,14 +89,22 @@ nav#gnb {
         ul {
             visibility: hidden;
             li {
-                &:first-child {
-                    margin-top: 0px;
+                margin-top: 0px;
+                padding: 6px 40px;
+                a {
+                    display: block;
+                    padding: 16px;
+                    border-radius: 12px;
+                    &.active {
+                        text-decoration: none;
+                        background-color: var(--point-alpha-color);
+                    }
                 }
             }
         }
         &.on {
-            height: 264px;
-            padding: 16px 0px 40px;
+            height: 340px;
+            padding: 14px 0px 16px;
             ul {
                 visibility: visible;
             }
