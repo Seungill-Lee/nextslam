@@ -7,3 +7,10 @@ ul.gb_list {
         border-bottom: 1px dashed var(--line-color);
     }
 }
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    ul.gb_list {
+        margin-top: 30px;
+    }
+}

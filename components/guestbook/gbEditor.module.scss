@@ -1,8 +1,4 @@
 .gb_editor {
-    margin-top: 40px;
-    &:first-child {
-        margin-top: 0px;
-    }
     fieldset {
         padding: 24px;
         border-radius: 12px;
@@ -101,14 +97,46 @@
     $divceWidth: 1366px;
     $divceHeight: 1024px;
 
+    .gb_editor {
+        fieldset {
+            dl {
+                .field {
+                    dt {
+                        padding: 11px 14px;
+                    }
+                    dd {
+                        input {
+                            height: 45px;
+                        }
+                        textarea {
+                            padding: 11px 14px;
+                            height: 220px;
+                        }
+                    }
+                }
+            }
+            .btn_submit {
+                button {
+                    padding: 12px 14px 11px;
+                }
+            }
+        }
+    }
+
     /* 새로모드 */
     @media all and (max-device-aspect-ratio:1/1) {
+        $divceWidth: 1024px;
+        $divceHeight: 1366px;
+
         .gb_editor {
             fieldset {
                 dl {
                     .field {
-                        grid-template-columns: 120px auto;
+                        grid-template-columns: 110px auto;
                         dd {
+                            input {
+                                height: 45px;
+                            }
                             textarea {
                                 height: 200px;
                             }

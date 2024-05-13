@@ -3,8 +3,8 @@
     z-index: 99;
     bottom: -104px;
     left: 0px;
-    display: grid;
-    grid-template-columns: 250px auto 180px;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 100px;
@@ -124,6 +124,8 @@
             }
         }
         span.play_time {
+            width: 62px;
+            white-space: nowrap;
             font-size: var(--datetime-f-size);
             line-height: 1;
             opacity: 0.8;
@@ -196,6 +198,115 @@
                 }
                 &:disabled {
                     opacity: 0.3;
+                }
+            }
+        }
+    }
+}
+
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    #bgm_player {
+        .playing_info {
+            gap: 0px 15px;
+            .album_cover {
+                width: 56px;
+                height: 56px;
+            }
+            ul {
+                li {
+                    line-height: 1;
+                    &.title {
+                        font-weight: 500;
+                    }
+                    &.artist {
+                        opacity: 0.8;
+                        font-size: var(--name-f-size);
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+        .sub_controls {
+            span.btn_ctrl_set {
+                gap: 0px 20px;
+            }
+        }
+    }
+
+    /* 세로모드 */
+    @media all and (max-device-aspect-ratio:1/1) {
+        $divceWidth: 1024px;
+        $divceHeight: 1366px;
+
+        #bgm_player {
+            padding-top: 32px;
+            .main_controls {
+                span.btn_ctrl_set {
+                    gap: 0px 20px;
+                    button {
+                        width: 25px;
+                        height: 25px;
+                        &.btn_player {
+                            width: 50px;
+                            height: 50px;
+                        }
+                        &:disabled {
+                            opacity: 0.3;
+                        }
+                    }
+                }
+                span.play_time {
+                    width: 62px;
+                    white-space: nowrap;
+                    font-size: var(--datetime-f-size);
+                    line-height: 1;
+                    opacity: 0.8;
+                }
+            }
+            .playing_info {
+                position: absolute;
+                top: 13px;
+                left: 40px;
+                right: 40px;
+                display: block;
+                padding: 0px 6px;
+                border-radius: 10px;
+                background: var(--point-alpha-color);
+                .album_cover {
+                    display: none;
+                }
+                ul {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 24px;
+                    li {
+                        color: var(--point-color);
+                        line-height: 1;
+                        white-space: nowrap;
+                        &.title {
+                            font-size: var(--datetime-f-size);
+                        }
+                        &.artist {
+                            opacity: 0.8;
+                            font-size: var(--datetime-f-size);
+                            margin-top: 0px;
+                            &:before {
+                                content: "";
+                                display: inline-block;
+                                width: 5px;
+                                height: 1px;
+                                vertical-align: middle;
+                                margin: 0px 10px;
+                                background-color: var(--point-color);
+                            }
+                        }
+                    }
                 }
             }
         }

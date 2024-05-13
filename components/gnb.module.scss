@@ -95,6 +95,7 @@ nav#gnb {
                     display: block;
                     padding: 16px;
                     border-radius: 12px;
+                    line-height: 1;
                     &.active {
                         text-decoration: none;
                         background-color: var(--point-alpha-color);
@@ -103,7 +104,7 @@ nav#gnb {
             }
         }
         &.on {
-            height: 340px;
+            height: 330px;
             padding: 14px 0px 16px;
             ul {
                 visibility: visible;

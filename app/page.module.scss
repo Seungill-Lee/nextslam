@@ -6,12 +6,12 @@ $divceHeight: 1440px;
 .home {
     text-align: center;
     h2 {
-        font-size: get-vw(62px,$divceWidth);
+        font-size: get-vw(66px,$divceWidth);
         line-height: 1;
     }
     p.intro_msg {
         margin: get-vw(36px,$divceWidth) 0px get-vw(44px,$divceWidth);
-        font-size: get-vw(22px,$divceWidth);
+        font-size: get-vw(24px,$divceWidth);
         line-height: 160%;
         a {
             transition: 0.3s ease color;
@@ -21,7 +21,7 @@ $divceHeight: 1440px;
         img {
             width: auto;
             height: 100%;
-            max-height: get-vh(870px,$divceHeight);
+            max-height: get-vh(840px,$divceHeight);
         }
     }
 }
@@ -33,7 +33,7 @@ $divceHeight: 1440px;
 
     .home {
         h2 {
-            font-size: get-vh(62px,$divceHeight);
+            font-size: get-vh(56px,$divceHeight);
             line-height: 1;
         }
         p.intro_msg {
@@ -60,12 +60,12 @@ $divceHeight: 1440px;
 
         .home {
             h2 {
-                font-size: get-vh(58px,$divceHeight);
+                font-size: get-vh(60px,$divceHeight);
                 line-height: 1;
             }
             p.intro_msg {
                 margin: get-vh(34px,$divceHeight) 0px get-vh(42px,$divceHeight);
-                font-size: get-vh(20px,$divceHeight);
+                font-size: get-vh(22px,$divceHeight);
                 line-height: 160%;
                 a {
                     transition: 0.3s ease color;
@@ -73,9 +73,9 @@ $divceHeight: 1440px;
             }
             .banner_photo {
                 img {
-                    width: auto;
-                    height: 100%;
-                    max-height: get-vh(700px,$divceHeight);
+                    width: 90%;
+                    height: auto;
+                    max-height: none;
                 }
             }
         }

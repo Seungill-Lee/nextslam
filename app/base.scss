@@ -3,6 +3,10 @@
 $divceWidth: 2560px;
 $divceHeight: 1440px;
 
+html {
+    height: 100vh;
+    height: 100dvh;
+}
 :root {
     /* Color Set */
     --focus-txt-color: black;
@@ -29,6 +33,8 @@ $divceHeight: 1440px;
     --datetime-f-size: 12px;
 }
 body {
+    height: 100vh;
+    height: 100dvh;
     margin: 0px;
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: var(--base-f-size);
@@ -37,7 +43,6 @@ body {
     line-height: 150%;
     color: var(--basic-txt-color);
     background-color: var(--basic-bg-color);
-    /* height: -webkit-fill-available; */
 }
 a {
     color: var(--basic-txt-color);
@@ -165,8 +170,12 @@ textarea {
 
 /* Tablet */
 @media all and (max-width:1366px) {
-    html,body {
-        height: 100vh;
-        height: -webkit-fill-available;
+    :root {
+        --tit-f-size: 34px;
+        --stit-f-size: 22px;
+        --base-f-size: 15px;
+        --desc-f-size: 15px;
+        --name-f-size: 13px;
+        --datetime-f-size: 12px;
     }
 }

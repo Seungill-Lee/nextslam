@@ -8,7 +8,6 @@ $divceHeight: 1440px;
     grid-template-columns: auto 0px;
     gap: 0px;
     overflow: hidden;
-    margin-top: 40px;
     transition: 0.75s ease grid-template-columns;
     > ul.st_list {
         border-top: 1px solid var(--line-color);
@@ -66,10 +65,11 @@ $divceHeight: 1440px;
                             background-color: var(--modal-bg-color);
                             svg {
                                 position: absolute;
-                                top: 9px;
-                                left: 9px;
+                                top: 50%;
+                                left: 50%;
                                 width: 40px !important;
                                 height: 40px !important;
+                                transform: translate(-50%,-50%) !important;
                                 path {
                                     stroke: var(--point-color);
                                 }
@@ -146,6 +146,8 @@ $divceHeight: 1440px;
         > ul.st_list {
             > li {
                 > a {
+                    gap: 0px 15px;
+                    grid-template-columns: 56px auto;
                     > ul.album_info {
                         position: relative;
                         display: block;

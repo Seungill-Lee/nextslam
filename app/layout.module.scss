@@ -5,6 +5,8 @@ $divceHeight: 1440px;
 
 /* Wrapper */
 #wrapper {
+    min-height: calc(100vh + 100px);
+    min-height: calc(100dvh + 100px);
     position: relative;
     padding-left: 361px;
 }
@@ -33,9 +35,12 @@ header#header {
 /* Contents */
 main#contents {
     min-height: 100vh;
-    /* min-height: -webkit-fill-available; */
+    min-height: 100dvh;
     padding: get-vh(97px,$divceHeight) 80px get-vh(100px,$divceHeight);
     box-sizing: border-box;
+    > h2 {
+        margin-bottom: 40px;
+    }
 }
 
 /* Footer */
@@ -84,10 +89,6 @@ footer#footer {
     /* Wrapper */
     #wrapper {
         padding-left: 0px;
-        height: 100vh;
-        height: -webkit-fill-available;
-        overflow-x: hidden;
-        overflow-y: auto;
     }
 
     /* Header */
@@ -113,10 +114,11 @@ footer#footer {
 
     /* Contents */
     main#contents {
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
         padding: 140px 40px 80px;
         box-sizing: border-box;
+        h2 {
+            margin-bottom: 30px;
+        }
     }
 
     /* 새로모드 */
@@ -124,10 +126,15 @@ footer#footer {
         $divceWidth: 1024px;
         $divceHeight: 1366px;
 
+        #wrapper {
+            min-height: 100vh;
+            min-height: 100dvh;
+        }
+
         /* Contents */
         main#contents {
             min-height: calc(100vh - 100px);
-            min-height: calc(-webkit-fill-available - 100px);
+            min-height: calc(100dvh - 100px);
         }
     }
 }

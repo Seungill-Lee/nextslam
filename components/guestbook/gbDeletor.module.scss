@@ -55,3 +55,29 @@ form.gb_deletor {
         }
     }
 }
+
+/* Tablet */
+@media all and (max-width:1366px) {
+    $divceWidth: 1366px;
+    $divceHeight: 1024px;
+
+    form.gb_deletor {
+        padding: 40px 0px;
+        p.msg {
+            font-size: 18px;
+        }
+        .field {
+            margin: 20px 0px;
+            input[type="password"] {
+                width: 332px;
+                height: 47px;
+                padding: 9px 14px 10px;
+            }
+        }
+        .btn_delete {
+            button {
+                padding: 12px 14px 11px;
+            }
+        }
+    }
+}
