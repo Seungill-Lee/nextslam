@@ -38,7 +38,7 @@ main#contents {
     min-height: 100dvh;
     padding: get-vh(97px,$divceHeight) 80px get-vh(100px,$divceHeight);
     box-sizing: border-box;
-    > h2 {
+    h2 {
         margin-bottom: 40px;
     }
 }

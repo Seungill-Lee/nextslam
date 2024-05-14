@@ -64,6 +64,7 @@ ul.charater_list {
 
         ul.charater_list {
             grid-template-columns: repeat(1,1fr);
+            gap: 30px;
             li {
                 dl.info {
                     grid-template-columns: 125px auto;

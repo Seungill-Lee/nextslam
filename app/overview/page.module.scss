@@ -50,20 +50,13 @@
         ul {
             > li {
                 position: relative;
-                padding-left: 15px;
+                padding-left: 14px;
                 & + li {
                     margin-top: 5px;
                 }
                 &:before {
-                    position: absolute;
-                    top: 8px;
-                    left: 2px;
-                    content: '';
-                    display: block;
-                    width: 5px;
-                    height: 5px;
-                    border-radius: 50%;
-                    background-color: var(--basic-txt-color);
+                    width: 4px;
+                    height: 4px;
                 }
             }
         }
