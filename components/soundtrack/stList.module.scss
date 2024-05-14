@@ -194,7 +194,7 @@ $divceHeight: 1440px;
     }
 
     /* 새로모드 */
-    @media all and (max-device-aspect-ratio:1/1) {
+    @media all and (max-width:1024px) and (orientation:portrait) {
         
     }
 }

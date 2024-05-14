@@ -179,3 +179,15 @@ textarea {
         --datetime-f-size: 12px;
     }
 }
+
+/* Mobile */
+@media all and (max-width:932px) {
+    :root {
+        --tit-f-size: 30px;
+        --stit-f-size: 20px;
+        --base-f-size: 14px;
+        --desc-f-size: 13px;
+        --name-f-size: 12px;
+        --datetime-f-size: 11px;
+    }
+}
