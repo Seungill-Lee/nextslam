@@ -9,8 +9,21 @@ ul.gb_list {
 }
 
 /* Tablet */
-@media all and (max-width:1366px) {
+@media all and (width <= 1366px) and (height <= 1366px)  {
     ul.gb_list {
         margin-top: 30px;
+        li {
+            padding: 20px 0px;
+        }
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        ul.gb_list {
+            margin-top: 25px;
+            li {
+                padding: 16px 0px;
+            }
+        }
     }
 }

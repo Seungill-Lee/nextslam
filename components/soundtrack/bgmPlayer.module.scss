@@ -205,7 +205,7 @@
 }
 
 /* Tablet */
-@media all and (max-width:1366px) {
+@media all and (width <= 1366px) and (height <= 1366px)  {
     $divceWidth: 1366px;
     $divceHeight: 1024px;
 
@@ -237,8 +237,8 @@
         }
     }
 
-    /* 세로모드 */
-    @media all and (max-width:1024px) and (orientation:portrait) {
+    /* Tablet 세로모드 */
+    @media (orientation:portrait) {
         $divceWidth: 1024px;
         $divceHeight: 1366px;
 
@@ -310,74 +310,70 @@
             }
         }
     }
-}
 
-
-/* Mobile */
-@media all and (max-width:932px) and (max-height:932px) {
-    $divceWidth: 932px;
-    $divceHeight: 430px;
-
-    #bgm_player {
-        height: 80px;
-        bottom: -84px;
-        padding: 0px 20px;
-        .main_controls {
-            gap: 0px 30px;
-            span.btn_ctrl_set {
-                gap: 0px 15px;
-            }
-            span.play_time {
-                display: none;
-            }
-        }
-        .playing_info {
-            gap: 0px 12px;
-            .album_cover {
-                width: 48px;
-                height: 48px;
-            }
-            ul {
-                li {
-                    line-height: 1;
-                    &.title {
-                        font-weight: 500;
-                    }
-                    &.artist {
-                        opacity: 0.8;
-                        font-size: var(--name-f-size);
-                        margin-top: 8px;
-                    }
-                }
-            }
-        }
-        .sub_controls {
-            span.btn_ctrl_set {
-                gap: 0px 15px;
-            }
-        }
-    }
-
-    /* 새로모드 */
-    @media all and (max-width:430px) and (orientation:portrait) {
-        $divceWidth: 430px;
-        $divceHeight: 932px;
-
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        $divceWidth: 932px;
+        $divceHeight: 430px;
+    
         #bgm_player {
-            height: 100px;
-            bottom: -104px;
-            padding-top: 34px;
+            height: 80px;
+            bottom: -84px;
+            padding: 0px 20px;
             .main_controls {
+                gap: 0px 30px;
                 span.btn_ctrl_set {
-                    gap: 0px 12px;
+                    gap: 0px 15px;
+                }
+                span.play_time {
+                    display: none;
                 }
             }
             .playing_info {
-                left: 20px;
-                right: 20px;
+                gap: 0px 12px;
+                .album_cover {
+                    width: 48px;
+                    height: 48px;
+                }
                 ul {
-                    li.artist {
-                        margin-top: 0px;
+                    li {
+                        line-height: 1;
+                        &.title {
+                            font-weight: 500;
+                        }
+                        &.artist {
+                            opacity: 0.8;
+                            font-size: var(--name-f-size);
+                            margin-top: 8px;
+                        }
+                    }
+                }
+            }
+            .sub_controls {
+                span.btn_ctrl_set {
+                    gap: 0px 15px;
+                }
+            }
+        }
+    
+        /* 세로모드 */
+        @media (orientation:portrait) {
+            #bgm_player {
+                height: 100px;
+                bottom: -104px;
+                padding-top: 34px;
+                .main_controls {
+                    span.btn_ctrl_set {
+                        gap: 0px 12px;
+                    }
+                }
+                .playing_info {
+                    left: 20px;
+                    right: 20px;
+                    ul {
+                        li.artist {
+                            margin-top: 0px;
+                        }
                     }
                 }
             }

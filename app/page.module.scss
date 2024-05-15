@@ -27,7 +27,7 @@ $divceHeight: 1440px;
 }
 
 /* Tablet */
-@media all and (max-width:1366px) {
+@media all and (width <= 1366px) and (height <= 1366px)  {
     $divceWidth: 1366px;
     $divceHeight: 1024px;
 
@@ -53,8 +53,8 @@ $divceHeight: 1440px;
         }
     }
 
-    /* 세로모드 */
-    @media all and (max-width:1024px) and (orientation:portrait) {
+    /* Tablet 세로모드 */
+    @media (orientation:portrait) {
         $divceWidth: 1024px;
         $divceHeight: 1366px;
 

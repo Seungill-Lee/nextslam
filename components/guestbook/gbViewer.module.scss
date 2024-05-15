@@ -68,3 +68,36 @@
         }
     }
 }
+
+/* Tablet */
+@media all and (width <= 1366px) and (height <= 1366px)  {
+    .gb_viewer {
+        .btn_set {
+            top: 20px;
+        }
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        .gb_viewer {
+            .profile {
+                gap: 0px 10px;
+                .photo {
+                    width: 40px;
+                    height: 40px;
+                }
+                .info {
+                    .date_time {
+                        margin-top: 7px;
+                    }
+                }
+            }
+            .content {
+                margin-top: 15px;
+            }
+            .btn_set {
+                top: 16px;
+            }
+        }
+    }
+}

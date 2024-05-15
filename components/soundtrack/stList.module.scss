@@ -206,7 +206,7 @@ $divceHeight: 1440px;
         }
     }
 
-    /* 새로모드 */
+    /* 세로모드 */
     @media all and (max-width:1024px) and (orientation:portrait) {
         
     }
@@ -250,7 +250,7 @@ $divceHeight: 1440px;
         }
     }
 
-    /* 새로모드 */
+    /* 세로모드 */
     @media all and (max-width:430px) and (orientation:portrait) {
         .soundtrack {
             > ul.st_list {

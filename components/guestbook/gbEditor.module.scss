@@ -93,7 +93,7 @@
 }
 
 /* Tablet */
-@media all and (max-width:1366px) {
+@media all and (width <= 1366px) and (height <= 1366px)  {
     $divceWidth: 1366px;
     $divceHeight: 1024px;
 
@@ -106,6 +106,7 @@
                     }
                     dd {
                         input {
+                            padding: 8px 14px 12px;
                             height: 45px;
                         }
                         textarea {
@@ -123,8 +124,8 @@
         }
     }
 
-    /* 새로모드 */
-    @media all and (max-width:1024px) and (orientation:portrait) {
+    /* Tablet 세로모드 */
+    @media (orientation:portrait) {
         $divceWidth: 1024px;
         $divceHeight: 1366px;
 
@@ -134,11 +135,55 @@
                     .field {
                         grid-template-columns: 110px auto;
                         dd {
+                            textarea {
+                                height: 180px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        .gb_editor {
+            fieldset {
+                padding: 20px;
+                border-radius: 10px;
+                dl {
+                    .field {
+                        grid-template-columns: 110px auto;
+                        dt {
+                            padding: 10px 14px 9px;
+                        }
+                        dd {
                             input {
-                                height: 45px;
+                                padding: 7px 14px 8px;
+                                height: 41px;
                             }
                             textarea {
-                                height: 200px;
+                                padding: 10px 14px 9px;
+                                height: 162px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /* Mobile 세로모드 */
+        @media (orientation:portrait) {
+            .gb_editor {
+                fieldset {
+                    dl {
+                        .field {
+                            grid-template-columns: 90px auto;
+                            grid-column: 1 / span 2;
+                            dd {
+                                textarea {
+                                    height: 200px;
+                                }
                             }
                         }
                     }
