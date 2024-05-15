@@ -157,7 +157,7 @@ footer#footer {
 
     /* Contents */
     main#contents {
-        padding: 99px 20px 40px;
+        padding: 99px 20px 60px;
         box-sizing: border-box;
         h2 {
             margin-bottom: 25px;
@@ -181,6 +181,10 @@ footer#footer {
 
     /* 새로모드 */
     @media all and (max-width:430px) and (orientation:portrait) {
-
+        /* Contents */
+        main#contents {
+            min-height: calc(100vh - 80px);
+            min-height: calc(100dvh - 80px);
+        }
     }
 }
