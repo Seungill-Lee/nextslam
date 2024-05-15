@@ -6,8 +6,9 @@ $divceHeight: 1440px;
 .home {
     text-align: center;
     h2 {
-        font-size: get-vw(66px,$divceWidth);
+        font-size: get-vw(64px,$divceWidth);
         line-height: 1;
+        margin-bottom: 0px !important;
     }
     p.intro_msg {
         margin: get-vw(36px,$divceWidth) 0px get-vw(44px,$divceWidth);
@@ -21,7 +22,7 @@ $divceHeight: 1440px;
         img {
             width: auto;
             height: 100%;
-            max-height: get-vh(840px,$divceHeight);
+            max-height: get-vw(760px,$divceWidth);
         }
     }
 }
@@ -33,12 +34,11 @@ $divceHeight: 1440px;
 
     .home {
         h2 {
-            font-size: get-vh(56px,$divceHeight);
-            line-height: 1;
+            font-size: get-vh(58px,$divceHeight);
         }
         p.intro_msg {
-            margin: get-vh(24px,$divceHeight) 0px get-vh(36px,$divceHeight);
-            font-size: get-vh(20px,$divceHeight);
+            margin: get-vh(28px,$divceHeight) 0px get-vh(36px,$divceHeight);
+            font-size: get-vh(24px,$divceHeight);
             line-height: 160%;
             a {
                 transition: 0.3s ease color;
@@ -60,22 +60,63 @@ $divceHeight: 1440px;
 
         .home {
             h2 {
-                font-size: get-vh(60px,$divceHeight);
-                line-height: 1;
+                font-size: get-vh(56px,$divceHeight);
             }
             p.intro_msg {
                 margin: get-vh(34px,$divceHeight) 0px get-vh(42px,$divceHeight);
                 font-size: get-vh(22px,$divceHeight);
                 line-height: 160%;
-                a {
-                    transition: 0.3s ease color;
-                }
             }
             .banner_photo {
                 img {
                     width: 90%;
                     height: auto;
                     max-height: none;
+                }
+            }
+        }
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        $divceWidth: 932px;
+        $divceHeight: 430px;
+
+        .home {
+            h2 {
+                font-size: get-vw(44px,$divceWidth);
+            }
+            p.intro_msg {
+                margin: get-vw(20px,$divceWidth) 0px get-vw(30px,$divceWidth);
+                font-size: get-vw(18px,$divceWidth);
+                line-height: 160%;
+            }
+            .banner_photo {
+                padding: 0px 60px;
+                img {
+                    width: 100%;
+                    height: auto;
+                    max-height: none;
+                }
+            }
+        }
+
+        /* Mobile 세로모드 */
+        @media (orientation:portrait) {
+            $divceWidth: 430px;
+            $divceHeight: 932px;
+
+            .home {
+                h2 {
+                    font-size: get-vw(34px,$divceWidth);
+                }
+                p.intro_msg {
+                    margin: get-vw(20px,$divceWidth) 0px get-vw(30px,$divceWidth);
+                    font-size: get-vw(16px,$divceWidth);
+                    line-height: 160%;
+                }
+                .banner_photo {
+                    padding: 0px;
                 }
             }
         }

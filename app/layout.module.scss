@@ -83,9 +83,6 @@ footer#footer {
 
 /* Tablet */
 @media all and (width <= 1366px) and (height <= 1366px)  {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
-
     /* Wrapper */
     #wrapper {
         padding-left: 0px;
@@ -123,9 +120,7 @@ footer#footer {
 
     /* Tablet 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 1024px;
-        $divceHeight: 1366px;
-
+        /* Wrapper */
         #wrapper {
             min-height: 100vh;
             min-height: 100dvh;
@@ -140,9 +135,6 @@ footer#footer {
 
     /* Mobile */
     @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        $divceWidth: 932px;
-        $divceHeight: 430px;
-
         /* Header */
         header#header {
             h1 {
