@@ -65,7 +65,7 @@ export default function BgmPlayer() {
                     <div className={scss.playing_info}>
                         <div className={scss.album_cover}>
                             {playID > 0 && data[playID-1].coverImgSrc ? 
-                                <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumName ? data[playID-1].albumName : ""} width={200} height={200} /> : <EmptyCover className={scss.empty} />
+                                <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={200} height={200} /> : <EmptyCover className={scss.empty} />
                             }
                         </div>
                         {playing == "Error" ?
