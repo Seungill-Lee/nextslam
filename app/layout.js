@@ -61,7 +61,7 @@ export default function RootLayout({ children }) {
                     <footer id={scss.footer}>
                         <p className={scss.copyright}>
                             Copyrightⓒ 2024 <a href="https://seungill-lee.github.io/portfolio/" target="_blank" title="새 창으로 열림">Seungill Lee</a>. All right reserved. <br />
-                            Powered by <a href="https://github.com/" target="_blank" title="새 창으로 열림">Github</a> and <a href="https://nextjs.org/blog/next-14" target="_blank" title="새 창으로 열림">Next.js 14</a>.
+                            Powered by <a href="https://www.mongodb.com/ko-kr" target="_blank" title="새 창으로 열림">MongoDB</a> and <a href="https://vercel.com/home" target="_blank" title="새 창으로 열림">Vercel</a>.
                         </p>
                     </footer>
                 </div>
