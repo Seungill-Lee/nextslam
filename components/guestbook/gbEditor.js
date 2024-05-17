@@ -66,7 +66,7 @@ export default function GbWrite(props) {
                 },
                 body: JSON.stringify(data)
             }
-            fetch(`http://localhost:9999/guestbook/${mode == "PATCH" ? gb.id : ""}`,options).then(resp=>resp.json()).then(result=> {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/guestbook/${mode == "PATCH" ? gb.id : ""}`,options).then(resp=>resp.json()).then(result=> {
                 setGbPassword(null); //비밀번호는 무조건 빈값으로 리셋
                 if(mode == "POST") {
                     setGbName(null);

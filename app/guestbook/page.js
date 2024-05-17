@@ -9,7 +9,7 @@ export const metadata = {
 
 export default async function Guestbook() {
     try {
-        const resp = await fetch("http://localhost:9999/guestbook", { cache: "no-store" });
+        const resp = await fetch(process.env.NEXT_PUBLIC_API_URL+"/guestbook", { cache: "no-store" });
         const gbData = await resp.json();
 
         return (

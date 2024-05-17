@@ -36,7 +36,7 @@ export default function GbDeletor(props) {
             }
             console.log(gb.id)
             
-            fetch(`http://localhost:9999/guestbook/${gb.id}`,options).then(resp => resp.json()).then(result => {
+            fetch(`${process.env.NEXT_PUBLIC_API_URL}/guestbook/${gb.id}`,options).then(resp => resp.json()).then(result => {
                 router.refresh();
             })
         }}>
