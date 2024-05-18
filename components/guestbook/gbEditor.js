@@ -1,15 +1,13 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import moment from 'moment';
 import scss from "./gbEditor.module.scss";
 import { useId, useState, useEffect } from 'react';
 import { useRecoilState } from "recoil";
 import { gbItemID , gbItemMode } from "../atom.js"
+import { GbEditorBtn } from "./gbBtnSet.js"
+import { handleSubmit } from "./gbAction.js"
 
 export default function GbWrite(props) {
-    const router = useRouter();
     const Labeling = useId();
     const mode = props.mode;
     const gb = props.data;
@@ -22,6 +20,7 @@ export default function GbWrite(props) {
     
     const [gbId, setGbId] = useRecoilState(gbItemID)
     const [gbMode, setGbMode] = useRecoilState(gbItemMode)
+    const gbSubmit = handleSubmit.bind(null,mode,gbId);
 
     useEffect(() => {
         if(gb) {
@@ -38,17 +37,7 @@ export default function GbWrite(props) {
 
     return(
         <form className={scss.gb_editor} onSubmit={(e) => {
-            e.preventDefault();
-
             const gbEditform = e.target;
-
-            let data = {
-                name: gbEditform.name.value,
-                email: gbEditform.email.value,
-                password: gbEditform.password.value,
-                dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
-                content: gbEditform.content.value
-            }
 
             if(mode == "PATCH") {
                 if(orgPassword != gbPassword) {
@@ -56,30 +45,17 @@ export default function GbWrite(props) {
                     setGbPassword("");
                     gbEditform.password.focus();
                     return false;
-                }
-            }
-
-            const options = {
-                method: mode,
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            }
-            fetch(`${process.env.NEXT_PUBLIC_API_URL}/guestbook/${mode == "PATCH" ? gb.id : ""}`,options).then(resp=>resp.json()).then(result=> {
-                setGbPassword(null); //비밀번호는 무조건 빈값으로 리셋
-                if(mode == "POST") {
-                    setGbName(null);
-                    setGbEmail(null);
-                    setGbContent(null);
-                    router.push("/guestbook");
-                } else if(mode == "PATCH") {
+                } else {
                     setGbId(gb.id)
                     setGbMode("GET")
                 }
-                router.refresh();
-            });
-        }}>
+            } else {
+                setGbName("")
+                setGbPassword("");
+                setGbEmail("")
+                setGbContent("")
+            }
+        }} action={gbSubmit}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
@@ -101,8 +77,14 @@ export default function GbWrite(props) {
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
-                    {props.mode == "PATCH" ? <button type="button" onClick={() => `${setGbId(gb.id)} ${setGbMode("GET")}`}>돌아가기</button> : ""}
-                    <button type="submit">{props.mode == "PATCH" ? "수정하기" : "등록하기"}</button>
+                    {props.mode == "PATCH" ? 
+                        <>
+                            <GbEditorBtn roles="Return" data={gb}>돌아가기</GbEditorBtn>
+                            <GbEditorBtn roles="Submit" data={gb}>수정하기</GbEditorBtn>
+                        </>
+                        :
+                        <GbEditorBtn roles="Submit">등록하기</GbEditorBtn>
+                    }
                 </div>
             </fieldset>
         </form>
