@@ -15,7 +15,7 @@ export default function GbViewer(props) {
     //console.log(gbId,gbMode)
 
     return(
-        <div className={scss.gb_viewer} key={gb.id}>
+        <div className={scss.gb_viewer}>
             <div className={scss.profile}>
                 <div className={scss.photo}>
                     <GravatarN email={gb.email} />
@@ -26,9 +26,7 @@ export default function GbViewer(props) {
                 </div>
             </div>
             <div className={scss.content}>
-                {`${gb.content}`.split("\n").map((line,i) => {
-                    return <Fragment key={i+1}>{line}<br /></Fragment>;
-                })}
+                {gb.content}
             </div>
             <div className={scss.btn_set}>
                 <button type="button" className={scss.btn_edit} onClick={() => `${setGbId(gb.id)} ${setGbMode("PATCH")}`}><GbIcon shape="Edit" /><span className={scss.txt}>수정</span></button>

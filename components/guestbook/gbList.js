@@ -31,15 +31,16 @@ export default function GbList(props) {
                 {gbData ? gbData.map((gb, i) => {
                     return (
                         i >= `${limitLen*(pageNum-1) || 0}` && i < `${limitLen*pageNum || limitLen}` ?
-                        <li key={gb.id}>
+                        <li key={i+1}>
                             { 
-                                gbId == gb.id ?
+                                /* gbId == gb["_id"].toString() ?
                                     {
                                         "GET": <GbViewer data={gb} />,
                                         "PATCH" : <GbEditor mode="PATCH" data={gb} />,
                                         "DELETE" : <GbDeletor data={gb} />,
                                     }[gbMode]
-                                : <GbViewer data={gb} />
+                                : <GbViewer data={gb} /> */
+                                <GbViewer data={gb} />
                             }
                         </li> : ""
                     );
