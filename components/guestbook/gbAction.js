@@ -1,8 +1,15 @@
 'use server';
 
+import { MongoClient, ObjectId } from 'mongodb'
 import moment from 'moment';
 import { revalidatePath } from 'next/cache';
 import { cipher } from '../crypto.js'
+
+// Connection URL
+const username = encodeURIComponent(process.env.NEXT_PUBLIC_DB_USERNAME);
+const password = encodeURIComponent(process.env.NEXT_PUBLIC_DB_PASSWORD);
+const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
+const client = new MongoClient(url);
 
 export async function handleSubmit(mode,gbId,formData) {
     const gbID = gbId;
@@ -14,17 +21,26 @@ export async function handleSubmit(mode,gbId,formData) {
         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         content: formData.get("content")
     }
-    const options = {
-        method: mode,
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(data)
-    }
-    //console.log(options["method"])
+    const objGbID = new ObjectId(gbID)
 
-    const resp = await fetch(process.env.NEXT_PUBLIC_API_URL+`/guestbook/${mode != "POST" ? gbID : ""}`, options);
-    const gbData = await resp.json();
+    await client.connect();
+    const db = client.db('next_slam');
+    const collection = db.collection('guestbook')
+
+    console.log(mode)
+
+    switch(mode) {
+        case "POST":
+            await collection.insertOne(data);
+            break;
+        case "PATCH":
+            await collection.replaceOne({"_id": objGbID},data);
+            break;
+        case "DELETE":
+            await collection.deleteOne({"_id": objGbID});
+            break;
+        default: null
+    }
 
     revalidatePath("/guestbook")
 }

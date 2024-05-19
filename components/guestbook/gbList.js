@@ -33,7 +33,7 @@ export default function GbList(props) {
                         i >= `${limitLen*(pageNum-1) || 0}` && i < `${limitLen*pageNum || limitLen}` ?
                         <li key={i+1}>
                             { 
-                                gbId == gb.id ?
+                                gbId == gb._id ?
                                     {
                                         "GET": <GbViewer data={gb} />,
                                         "PATCH" : <GbEditor mode="PATCH" data={gb} />,

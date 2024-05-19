@@ -47,7 +47,7 @@ export default function GbWrite(props) {
                     gbEditform.password.focus();
                     return false;
                 } else {
-                    setGbId(gb.id)
+                    setGbId(gb._id)
                     setGbMode("GET")
                 }
             } else {

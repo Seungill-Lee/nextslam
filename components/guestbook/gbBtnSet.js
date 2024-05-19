@@ -11,11 +11,11 @@ export function GbViewerBtn(props) {
     switch (props.roles) {
         case "Edit":
             return (
-                <button type="button" className={props.className} onClick={() => `${setGbId(gb.id)} ${setGbMode("PATCH")}`}>{props.children}</button>
+                <button type="button" className={props.className} onClick={() => `${setGbId(gb._id)} ${setGbMode("PATCH")}`}>{props.children}</button>
             )
         case "Delete":
             return (
-                <button type="button" className={props.className} onClick={() => `${setGbId(gb.id)} ${setGbMode("DELETE")}`}>{props.children}</button>
+                <button type="button" className={props.className} onClick={() => `${setGbId(gb._id)} ${setGbMode("DELETE")}`}>{props.children}</button>
             )
         default:
             return null;
@@ -34,7 +34,7 @@ export function GbEditorBtn(props) {
             )
         case "Return":
             return (
-                <button type="button" onClick={() => `${setGbId(gb.id)} ${setGbMode("GET")}`}>{props.children}</button>
+                <button type="button" onClick={() => `${setGbId(gb._id)} ${setGbMode("GET")}`}>{props.children}</button>
             )
         default:
             return null;

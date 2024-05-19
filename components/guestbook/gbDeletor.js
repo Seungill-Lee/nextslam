@@ -31,7 +31,7 @@ export default function GbDeletor(props) {
                 gbDeleteform.password.focus();
                 return false;
             } else {
-                setGbId(gb.id)
+                setGbId(gb._id)
             }
         }} action={gbSubmit}>
             <p className={scss.msg}>정말 삭제하시겠습니까??</p>
