@@ -43,7 +43,6 @@ export default function GbWrite(props) {
             if(mode == "PATCH") {
                 if(decipher(orgPassword) != gbPassword) {
                     alert("비밀번호가 틀렸어요")
-                    console.log(decipher(orgPassword))
                     setGbPassword("");
                     gbEditform.password.focus();
                     return false;

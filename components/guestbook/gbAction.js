@@ -6,7 +6,7 @@ import { cipher } from '../crypto.js'
 
 export async function handleSubmit(mode,gbId,formData) {
     const gbID = gbId;
-    console.log(gbID)
+    //console.log(gbID)
     const data = {
         name: formData.get("name"),
         email: formData.get("email"),

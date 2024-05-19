@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { gbItemID , gbItemMode } from "../atom.js"
 import { GbEditorBtn } from "./gbBtnSet.js"
 import { handleSubmit } from "./gbAction.js"
+import { decipher } from '../crypto.js'
 
 export default function GbDeletor(props) {
     const gb = props.data;
@@ -24,7 +25,7 @@ export default function GbDeletor(props) {
         <form className={scss.gb_deletor} onSubmit={e => {
             const gbDeleteform = e.target;
 
-            if(orgPassword != gbPassword) {
+            if(decipher(orgPassword) != gbPassword) {
                 alert("비밀번호가 틀렸어요")
                 setGbPassword("");
                 gbDeleteform.password.focus();
