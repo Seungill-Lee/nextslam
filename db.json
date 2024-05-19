@@ -215,6 +215,70 @@
       "dateTime": "2024-05-19 02:05:24",
       "content": "드디어 삭제기능까지 모두 수정 완료하였다.\r\n기존에 클라이언트 컴포넌트를 이용하여 form onSubmit 전송 방식으로 개발했던 것들을 이번에 모두 서버 컴포넌트를 이용하여 form action 전송 방식으로 변경 완료 한 것이다.\r\n적어도 브라우저 개발자모드에서 주요 정보가 털릴일은 없겠지?? 아마도??? ",
       "id": 37
+    },
+    {
+      "name": "비밀승일",
+      "email": "secret@vercel.app",
+      "password": null,
+      "dateTime": "2024-05-19 14:40:38",
+      "content": "비밀이 지켜질까??? 음..",
+      "id": 38
+    },
+    {
+      "name": "비밀승일",
+      "email": "efsdfsdk@nate.com",
+      "password": null,
+      "dateTime": "2024-05-19 14:43:19",
+      "content": "비밀이 안 지켜지는 중...",
+      "id": 39
+    },
+    {
+      "name": "비밀승일",
+      "email": "32432@nate.com",
+      "password": null,
+      "dateTime": "2024-05-19 14:49:14",
+      "content": "비밀이 안 지켜지는 중...",
+      "id": 40
+    },
+    {
+      "name": "비밀승일",
+      "email": "erwerw4r@nate.com",
+      "password": "U2FsdGVkX18toL2T2LWrhbdF3BF8J9SGcPjTG5XAluk=",
+      "dateTime": "2024-05-19 14:52:23",
+      "content": "비밀아 지켜져라...",
+      "id": 41
+    },
+    {
+      "name": "다시비밀",
+      "email": "evrwer@nate.com",
+      "password": "U2FsdGVkX18/Soo7hs8+3PCkYzeJ49+W4FCTz/c4zcg=",
+      "dateTime": "2024-05-19 14:53:45",
+      "content": "비밀아 다시한번만 더....",
+      "id": 42
+    },
+    {
+      "name": "라스트비밀",
+      "email": "ever9415@github.com",
+      "password": "U2FsdGVkX19uFjiRO0HZ+NKpNFCrGyyAAMLspFzCs60=",
+      "dateTime": "2024-05-19 15:02:13",
+      "content": "환경변수 Key값 심어놓고 암호화 시키기....\r\n성공해라.. 재발 ㅋ",
+      "id": 43
+    },
+    {
+      "name": "라스트비밀2",
+      "email": "ewrwer@nate.com",
+      "password": "U2FsdGVkX19MWMW0p9Map0fNiK/td8oWF+yTvRwcfp8=",
+      "dateTime": "2024-05-19 15:03:33",
+      "content": "이게 지금 리액트가 아니잖아???",
+      "id": 44
+    },
+    {
+      "name": "서버승일",
+      "email": "ever9415@nate.com",
+      "password": "U2FsdGVkX1/4DK63iG+Wew6yc+JQb12yVV498eIYOpM=",
+      "dateTime": "2024-05-19 15:17:23",
+      "content": "이제 리액트(프론트)로 통신 안하는데 환경변수 NEXT_PUBLIC_를 붙힐 필요가 없지 않을까??\r\n환경변수에서 NEXT_PUBLIC_ 를 빼보았다.\r\n그리고 수정은 잘 될까????",
+      "id": 45
     }
   ]
 }

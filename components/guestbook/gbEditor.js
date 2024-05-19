@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { gbItemID , gbItemMode } from "../atom.js"
 import { GbEditorBtn } from "./gbBtnSet.js"
 import { handleSubmit } from "./gbAction.js"
+import { decipher } from '../crypto.js'
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -40,8 +41,9 @@ export default function GbWrite(props) {
             const gbEditform = e.target;
 
             if(mode == "PATCH") {
-                if(orgPassword != gbPassword) {
+                if(decipher(orgPassword) != gbPassword) {
                     alert("비밀번호가 틀렸어요")
+                    console.log(decipher(orgPassword))
                     setGbPassword("");
                     gbEditform.password.focus();
                     return false;

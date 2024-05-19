@@ -2,13 +2,15 @@
 
 import moment from 'moment';
 import { revalidatePath } from 'next/cache';
+import { cipher } from '../crypto.js'
 
 export async function handleSubmit(mode,gbId,formData) {
     const gbID = gbId;
+    console.log(gbID)
     const data = {
         name: formData.get("name"),
         email: formData.get("email"),
-        password: formData.get("password"),
+        password: cipher(formData.get("password")),
         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         content: formData.get("content")
     }
