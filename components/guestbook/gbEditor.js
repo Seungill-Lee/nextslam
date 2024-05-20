@@ -2,9 +2,6 @@
 
 import scss from "./gbEditor.module.scss";
 import { useId, useState, useEffect } from 'react';
-import { useRecoilState } from "recoil";
-import { gbItemID , gbItemMode } from "../atom.js"
-import { GbEditorBtn } from "./gbBtnSet.js"
 import { handleSubmit } from "./gbAction.js"
 import { decipher } from '../crypto.js'
 
@@ -12,19 +9,20 @@ export default function GbWrite(props) {
     const Labeling = useId();
     const mode = props.mode;
     const gb = props.data;
+    const targetId = props.targetId;
+    const changeMode = props.changeMode;
 
+    const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
     const [gbPassword, setGbPassword] = useState();
     const [orgPassword, checkOrgPassword] = useState();
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
-    
-    const [gbId, setGbId] = useRecoilState(gbItemID)
-    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
     const gbSubmit = handleSubmit.bind(null,mode,gbId);
 
     useEffect(() => {
         if(gb) {
+            setGbId(gb._id);
             setGbName(gb.name)
             setGbPassword(null);
             setGbEmail(gb.email)
@@ -47,8 +45,7 @@ export default function GbWrite(props) {
                     gbEditform.password.focus();
                     return false;
                 } else {
-                    setGbId(gb._id)
-                    setGbMode("GET")
+                    changeMode("GET")
                 }
             } else {
                 setGbName("")
@@ -80,11 +77,11 @@ export default function GbWrite(props) {
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
-                            <GbEditorBtn roles="Return" data={gb}>돌아가기</GbEditorBtn>
-                            <GbEditorBtn roles="Submit" data={gb}>수정하기</GbEditorBtn>
+                            <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("GET")}`}>돌아가기</button>
+                            <button type="submit">수정하기</button>
                         </>
                         :
-                        <GbEditorBtn roles="Submit">등록하기</GbEditorBtn>
+                        <button type="submit">등록하기</button>
                     }
                 </div>
             </fieldset>

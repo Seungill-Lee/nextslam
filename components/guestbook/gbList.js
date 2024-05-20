@@ -7,14 +7,11 @@ import GbViewer from "/components/guestbook/gbViewer.js";
 import GbDeletor from "/components/guestbook/gbDeletor.js";
 import GbPager from "/components/guestbook/gbPager.js";
 import { useState, useEffect } from 'react';
-import { useRecoilValue } from "recoil";
-import { gbItemID , gbItemMode } from "../atom.js"
 
 export default function GbList(props) {
     const [gbData, setGbData] = useState();
-    const gbId = useRecoilValue(gbItemID);
-    const gbMode = useRecoilValue(gbItemMode);
-    const gbLen = props.data.length;
+    const [gbId,setGbId] = useState();
+    const [gbMode,setGbMode] = useState("GET");
     const limitLen = 5;
     const searchParams = useSearchParams();
     const pageNum = searchParams.get("page_num");
@@ -22,6 +19,13 @@ export default function GbList(props) {
     useEffect(() => {
         setGbData(props.data)
     },[props.data])
+
+    const targetId = (id) => {
+        setGbId(id)
+    }
+    const changeMode = (mode) => {
+        setGbMode(mode)
+    }
 
     //console.log(limitLen*searchParams.get("page_num"))
 
@@ -35,17 +39,17 @@ export default function GbList(props) {
                             { 
                                 gbId == gb._id ?
                                     {
-                                        "GET": <GbViewer data={gb} />,
-                                        "PATCH" : <GbEditor mode="PATCH" data={gb} />,
-                                        "DELETE" : <GbDeletor data={gb} />,
+                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />,
+                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} />,
+                                        "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                     }[gbMode]
-                                : <GbViewer data={gb} />
+                                : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />
                             }
                         </li> : ""
                     );
                 }) : null}
             </ul>
-            <GbPager dataLength={gbLen ? gbLen : 0} viewLen={limitLen} pageNum={pageNum || 1} />
+            <GbPager data={gbData ? gbData : ""} viewLen={limitLen} pageNum={pageNum || 1} />
         </>
     )
 }

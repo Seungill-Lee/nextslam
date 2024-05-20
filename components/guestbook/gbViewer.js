@@ -1,12 +1,13 @@
 import GravatarN from "./gravatar.js";
-import { GbViewerBtn } from "./gbBtnSet.js";
 import GbIcon from "./gbIconSet.js";
 import scss from "./gbViewer.module.scss";
 
 export default function GbViewer(props) {
     const gb = props.data;
+    const targetId = props.targetId;
+    const changeMode = props.changeMode;
 
-    //console.log(gbId,gbMode)
+    //console.log(gb)
 
     return(
         <div className={scss.gb_viewer}>
@@ -23,12 +24,12 @@ export default function GbViewer(props) {
                 {gb.content}
             </div>
             <div className={scss.btn_set}>
-                <GbViewerBtn roles="Edit" className={scss.btn_edit} data={gb}>
+                <button type="button" className={scss.btn_edit} onClick={() => `${targetId(gb._id)} ${changeMode("PATCH")}`}>
                     <GbIcon shape="Edit" /><span className={scss.txt}>수정</span>
-                </GbViewerBtn>
-                <GbViewerBtn roles="Delete" className={scss.btn_delete} data={gb}>
+                </button>
+                <button type="button" className={scss.btn_delete} onClick={() => `${targetId(gb._id)} ${changeMode("DELETE")}`}>
                     <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
-                </GbViewerBtn>
+                </button>
             </div>
         </div>
     )

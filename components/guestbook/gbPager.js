@@ -6,14 +6,18 @@ import scss from "./gbPager.module.scss";
 import { useState, useEffect } from "react";
 
 export default function GbPager(props) {
+    const gbData = props.data;
+    const [gbLen,getGbLen] = useState(0)
     const router = useRouter();
     const pageNum = Number(props.pageNum);
     const [totalPageNum, setTotalPageNum] = useState();
     const viewLen = Number(props.viewLen);
 
     useEffect(() => {
-        setTotalPageNum(Math.ceil(props.dataLength/viewLen))
-    },[viewLen])
+        //console.log(gbData.length)
+        getGbLen(gbData.length)
+        setTotalPageNum(Math.ceil(gbData.length/viewLen))
+    },[gbData.length])
 
     return(
         <div className={scss.gb_pager}>

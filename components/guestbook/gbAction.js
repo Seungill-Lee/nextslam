@@ -13,7 +13,6 @@ const client = new MongoClient(url);
 
 export async function handleSubmit(mode,gbId,formData) {
     const gbID = gbId;
-    //console.log(gbID)
     const data = {
         name: formData.get("name"),
         email: formData.get("email"),
@@ -26,8 +25,6 @@ export async function handleSubmit(mode,gbId,formData) {
     await client.connect();
     const db = client.db('next_slam');
     const collection = db.collection('guestbook')
-
-    console.log(mode)
 
     switch(mode) {
         case "POST":
