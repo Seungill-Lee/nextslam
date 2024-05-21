@@ -12,6 +12,7 @@ export default function GbList(props) {
     const [gbData, setGbData] = useState();
     const [gbId,setGbId] = useState();
     const [gbMode,setGbMode] = useState("GET");
+    const [updatedId,getUpdatedId] = useState();
     const limitLen = 5;
     const searchParams = useSearchParams();
     const pageNum = searchParams.get("page_num");
@@ -26,6 +27,9 @@ export default function GbList(props) {
     const changeMode = (mode) => {
         setGbMode(mode)
     }
+    const updateTargetId = (id) => {
+        getUpdatedId(id);
+    }
 
     //console.log(limitLen*searchParams.get("page_num"))
 
@@ -39,8 +43,8 @@ export default function GbList(props) {
                             { 
                                 gbId == gb._id ?
                                     {
-                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />,
-                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} />,
+                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} />,
+                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
                                         "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                     }[gbMode]
                                 : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />

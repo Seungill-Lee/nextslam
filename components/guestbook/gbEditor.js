@@ -10,6 +10,7 @@ export default function GbWrite(props) {
     const mode = props.mode;
     const gb = props.data;
     const targetId = props.targetId;
+    const updateTargetId = props.updateTargetId;
     const changeMode = props.changeMode;
 
     const [gbId,setGbId] = useState();
@@ -45,6 +46,7 @@ export default function GbWrite(props) {
                     gbEditform.password.focus();
                     return false;
                 } else {
+                    updateTargetId(gb._id)
                     changeMode("GET")
                 }
             } else {
@@ -77,7 +79,7 @@ export default function GbWrite(props) {
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
-                            <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("GET")}`}>돌아가기</button>
+                            <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("GET")} ${updateTargetId("")}`}>돌아가기</button>
                             <button type="submit">수정하기</button>
                         </>
                         :
