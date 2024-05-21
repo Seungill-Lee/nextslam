@@ -1,12 +1,12 @@
 'use client'
 
-import { useRecoilState } from "recoil";
+import { useAtom } from "jotai";
 import { gbItemID , gbItemMode } from "../atom.js"
 
 export function GbViewerBtn(props) {
     const gb = props.data;
-    const [gbId, setGbId] = useRecoilState(gbItemID)
-    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
+    const [gbId, setGbId] = useAtom(gbItemID)
+    const [gbMode, setGbMode] = useAtom(gbItemMode)
 
     switch (props.roles) {
         case "Edit":
@@ -24,8 +24,8 @@ export function GbViewerBtn(props) {
 
 export function GbEditorBtn(props) {
     const gb = props.data;
-    const [gbId, setGbId] = useRecoilState(gbItemID)
-    const [gbMode, setGbMode] = useRecoilState(gbItemMode)
+    const [gbId, setGbId] = useAtom(gbItemID)
+    const [gbMode, setGbMode] = useAtom(gbItemMode)
 
     switch (props.roles) {
         case "Submit":

@@ -3,14 +3,14 @@
 import Link from 'next/link';
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useRecoilValue } from "recoil";
+import { useAtomValue } from "jotai";
 import { bgmPlayerID } from "../atom.js"
 import scss from "./stDetail.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 
 export default function StDetail() {
-    const playID = useRecoilValue(bgmPlayerID)
+    const playID = useAtomValue(bgmPlayerID)
     const stDetail = useRef();
     const detailInner = useRef();
 

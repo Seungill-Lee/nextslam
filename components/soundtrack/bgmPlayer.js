@@ -5,7 +5,7 @@ import Image from 'next/image';
 import scss from "./bgmPlayer.module.scss";
 import { useState, useEffect, useRef } from 'react'
 import ReactPlayer from 'react-player/lazy';
-import { useRecoilState } from "recoil";
+import { useAtom } from "jotai";
 import { bgmPlayerID, bgmPlaying } from "../atom.js"
 import data from './data.json';
 import TimeConverter from "./timeConverter.js"
@@ -24,8 +24,8 @@ export default function BgmPlayer() {
         }
     }, [pathname])
 
-    const [playing,setPlaying] = useRecoilState(bgmPlaying); //Play, Pause, Error, Ready, Stop
-    const [playID,setPlayID] = useRecoilState(bgmPlayerID);
+    const [playing,setPlaying] = useAtom(bgmPlaying); //Play, Pause, Error, Ready, Stop
+    const [playID,setPlayID] = useAtom(bgmPlayerID);
     const bgmLen = data.length;
     const videoRef = useRef(null);
     const [currentTime,updateCurrentTime] = useState(0);

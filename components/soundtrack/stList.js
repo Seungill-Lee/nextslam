@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from "next/image";
-import { useRecoilState } from "recoil";
+import { useAtom } from "jotai";
 import { bgmPlayerID, bgmPlaying } from "../atom.js"
 import scss from "./stList.module.scss";
 import data from './data.json';
@@ -13,8 +13,8 @@ import PlayErrorIcon from "./playErrorIcon.js";
 import StDetail from "./stDetail.js";
 
 export default function STItem() {
-    const [playID,setPlayID] = useRecoilState(bgmPlayerID);
-    const [playing,setPlaying] = useRecoilState(bgmPlaying); //Play, Pause, Error, Ready, Stop
+    const [playID,setPlayID] = useAtom(bgmPlayerID);
+    const [playing,setPlaying] = useAtom(bgmPlaying); //Play, Pause, Error, Ready, Stop
 
     //console.log(playing)
 

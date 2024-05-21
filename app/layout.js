@@ -5,7 +5,7 @@ import "./base.scss";
 import scss from "./layout.module.scss";
 import HeaderLogo from '../components/headerLogo.js';
 import GNB from '../components/gnb.js';
-import RecoilRoot from "../components/recoilRootWrapper.js"
+import JotaiProvider from "../components/jotaiProvider.js"
 import BgmPlayer from "../components/soundtrack/bgmPlayer.js";
 
 export const metadata = {
@@ -49,12 +49,12 @@ export default function RootLayout({ children }) {
                     </header>
                     
                     <hr />
-                    <RecoilRoot>
+                    <JotaiProvider>
                         <main id={scss.contents}>
                             {children}
                         </main>
                         <BgmPlayer />
-                    </RecoilRoot>
+                    </JotaiProvider>
 
                     <hr />
 

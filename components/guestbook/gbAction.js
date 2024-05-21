@@ -31,7 +31,8 @@ export async function handleSubmit(mode,gbId,formData) {
             await collection.insertOne(data);
             break;
         case "PATCH":
-            await collection.replaceOne({"_id": objGbID},data);
+            const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+            await collection.replaceOne({"_id": objGbID},modifyData);
             break;
         case "DELETE":
             await collection.deleteOne({"_id": objGbID});
