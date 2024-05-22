@@ -6,8 +6,8 @@ import { revalidatePath } from 'next/cache';
 import { cipher } from '../crypto.js'
 
 // Connection URL
-const username = encodeURIComponent(process.env.NEXT_PUBLIC_DB_USERNAME);
-const password = encodeURIComponent(process.env.NEXT_PUBLIC_DB_PASSWORD);
+const username = encodeURIComponent(process.env.DB_USERNAME);
+const password = encodeURIComponent(process.env.DB_PASSWORD);
 const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
 const client = new MongoClient(url);
 
