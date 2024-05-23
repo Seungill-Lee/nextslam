@@ -3,7 +3,6 @@
 import scss from "./gbDeletor.module.scss";
 import { useState, useEffect } from 'react';
 import { handleSubmit } from "./gbAction.js"
-import { decipher } from '../crypto.js'
 
 export default function GbDeletor(props) {
     const gb = props.data;
@@ -12,13 +11,13 @@ export default function GbDeletor(props) {
 
     const [gbId,setGbId] = useState();
     const [gbPassword,setGbPassword] = useState();
-    const [orgPassword,checkOrgPassword] = useState();
-    const gbSubmit = handleSubmit.bind(null,"DELETE",gbId);
+    const [orgGbPassword,checkOrgGbPassword] = useState();
+    const gbSubmit = handleSubmit.bind(null,"DELETE",gbId,orgGbPassword,gbPassword);
 
     useEffect(() => {
         if(gb) {
             setGbId(gb._id);
-            checkOrgPassword(gb.password)
+            checkOrgGbPassword(gb.password)
         }
     },[])
 
@@ -26,12 +25,6 @@ export default function GbDeletor(props) {
         <form className={scss.gb_deletor} onSubmit={e => {
             const gbDeleteform = e.target;
 
-            if(decipher(orgPassword) != gbPassword) {
-                alert("비밀번호가 틀렸어요")
-                setGbPassword("");
-                gbDeleteform.password.focus();
-                return false;
-            }
         }} action={gbSubmit}>
             <p className={scss.msg}>정말 삭제하시겠습니까??</p>
             <div className={scss.field}>

@@ -3,7 +3,7 @@
 import { MongoClient, ObjectId } from 'mongodb'
 import moment from 'moment';
 import { revalidatePath } from 'next/cache';
-import { cipher } from '../crypto.js'
+import ncrypt from "ncrypt-js";
 
 // Connection URL
 const username = encodeURIComponent(process.env.DB_USERNAME);
@@ -11,12 +11,16 @@ const password = encodeURIComponent(process.env.DB_PASSWORD);
 const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
 const client = new MongoClient(url);
 
-export async function handleSubmit(mode,gbId,formData) {
+export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formData) {
+    let ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
     const gbID = gbId;
+    const oldPassword = gbOldPw || "";
+    const newPassword = gbNewPw;
+
     const data = {
         name: formData.get("name"),
         email: formData.get("email"),
-        password: cipher(formData.get("password")),
+        password: ncryptObject.encrypt(newPassword),
         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         content: formData.get("content")
     }
@@ -31,11 +35,23 @@ export async function handleSubmit(mode,gbId,formData) {
             await collection.insertOne(data);
             break;
         case "PATCH":
-            const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
-            await collection.replaceOne({"_id": objGbID},modifyData);
+            if(ncryptObject.decrypt(oldPassword) != newPassword) {
+                return {
+                    message: '비밀번호가 틀렸어'
+                }
+            } else {
+                const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                await collection.replaceOne({"_id": objGbID},modifyData);
+            }
             break;
         case "DELETE":
-            await collection.deleteOne({"_id": objGbID});
+            if(ncryptObject.decrypt(oldPassword) != newPassword) {
+                return {
+                    message: '비밀번호가 틀렸어'
+                }
+            } else {
+                await collection.deleteOne({"_id": objGbID});
+            }
             break;
         default: null
     }

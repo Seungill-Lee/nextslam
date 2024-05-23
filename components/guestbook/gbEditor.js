@@ -3,7 +3,7 @@
 import scss from "./gbEditor.module.scss";
 import { useId, useState, useEffect } from 'react';
 import { handleSubmit } from "./gbAction.js"
-import { decipher } from '../crypto.js'
+import { useFormState } from 'react-dom'
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -12,17 +12,22 @@ export default function GbWrite(props) {
     const targetId = props.targetId;
     const updateTargetId = props.updateTargetId;
     const changeMode = props.changeMode;
+    const initialState = {
+        message: '',
+    }
 
     const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
+    const [orgGbPassword, checkOrgGbPassword] = useState();
     const [gbPassword, setGbPassword] = useState();
-    const [orgPassword, checkOrgPassword] = useState();
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
-    const gbSubmit = handleSubmit.bind(null,mode,gbId);
+    const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
+    const [state, formAction] = useFormState(gbSubmit,initialState)
 
     useEffect(() => {
         if(gb) {
+            //console.log(gb._id)
             setGbId(gb._id);
             setGbName(gb.name)
             setGbPassword(null);
@@ -30,7 +35,8 @@ export default function GbWrite(props) {
             setGbContent(gb.content)
 
             if(mode == "PATCH") {
-                checkOrgPassword(gb.password)
+                //console.log(gb.password)
+                checkOrgGbPassword(gb.password)
             }
         }
     },[])
@@ -40,22 +46,16 @@ export default function GbWrite(props) {
             const gbEditform = e.target;
 
             if(mode == "PATCH") {
-                if(decipher(orgPassword) != gbPassword) {
-                    alert("비밀번호가 틀렸어요")
-                    setGbPassword("");
-                    gbEditform.password.focus();
-                    return false;
-                } else {
-                    updateTargetId(gb._id)
-                    changeMode("GET")
-                }
+                console.log(gbId)
+                updateTargetId(gbId)
+                changeMode("GET")
             } else {
                 setGbName("")
                 setGbPassword("");
                 setGbEmail("")
                 setGbContent("")
             }
-        }} action={gbSubmit}>
+        }} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
@@ -76,6 +76,9 @@ export default function GbWrite(props) {
                         <dd><textarea cols="30" rows="10" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
                     </div>
                 </dl>
+                <p>
+                    {state?.message}
+                </p>
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
