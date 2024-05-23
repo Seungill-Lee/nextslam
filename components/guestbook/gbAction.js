@@ -37,7 +37,7 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
         case "PATCH":
             if(ncryptObject.decrypt(oldPassword) != newPassword) {
                 return {
-                    message: '비밀번호가 틀렸어'
+                    message: "비밀번호가 틀렸습니다."
                 }
             } else {
                 const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
@@ -47,7 +47,7 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
         case "DELETE":
             if(ncryptObject.decrypt(oldPassword) != newPassword) {
                 return {
-                    message: '비밀번호가 틀렸어'
+                    message: "비밀번호가 틀렸습니다."
                 }
             } else {
                 await collection.deleteOne({"_id": objGbID});

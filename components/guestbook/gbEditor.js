@@ -1,9 +1,10 @@
 'use client'
 
 import scss from "./gbEditor.module.scss";
+import { useRouter } from 'next/navigation';
 import { useId, useState, useEffect } from 'react';
-import { handleSubmit } from "./gbAction.js"
-import { useFormState } from 'react-dom'
+import { handleSubmit } from "./gbAction.js";
+import { useFormState } from 'react-dom';
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -16,6 +17,7 @@ export default function GbWrite(props) {
         message: '',
     }
 
+    const router = useRouter();
     const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
     const [orgGbPassword, checkOrgGbPassword] = useState();
@@ -23,7 +25,7 @@ export default function GbWrite(props) {
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
-    const [state, formAction] = useFormState(gbSubmit,initialState)
+    const [state, formAction] = useFormState(gbSubmit,initialState);
 
     useEffect(() => {
         if(gb) {
@@ -43,17 +45,25 @@ export default function GbWrite(props) {
 
     return(
         <form className={scss.gb_editor} onSubmit={(e) => {
-            const gbEditform = e.target;
+            const gbDeleteform = e.target;
 
             if(mode == "PATCH") {
-                console.log(gbId)
-                updateTargetId(gbId)
-                changeMode("GET")
+                if(state) {
+                    alert("비밀번호가 틀렸습니다.");
+                    setGbPassword("");
+                    gbDeleteform.password.focus();
+                    return false;
+                } else {
+                    console.log(gbId)
+                    updateTargetId(gbId)
+                    changeMode("GET")
+                }
             } else {
                 setGbName("")
                 setGbPassword("");
                 setGbEmail("")
                 setGbContent("")
+                router.push("/guestbook")
             }
         }} action={formAction}>
             <fieldset>
@@ -76,9 +86,6 @@ export default function GbWrite(props) {
                         <dd><textarea cols="30" rows="10" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
                     </div>
                 </dl>
-                <p>
-                    {state?.message}
-                </p>
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
