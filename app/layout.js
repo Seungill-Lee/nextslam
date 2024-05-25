@@ -5,7 +5,6 @@ import "./base.scss";
 import scss from "./layout.module.scss";
 import HeaderLogo from '../components/headerLogo.js';
 import GNB from '../components/gnb.js';
-import AuthBtn from "../components/auth/authBtn.js"
 import JotaiProvider from "../components/jotaiProvider.js"
 import BgmPlayer from "../components/soundtrack/bgmPlayer.js";
 
@@ -47,9 +46,6 @@ export default function RootLayout({ children }) {
                         {/* <h1><Image src="/images/logo_nextslam.svg" alt="Next Slam" width={355} height={40} /></h1> */}
                         <h1><HeaderLogo alt="Next Slam" /></h1>
                         <GNB />
-                        <div>
-                            <AuthBtn />
-                        </div>
                     </header>
                     
                     <hr />

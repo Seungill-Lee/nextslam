@@ -27,9 +27,6 @@ export default function GbList(props) {
     const changeMode = (mode) => {
         setGbMode(mode)
     }
-    const updateTargetId = (id) => {
-        getUpdatedId(id);
-    }
 
     //console.log(limitLen*searchParams.get("page_num"))
 
@@ -44,7 +41,7 @@ export default function GbList(props) {
                                 gbId == gb._id ?
                                     {
                                         "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} />,
-                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
+                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} />,
                                         "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                     }[gbMode]
                                 : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />

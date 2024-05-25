@@ -45,17 +45,17 @@ export default function GbWrite(props) {
 
     return(
         <form className={scss.gb_editor} onSubmit={(e) => {
-            const gbDeleteform = e.target;
+            const gbEditform = e.target;
 
             if(mode == "PATCH") {
                 if(state) {
                     alert("비밀번호가 틀렸습니다.");
                     setGbPassword("");
-                    gbDeleteform.password.focus();
+                    gbEditform.password.focus();
                     return false;
                 } else {
-                    console.log(gbId)
-                    updateTargetId(gbId)
+                    //console.log(gbId)
+                    targetId(gbId)
                     changeMode("GET")
                 }
             } else {
@@ -89,7 +89,7 @@ export default function GbWrite(props) {
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
-                            <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("GET")} ${updateTargetId("")}`}>돌아가기</button>
+                            <button type="button" onClick={() => `${targetId("")} ${changeMode("GET")}`}>돌아가기</button>
                             <button type="submit">수정하기</button>
                         </>
                         :
@@ -97,6 +97,7 @@ export default function GbWrite(props) {
                     }
                 </div>
             </fieldset>
+            <p>{state?.message}</p>
         </form>
     )
 }
