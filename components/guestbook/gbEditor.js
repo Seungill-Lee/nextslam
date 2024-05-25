@@ -1,7 +1,7 @@
 'use client'
 
 import scss from "./gbEditor.module.scss";
-import { useRouter } from 'next/navigation';
+import { useSearchParams ,useRouter } from 'next/navigation';
 import { useId, useState, useEffect } from 'react';
 import { handleSubmit } from "./gbAction.js";
 import { useFormState } from 'react-dom';
@@ -13,10 +13,11 @@ export default function GbWrite(props) {
     const targetId = props.targetId;
     const updateTargetId = props.updateTargetId;
     const changeMode = props.changeMode;
-    const initialState = {
+    let initialState = {
         message: '',
     }
 
+    const serchParam = useSearchParams();
     const router = useRouter();
     const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
@@ -29,8 +30,8 @@ export default function GbWrite(props) {
 
     useEffect(() => {
         if(gb) {
-            //console.log(gb._id)
-            setGbId(gb._id);
+            console.log(gb.id)
+            setGbId(gb.id);
             setGbName(gb.name)
             setGbPassword(null);
             setGbEmail(gb.email)
@@ -47,24 +48,24 @@ export default function GbWrite(props) {
         <form className={scss.gb_editor} onSubmit={(e) => {
             const gbEditform = e.target;
 
-            if(mode == "PATCH") {
-                if(state) {
-                    alert("비밀번호가 틀렸습니다.");
-                    setGbPassword("");
-                    gbEditform.password.focus();
-                    return false;
-                } else {
-                    //console.log(gbId)
-                    targetId(gbId)
-                    changeMode("GET")
-                }
-            } else {
-                setGbName("")
-                setGbPassword("");
-                setGbEmail("")
-                setGbContent("")
-                router.push("/guestbook")
-            }
+            // if(mode == "PATCH") {
+            //     if(state?.success == false) {
+            //         alert("비밀번호가 틀렸습니다.");
+            //         setGbPassword("");
+            //         gbEditform.password.focus();
+            //         return false;
+            //     } else {
+            //         console.log(gbId)
+            //         targetId(gbId)
+            //         changeMode("GET")
+            //     }
+            // } else {
+            //     setGbName("")
+            //     setGbPassword("");
+            //     setGbEmail("")
+            //     setGbContent("")
+            //     router.push("/guestbook")
+            // }
         }} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
@@ -97,7 +98,7 @@ export default function GbWrite(props) {
                     }
                 </div>
             </fieldset>
-            <p>{state?.message}</p>
+            {state?.success == false && <div>{state?.message}</div>}
         </form>
     )
 }

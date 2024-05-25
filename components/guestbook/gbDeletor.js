@@ -21,7 +21,7 @@ export default function GbDeletor(props) {
 
     useEffect(() => {
         if(gb) {
-            setGbId(gb._id);
+            setGbId(gb.id);
             checkOrgGbPassword(gb.password);
         }
     },[])
@@ -42,7 +42,7 @@ export default function GbDeletor(props) {
                 <input type="password" name="password" placeholder="비빌번호 확인" title="해당 게시물의 비밀번호를 입력해주세요." value={gbPassword || ""} onChange={(e) => setGbPassword(e.target.value)} />
             </div>
             <div className={scss.btn_delete}>
-                <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("GET")}`}>돌아가기</button>
+                <button type="button" onClick={() => `${targetId(gb.id)} ${changeMode("GET")}`}>돌아가기</button>
                 <button type="submit">삭제하기</button>
             </div>
         </form>
