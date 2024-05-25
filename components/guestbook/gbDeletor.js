@@ -21,7 +21,7 @@ export default function GbDeletor(props) {
 
     useEffect(() => {
         if(gb) {
-            setGbId(gb.id);
+            setGbId(gb._id);
             checkOrgGbPassword(gb.password);
         }
     },[])

@@ -38,10 +38,10 @@ export default function GbViewer(props) {
                 )}
             </CSSTransition>
             <div className={scss.btn_set}>
-                <button type="button" className={scss.btn_edit} onClick={() => `${targetId(gb.id)} ${changeMode("PATCH")}`}>
+                <button type="button" className={scss.btn_edit} onClick={() => `${targetId(gb._id)} ${changeMode("PATCH")}`}>
                     <GbIcon shape="Edit" /><span className={scss.txt}>수정</span>
                 </button>
-                <button type="button" className={scss.btn_delete} onClick={() => `${targetId(gb.id)} ${changeMode("DELETE")}`}>
+                <button type="button" className={scss.btn_delete} onClick={() => `${targetId(gb._id)} ${changeMode("DELETE")}`}>
                     <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
                 </button>
             </div>

@@ -2,7 +2,7 @@
 
 import scss from "./gbEditor.module.scss";
 import { useSearchParams ,useRouter } from 'next/navigation';
-import { useId, useState, useEffect } from 'react';
+import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
 import { useFormState } from 'react-dom';
 
@@ -26,12 +26,14 @@ export default function GbWrite(props) {
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
-    const [state, formAction] = useFormState(gbSubmit,initialState);
+    const [state, formAction] = useFormState(gbSubmit,initialState,"/");
+    const [msg,setMsg] = useState('');
+    const pwInput = useRef();
 
     useEffect(() => {
         if(gb) {
-            console.log(gb.id)
-            setGbId(gb.id);
+            //console.log(gb._id)
+            setGbId(gb._id);
             setGbName(gb.name)
             setGbPassword(null);
             setGbEmail(gb.email)
@@ -48,24 +50,24 @@ export default function GbWrite(props) {
         <form className={scss.gb_editor} onSubmit={(e) => {
             const gbEditform = e.target;
 
-            // if(mode == "PATCH") {
-            //     if(state?.success == false) {
-            //         alert("비밀번호가 틀렸습니다.");
-            //         setGbPassword("");
-            //         gbEditform.password.focus();
-            //         return false;
-            //     } else {
-            //         console.log(gbId)
-            //         targetId(gbId)
-            //         changeMode("GET")
-            //     }
-            // } else {
-            //     setGbName("")
-            //     setGbPassword("");
-            //     setGbEmail("")
-            //     setGbContent("")
-            //     router.push("/guestbook")
-            // }
+            if(mode == "PATCH") {
+                //console.log(state)
+                // if(state.success === false) {
+                //     alert("비밀번호가 틀렸습니다.");
+                //     setGbPassword("");
+                //     gbEditform.password.focus();
+                // } else {
+                //     console.log(gbId)
+                //     targetId(gbId)
+                //     changeMode("GET")
+                // }
+            } else {
+                setGbName("")
+                setGbPassword("");
+                setGbEmail("")
+                setGbContent("")
+                router.push("/guestbook")
+            }
         }} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
@@ -76,7 +78,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
-                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} required /></dd>
+                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} ref={pwInput} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
@@ -98,7 +100,7 @@ export default function GbWrite(props) {
                     }
                 </div>
             </fieldset>
-            {state?.success == false && <div>{state?.message}</div>}
+            {mode == "PATCH" && state?.success == false ? console.log(state) : ""}
         </form>
     )
 }

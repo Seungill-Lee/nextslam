@@ -8,43 +8,26 @@ export const metadata = {
 };
 
 // Connection URL
-// const username = encodeURIComponent(process.env.DB_USERNAME);
-// const password = encodeURIComponent(process.env.DB_PASSWORD);
-// const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
-// const client = new MongoClient(url);
+const username = encodeURIComponent(process.env.DB_USERNAME);
+const password = encodeURIComponent(process.env.DB_PASSWORD);
+const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
+const client = new MongoClient(url);
 
 export default async function Guestbook() {
-    // try {
-    //     await client.connect();
-    //     const db = client.db('next_slam');
-    //     let gbData = await db.collection('guestbook').find().toArray();
-    //     gbData.map((a)=>{
-    //         a._id = a._id.toString()
-    //         return JSON.stringify(a)
-    //     })
-
-    //     return (
-    //         <div className={scss.guestbook}>
-    //             <h2>방명록</h2>
-    //             <GbEditor mode="POST" />
-    //             <GbList data={gbData.reverse()} />
-    //         </div>
-    //     );
-    // } catch (error) {
-    //     return (
-    //         <p>DB 연결 오류</p>
-    //     );
-    // }
-
-    const resp = await fetch(process.env.PUBLIC_API_URL+"/guestbook", { cache: "no-store" });
-    const gbData = await resp.json();
-
     try {
-        return(
+        await client.connect();
+        const db = client.db('next_slam');
+        let gbData = await db.collection('guestbook').find().toArray();
+        gbData.map((a)=>{
+            a._id = a._id.toString()
+            return JSON.stringify(a)
+        })
+
+        return (
             <div className={scss.guestbook}>
                 <h2>방명록</h2>
-                {<GbEditor mode="POST" />}
-                {<GbList data={gbData.reverse()} />}
+                <GbEditor mode="POST" />
+                <GbList data={gbData.reverse()} />
             </div>
         );
     } catch (error) {
@@ -52,4 +35,21 @@ export default async function Guestbook() {
             <p>DB 연결 오류</p>
         );
     }
+
+    // const resp = await fetch(process.env.PUBLIC_API_URL+"/guestbook", { cache: "no-store" });
+    // const gbData = await resp.json();
+
+    // try {
+    //     return(
+    //         <div className={scss.guestbook}>
+    //             <h2>방명록</h2>
+    //             {<GbEditor mode="POST" />}
+    //             {<GbList data={gbData.reverse()} />}
+    //         </div>
+    //     );
+    // } catch (error) {
+    //     return (
+    //         <p>DB 연결 오류</p>
+    //     );
+    // }
 }
