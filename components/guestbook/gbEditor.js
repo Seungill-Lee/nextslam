@@ -1,7 +1,6 @@
 'use client'
 
 import scss from "./gbEditor.module.scss";
-import { useSearchParams ,useRouter } from 'next/navigation';
 import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
 import { useFormState } from 'react-dom';
@@ -14,11 +13,10 @@ export default function GbWrite(props) {
     const updateTargetId = props.updateTargetId;
     const changeMode = props.changeMode;
     let initialState = {
+        success: null,
         message: '',
     }
 
-    const serchParam = useSearchParams();
-    const router = useRouter();
     const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
     const [orgGbPassword, checkOrgGbPassword] = useState();
@@ -27,7 +25,6 @@ export default function GbWrite(props) {
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState,"/");
-    const [msg,setMsg] = useState('');
     const pwInput = useRef();
 
     useEffect(() => {
@@ -38,36 +35,45 @@ export default function GbWrite(props) {
             setGbPassword(null);
             setGbEmail(gb.email)
             setGbContent(gb.content)
-
-            if(mode == "PATCH") {
-                //console.log(gb.password)
-                checkOrgGbPassword(gb.password)
-            }
         }
     },[])
 
+    useEffect(() => {
+        if(mode == "PATCH") {
+            checkOrgGbPassword(gb.password)
+            if(state?.success == false) {
+                alert("비밀번호가 틀렸습니다.");
+                setGbPassword("");
+                pwInput.current.focus();
+            } else if(state?.success == true) {
+                targetId(gbId)
+                changeMode("GET")
+            }
+        }
+    },[state])
+
     return(
         <form className={scss.gb_editor} onSubmit={(e) => {
-            const gbEditform = e.target;
+            // const gbEditform = e.target;
 
-            if(mode == "PATCH") {
-                //console.log(state)
-                // if(state.success === false) {
-                //     alert("비밀번호가 틀렸습니다.");
-                //     setGbPassword("");
-                //     gbEditform.password.focus();
-                // } else {
-                //     console.log(gbId)
-                //     targetId(gbId)
-                //     changeMode("GET")
-                // }
-            } else {
-                setGbName("")
-                setGbPassword("");
-                setGbEmail("")
-                setGbContent("")
-                router.push("/guestbook")
-            }
+            // if(mode == "PATCH") {
+            //     console.log(state)
+            //     if(state.success === false) {
+            //         alert("비밀번호가 틀렸습니다.");
+            //         setGbPassword("");
+            //         gbEditform.password.focus();
+            //     } else {
+            //         console.log(gbId)
+            //         targetId(gbId)
+            //         changeMode("GET")
+            //     }
+            // } else {
+            //     setGbName("")
+            //     setGbPassword("");
+            //     setGbEmail("")
+            //     setGbContent("")
+            //     router.push("/guestbook")
+            // }
         }} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
@@ -100,7 +106,7 @@ export default function GbWrite(props) {
                     }
                 </div>
             </fieldset>
-            {mode == "PATCH" && state?.success == false ? console.log(state) : ""}
+            <div>{state?.message}</div>
         </form>
     )
 }

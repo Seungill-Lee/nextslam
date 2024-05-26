@@ -33,6 +33,7 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
     switch(mode) {
         case "POST":
             await collection.insertOne(data);
+            revalidatePath("/guestbook");
             break;
         case "PATCH":
             if(ncryptObject.decrypt(oldPassword) != newPassword) {
@@ -41,15 +42,15 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
                     message: "비밀번호가 틀렸습니다."
                 }
             } else {
+                const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                await collection.replaceOne({"_id": objGbID},modifyData);
+                revalidatePath("/guestbook")
                 return {
                     success: true,
                     message: ""
                 }
             }
-            const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
-            await collection.replaceOne({"_id": objGbID},modifyData);
             
-            break;
         case "DELETE":
             if(ncryptObject.decrypt(oldPassword) != newPassword) {
                 return {
@@ -58,12 +59,14 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
                 }
             } else {
                 await collection.deleteOne({"_id": objGbID});
+                revalidatePath("/guestbook")
+                return {
+                    success: true,
+                    message: ""
+                }
             }
-            break;
         default: null
     }
-
-    revalidatePath("/guestbook")
 }
 
 
