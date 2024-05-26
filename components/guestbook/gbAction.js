@@ -12,10 +12,11 @@ const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/
 const client = new MongoClient(url);
 
 export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formData) {
-    let ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
+    const ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
     const gbID = gbId;
-    const oldPassword = gbOldPw || "";
+    let oldPassword = gbOldPw || "";
     const newPassword = gbNewPw;
+    const masterPassword = process.env.MASTER_AUTH_PASSWORD;
 
     const data = {
         name: formData.get("name"),
@@ -36,13 +37,14 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             revalidatePath("/guestbook");
             break;
         case "PATCH":
-            if(ncryptObject.decrypt(oldPassword) != newPassword) {
+            if(ncryptObject.decrypt(oldPassword) != newPassword && newPassword != masterPassword) {
                 return {
                     success: false,
                     message: "비밀번호가 틀렸습니다."
                 }
             } else {
-                const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                const {password,...pwExData} = data;
+                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
                 await collection.replaceOne({"_id": objGbID},modifyData);
                 revalidatePath("/guestbook")
                 return {
