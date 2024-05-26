@@ -17,7 +17,7 @@ export default function GbViewer(props) {
         if(initGbID) {
             setInProp(true)
         }
-    },[initGbID])
+    },[])
 
     return(
         <div className={scss.gb_viewer}>

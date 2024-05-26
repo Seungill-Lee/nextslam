@@ -28,7 +28,7 @@ export default function GbWrite(props) {
     const pwInput = useRef();
 
     useEffect(() => {
-        if(gb) {
+        if(gb && mode == "PATCH") {
             //console.log(gb._id)
             setGbId(gb._id);
             setGbName(gb.name)
@@ -47,13 +47,22 @@ export default function GbWrite(props) {
                 pwInput.current.focus();
             } else if(state?.success == true) {
                 targetId(gbId)
+                updateTargetId(gbId)
                 changeMode("GET")
             }
         }
     },[state])
 
     return(
-        <form className={scss.gb_editor} action={formAction}>
+        <form className={scss.gb_editor} onSubmit={() => {
+            if(mode == "POST") {
+                setGbId("");
+                setGbName("")
+                setGbPassword("");
+                setGbEmail("")
+                setGbContent("")
+            }
+        }} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>

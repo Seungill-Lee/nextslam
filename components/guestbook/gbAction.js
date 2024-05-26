@@ -13,8 +13,8 @@ const client = new MongoClient(url);
 
 export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formData) {
     const ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
-    const gbID = gbId;
-    let oldPassword = gbOldPw || "";
+    const gbID = gbId || "";
+    const oldPassword = gbOldPw || "";
     const newPassword = gbNewPw;
     const masterPassword = process.env.MASTER_AUTH_PASSWORD;
 
@@ -25,7 +25,6 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         content: formData.get("content")
     }
-    const objGbID = new ObjectId(gbID)
 
     await client.connect();
     const db = client.db('next_slam');
@@ -37,34 +36,33 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             revalidatePath("/guestbook");
             break;
         case "PATCH":
-            if(ncryptObject.decrypt(oldPassword) != newPassword && newPassword != masterPassword) {
-                return {
-                    success: false,
-                    message: "비밀번호가 틀렸습니다."
-                }
-            } else {
-                const {password,...pwExData} = data;
-                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
-                await collection.replaceOne({"_id": objGbID},modifyData);
+            if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
+                const modifyData = {...data, password:oldPassword, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                await collection.replaceOne({"_id": new ObjectId(gbID)},modifyData);
                 revalidatePath("/guestbook")
                 return {
                     success: true,
                     message: ""
+                }
+            } else {
+                return {
+                    success: false,
+                    message: "비밀번호가 틀렸습니다."
                 }
             }
             
         case "DELETE":
-            if(ncryptObject.decrypt(oldPassword) != newPassword) {
-                return {
-                    success: false,
-                    message: "비밀번호가 틀렸습니다."
-                }
-            } else {
-                await collection.deleteOne({"_id": objGbID});
+            if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
+                await collection.deleteOne({"_id": new ObjectId(gbID)});
                 revalidatePath("/guestbook")
                 return {
                     success: true,
                     message: ""
+                }
+            } else {
+                return {
+                    success: false,
+                    message: "비밀번호가 틀렸습니다."
                 }
             }
         default: null
