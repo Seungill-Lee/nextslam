@@ -41,7 +41,7 @@ export default function GbDeletor(props) {
         <form className={scss.gb_deletor} action={formAction}>
             <p className={scss.msg}>정말 삭제하시겠습니까??</p>
             <div className={scss.field}>
-                <input type="password" name="password" placeholder="비빌번호 확인" value={gbPassword || ""} onChange={(e) => setGbPassword(e.target.value)} title="특수문자를 포함한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required />
+                <input type="password" name="password" placeholder="비빌번호 확인" value={gbPassword || ""} onChange={(e) => setGbPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required />
             </div>
             <div className={scss.btn_delete}>
                 <button type="button" onClick={() => `${targetId(gb.id)} ${changeMode("GET")}`}>돌아가기</button>
