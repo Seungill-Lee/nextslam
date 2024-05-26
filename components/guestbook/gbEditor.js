@@ -72,7 +72,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
-                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} ref={pwInput} required /></dd>
+                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} title="특수문자를 포함한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
