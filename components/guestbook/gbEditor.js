@@ -53,28 +53,7 @@ export default function GbWrite(props) {
     },[state])
 
     return(
-        <form className={scss.gb_editor} onSubmit={(e) => {
-            // const gbEditform = e.target;
-
-            // if(mode == "PATCH") {
-            //     console.log(state)
-            //     if(state.success === false) {
-            //         alert("비밀번호가 틀렸습니다.");
-            //         setGbPassword("");
-            //         gbEditform.password.focus();
-            //     } else {
-            //         console.log(gbId)
-            //         targetId(gbId)
-            //         changeMode("GET")
-            //     }
-            // } else {
-            //     setGbName("")
-            //     setGbPassword("");
-            //     setGbEmail("")
-            //     setGbContent("")
-            //     router.push("/guestbook")
-            // }
-        }} action={formAction}>
+        <form className={scss.gb_editor} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
