@@ -40,7 +40,7 @@ export default function GbList(props) {
                             { 
                                 gbId == gb._id ?
                                     {
-                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} />,
+                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={gbId} />,
                                         "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} />,
                                         "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                     }[gbMode]

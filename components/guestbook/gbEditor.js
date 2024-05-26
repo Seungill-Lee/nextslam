@@ -106,7 +106,6 @@ export default function GbWrite(props) {
                     }
                 </div>
             </fieldset>
-            <div>{state?.message}</div>
         </form>
     )
 }
