@@ -37,8 +37,9 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             break;
         case "PATCH":
             if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
-                const modifyData = {...data, password:oldPassword, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
-                await collection.replaceOne({"_id": new ObjectId(gbID)},modifyData);
+                const {password, ...pwExData} = data
+                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
                 revalidatePath("/guestbook")
                 return {
                     success: true,
