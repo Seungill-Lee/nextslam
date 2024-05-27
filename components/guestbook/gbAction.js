@@ -28,7 +28,7 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
 
     await client.connect();
     const db = client.db('next_slam');
-    const collection = db.collection('guestbook')
+    const collection = db.collection('guestbook');
 
     switch(mode) {
         case "POST":
@@ -37,8 +37,8 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             break;
         case "PATCH":
             if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
-                const {password, ...pwExData} = data
-                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
+                const {password, ...pwExData} = data;
+                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
                 await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
                 revalidatePath("/guestbook")
                 return {
