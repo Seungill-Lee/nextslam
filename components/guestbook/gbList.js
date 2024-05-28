@@ -47,7 +47,7 @@ export default function GbList(props) {
                                         "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
                                         "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                     }[gbMode]
-                                : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} />
+                                : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} auth={props.auth} />
                             }
                         </li> : ""
                     );

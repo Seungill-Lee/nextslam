@@ -2,6 +2,8 @@ import { MongoClient } from 'mongodb'
 import scss from "./page.module.scss";
 import GbEditor from "/components/guestbook/gbEditor.js";
 import GbList from "/components/guestbook/gbList.js";
+import { cookies } from 'next/headers';
+import { getIronSession } from 'iron-session';
 
 export const metadata = {
     title: "방명록",
@@ -14,6 +16,7 @@ const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/
 const client = new MongoClient(url);
 
 export default async function Guestbook() {
+    const session = await getIronSession(cookies(), { password:"pFdmQwmWve4wDjCZGxx76WXGrK4EDqhn", cookieName:"HompageAdministor" })
     try {
         await client.connect();
         const db = client.db('next_slam');
@@ -27,7 +30,7 @@ export default async function Guestbook() {
             <div className={scss.guestbook}>
                 <h2>방명록</h2>
                 <GbEditor mode="POST" />
-                <GbList data={gbData.reverse()} />
+                <GbList data={gbData.reverse()} auth={session.authLogin} />
             </div>
         );
     } catch (error) {

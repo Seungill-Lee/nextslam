@@ -3,6 +3,7 @@ import GbIcon from "./gbIconSet.js";
 import scss from "./gbViewer.module.scss";
 import { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
+import BtnAdminReply from "./btnAdminReply.js";
 
 export default function GbViewer(props) {
     const gb = props.data;
@@ -44,6 +45,9 @@ export default function GbViewer(props) {
                 <button type="button" className={scss.btn_delete} onClick={() => `${targetId(gb._id)} ${changeMode("DELETE")}`}>
                     <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
                 </button>
+                {props.auth ? <button type="button">
+                    <GbIcon shape="Reply" /><span className={scss.txt}>답글</span>
+                </button> : ""}
             </div>
         </div>
     )

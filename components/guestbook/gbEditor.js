@@ -1,6 +1,7 @@
 'use client'
 
 import scss from "./gbEditor.module.scss";
+import { useRouter } from 'next/navigation';
 import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
 import { useFormState } from 'react-dom';
@@ -26,15 +27,16 @@ export default function GbWrite(props) {
     const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState,"/");
     const pwInput = useRef();
+    const router = useRouter();
 
     useEffect(() => {
         if(gb && mode == "PATCH") {
             //console.log(gb._id)
             setGbId(gb._id);
-            setGbName(gb.name)
+            setGbName(gb.name);
             setGbPassword(null);
-            setGbEmail(gb.email)
-            setGbContent(gb.content)
+            setGbEmail(gb.email);
+            setGbContent(gb.content);
         }
     },[])
 
@@ -61,6 +63,7 @@ export default function GbWrite(props) {
                 setGbPassword("");
                 setGbEmail("")
                 setGbContent("")
+                router.push("/guestbook");
             }
         }} action={formAction}>
             <fieldset>
@@ -68,7 +71,7 @@ export default function GbWrite(props) {
                 <dl>
                     <div className={`${scss.field} ${scss.name}`}>
                         <dt><label htmlFor={`${Labeling}name`}>이름</label></dt>
-                        <dd><input type="text" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
+                        <dd><input type="text" minlength="2" maxlength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
@@ -80,7 +83,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.content}`}>
                         <dt><label htmlFor={`${Labeling}content`}>내용</label></dt>
-                        <dd><textarea cols="30" rows="10" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
+                        <dd><textarea cols="30" rows="10" minlength="30" maxlength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
