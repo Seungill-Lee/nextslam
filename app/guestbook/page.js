@@ -22,6 +22,7 @@ export default async function Guestbook() {
         const db = client.db('next_slam');
         let gbData = await db.collection('guestbook').find().toArray();
         gbData.map((a)=>{
+            delete a.password
             a._id = a._id.toString()
             return JSON.stringify(a)
         })

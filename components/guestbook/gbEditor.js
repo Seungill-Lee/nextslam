@@ -20,11 +20,10 @@ export default function GbWrite(props) {
 
     const [gbId,setGbId] = useState();
     const [gbName, setGbName] = useState();
-    const [orgGbPassword, checkOrgGbPassword] = useState();
     const [gbPassword, setGbPassword] = useState();
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
-    const gbSubmit = handleSubmit.bind(null,mode,gbId,orgGbPassword,gbPassword);
+    const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState,"/");
     const pwInput = useRef();
     const router = useRouter();
@@ -42,7 +41,6 @@ export default function GbWrite(props) {
 
     useEffect(() => {
         if(mode == "PATCH") {
-            checkOrgGbPassword(gb.password)
             if(state?.success == false) {
                 alert("비밀번호가 틀렸습니다.");
                 setGbPassword("");
@@ -71,7 +69,7 @@ export default function GbWrite(props) {
                 <dl>
                     <div className={`${scss.field} ${scss.name}`}>
                         <dt><label htmlFor={`${Labeling}name`}>이름</label></dt>
-                        <dd><input type="text" minlength="2" maxlength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
+                        <dd><input type="text" minLength="2" maxLength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
@@ -83,7 +81,7 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.content}`}>
                         <dt><label htmlFor={`${Labeling}content`}>내용</label></dt>
-                        <dd><textarea cols="30" rows="10" minlength="30" maxlength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
+                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>

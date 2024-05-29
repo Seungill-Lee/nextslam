@@ -11,11 +11,12 @@ const password = encodeURIComponent(process.env.DB_PASSWORD);
 const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
 const client = new MongoClient(url);
 
-export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formData) {
+export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
     const ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
     const gbID = gbId || "";
-    const oldPassword = gbOldPw || "";
     const newPassword = gbNewPw;
+    let oldData;
+    let oldPassword;
     const masterPassword = process.env.MASTER_AUTH_PASSWORD;
 
     const data = {
@@ -36,6 +37,8 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             revalidatePath("/guestbook");
             break;
         case "PATCH":
+            oldData = await collection.findOne({"_id": new ObjectId(gbID)});
+            oldPassword = oldData.password;
             if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
                 const {password, ...pwExData} = data;
                 const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
@@ -53,6 +56,8 @@ export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formD
             }
             
         case "DELETE":
+            oldData = await collection.findOne({"_id": new ObjectId(gbID)});
+            oldPassword = oldData.password;
             if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
                 await collection.deleteOne({"_id": new ObjectId(gbID)});
                 revalidatePath("/guestbook")

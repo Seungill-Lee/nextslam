@@ -17,8 +17,7 @@ export default function GbDeletor(props) {
 
     const [gbId,setGbId] = useState();
     const [gbPassword,setGbPassword] = useState();
-    const [orgGbPassword,checkOrgGbPassword] = useState();
-    const gbSubmit = handleSubmit.bind(null,"DELETE",gbId,orgGbPassword,gbPassword);
+    const gbSubmit = handleSubmit.bind(null,"DELETE",gbId,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState);
     const pwInput = useRef();
 
@@ -29,7 +28,6 @@ export default function GbDeletor(props) {
     },[])
 
     useEffect(() => {
-        checkOrgGbPassword(gb.password)
         if(state?.success == false) {
             alert("비밀번호가 틀렸습니다.");
             setGbPassword("");
