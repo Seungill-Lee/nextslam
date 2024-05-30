@@ -22,14 +22,16 @@ export default function GbReplyViewer(props){
             <div className={`${scss.content}`}>
                 {gb.reply.content}
             </div>
-            <div className={scss.btn_set}>
-                <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("PATCH")}`}>
-                    <GbIcon shape="Edit" /><span className={scss.txt}>수정</span>
-                </button>
-                <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("DELETE")}`}>
-                    <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
-                </button>
-            </div>
+            {props.auth ? 
+                <div className={scss.btn_set}>
+                    <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("PATCH")}`}>
+                        <GbIcon shape="Edit" /><span className={scss.txt}>수정</span>
+                    </button>
+                    <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("DELETE")}`}>
+                        <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
+                    </button>
+                </div>
+             : ""}
         </div>
     )
 }

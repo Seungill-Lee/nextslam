@@ -45,7 +45,7 @@ export default function GbViewer(props) {
                 <button type="button" onClick={() => `${targetId(gb._id)} ${changeMode("DELETE")}`}>
                     <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
                 </button>
-                {props.auth ? <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("POST")}`} disabled={gb.reply ? true : false}>
+                {props.auth ? <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("POST")}`} disabled={gb.reply || props.replyMode == "POST"  ? true : false}>
                     <GbIcon shape="Reply" /><span className={scss.txt}>답글</span>
                 </button> : ""}
             </div>

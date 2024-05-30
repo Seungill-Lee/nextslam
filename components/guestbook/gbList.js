@@ -49,7 +49,7 @@ export default function GbList(props) {
                         <li key={i+1}>
                             {gbId == gb._id ?
                                 {
-                                    "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} auth={props.auth} changeReplyMode={changeReplyMode} />,
+                                    "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} auth={props.auth} changeReplyMode={changeReplyMode} replyMode={gbReplyMode} />,
                                     "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
                                     "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
                                 }[gbMode]
@@ -57,12 +57,12 @@ export default function GbList(props) {
                             }
                             {props.auth && gbId == gb._id ? 
                                 {
-                                    "GET": gb.reply ? <GbReplyViewer data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
+                                    "GET": gb.reply ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : "",
                                     "POST": <GbReplyEditor mode="POST" data={gb} targetId={targetId} changeReplyMode={changeReplyMode} />,
                                     "PATCH": gb.reply ? <GbReplyEditor data={gb} mode="PATCH" targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                     "DELETE": gb.reply ? <GbReplyDeletor data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                 }[gbReplyMode]
-                                : gb.reply ? <GbReplyViewer data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : ""
+                                : gb.reply ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : ""
                             }
                         </li> : ""
                     );
