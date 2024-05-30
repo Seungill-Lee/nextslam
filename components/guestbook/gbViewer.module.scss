@@ -74,6 +74,10 @@
                     fill: var(--focus-txt-color);
                 }
             }
+            &:disabled {
+                opacity: 0.5;
+                pointer-events: none;
+            }
         }
     }
 }

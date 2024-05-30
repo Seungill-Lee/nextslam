@@ -24,7 +24,7 @@ export default function GbWrite(props) {
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
-    const [state, formAction] = useFormState(gbSubmit,initialState,"/");
+    const [state, formAction] = useFormState(gbSubmit,initialState);
     const pwInput = useRef();
     const router = useRouter();
 

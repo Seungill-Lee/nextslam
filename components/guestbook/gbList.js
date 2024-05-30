@@ -2,10 +2,13 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import scss from "./gbList.module.scss";
-import GbEditor from "/components/guestbook/gbEditor.js";
-import GbViewer from "/components/guestbook/gbViewer.js";
-import GbDeletor from "/components/guestbook/gbDeletor.js";
-import GbPager from "/components/guestbook/gbPager.js";
+import GbEditor from "./gbEditor.js";
+import GbViewer from "./gbViewer.js";
+import GbDeletor from "./gbDeletor.js";
+import GbReplyViewer from "./reply/gbReplyViewer.js";
+import GbReplyEditor from "./reply/gbReplyEditor.js";
+import GbReplyDeletor from "./reply/gbReplyDeletor.js";
+import GbPager from "./gbPager.js";
 import { useState, useEffect } from 'react';
 
 export default function GbList(props) {
@@ -13,6 +16,7 @@ export default function GbList(props) {
     const [gbId,setGbId] = useState();
     const [gbMode,setGbMode] = useState("GET");
     const [updatedId,getUpdatedId] = useState();
+    const [gbReplyMode,setGbReplyMode] = useState("GET");
     const limitLen = 5;
     const searchParams = useSearchParams();
     const pageNum = searchParams.get("page_num");
@@ -30,6 +34,9 @@ export default function GbList(props) {
     const updateTargetId = (id) => {
         getUpdatedId(id)
     }
+    const changeReplyMode = (mode) => {
+        setGbReplyMode(mode)
+    }
 
     //console.log(limitLen*searchParams.get("page_num"))
 
@@ -40,14 +47,22 @@ export default function GbList(props) {
                     return (
                         i >= `${limitLen*(pageNum-1) || 0}` && i < `${limitLen*pageNum || limitLen}` ?
                         <li key={i+1}>
-                            { 
-                                gbId == gb._id ?
-                                    {
-                                        "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} auth={props.auth} />,
-                                        "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
-                                        "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
-                                    }[gbMode]
-                                : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} auth={props.auth} />
+                            {gbId == gb._id ?
+                                {
+                                    "GET": <GbViewer data={gb} targetId={targetId} changeMode={changeMode} initId={updatedId} auth={props.auth} changeReplyMode={changeReplyMode} />,
+                                    "PATCH" : <GbEditor mode="PATCH" data={gb} targetId={targetId} changeMode={changeMode} updateTargetId={updateTargetId} />,
+                                    "DELETE" : <GbDeletor data={gb} targetId={targetId} changeMode={changeMode} />,
+                                }[gbMode]
+                                : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} auth={props.auth} changeReplyMode={changeReplyMode} />
+                            }
+                            {props.auth && gbId == gb._id ? 
+                                {
+                                    "GET": gb.reply ? <GbReplyViewer data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
+                                    "POST": <GbReplyEditor mode="POST" data={gb} targetId={targetId} changeReplyMode={changeReplyMode} />,
+                                    "PATCH": gb.reply ? <GbReplyEditor data={gb} mode="PATCH" targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
+                                    "DELETE": gb.reply ? <GbReplyDeletor data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
+                                }[gbReplyMode]
+                                : gb.reply ? <GbReplyViewer data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : ""
                             }
                         </li> : ""
                     );
