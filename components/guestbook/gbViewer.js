@@ -3,7 +3,6 @@ import GbIcon from "./gbIconSet.js";
 import scss from "./gbViewer.module.scss";
 import { useState, useEffect, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import BtnAdminReply from "./btnAdminReply.js";
 
 export default function GbViewer(props) {
     const gb = props.data;

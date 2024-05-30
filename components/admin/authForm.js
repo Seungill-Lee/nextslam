@@ -11,7 +11,6 @@ export default function AuthForm(props) {
     }
     const [state, formAction] = useFormState(handleSubmit,initState)
 
-    
     return (
         <form action={formAction}>
             <fieldset>
