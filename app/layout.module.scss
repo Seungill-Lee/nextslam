@@ -7,7 +7,6 @@ $divceHeight: 1440px;
 #wrapper {
     min-height: calc(100vh + 100px);
     min-height: calc(100dvh + 100px);
-    position: relative;
     padding-left: 361px;
     overflow: hidden;
 }
@@ -35,6 +34,7 @@ header#header {
 
 /* Contents */
 main#contents {
+    position: relative;
     min-height: 100vh;
     min-height: 100dvh;
     padding: get-vh(97px,$divceHeight) 80px get-vh(100px,$divceHeight);

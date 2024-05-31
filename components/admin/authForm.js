@@ -13,7 +13,7 @@ export default function AuthForm(props) {
 
     return (
         <form action={formAction}>
-            <fieldset>
+            <fieldset className={scss.auth_form}>
                 <legend>관리자 인증 폼</legend>
                 {props.auth ? 
                     <p className={scss.success_msg}>
@@ -26,7 +26,7 @@ export default function AuthForm(props) {
                 }
                 {state?.success == false && <p className={scss.error_msg}>{state?.message}</p>}
                 
-                <div className="btn_set">
+                <div className={scss.btn_set}>
                     <button type="submit">{props.auth ? "로그아웃" : "로그인"}</button>
                 </div>
             </fieldset>

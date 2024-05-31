@@ -10,7 +10,7 @@ export default function Overview() {
         <div className={scss.overview}>
             <h2>개요</h2>
             <div className={scss.banner_photo}>
-                <Image src="/images/photo_overview_visual.jpg" alt="" width={1000} height={556} />
+                <Image src="/images/overview/photo_overview_visual.jpg" alt="" width={1000} height={556} />
             </div>
             <ul>
                 <li>《슬램덩크》(SLAM DUNK, スラムダンク)[주 1]는 이노우에 다케히코(井上雄彦)의 농구 만화이다. 《주간 소년 점프》(슈에이샤)에 1990년 42호부터 1996년 27호까지 연재되었으며, 일본에서 1억 7천만부가 넘게 팔리는 기염을 토해냈다.</li>
