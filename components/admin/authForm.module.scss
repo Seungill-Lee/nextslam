@@ -1,65 +1,67 @@
-fieldset.auth_form {
+form.auth_form {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 8px);
     left: 50%;
     width: 500px;
-    padding: 20px;
-    border: 1px solid var(--line-color);
-    border-radius: 12px;
-    box-sizing: border-box;
-    text-align: center;
     transform: translate(-50%,-50%);
-    legend {
-        visibility: visible;
-        height: auto;
-    }
-    .field {
-        input[type="password"] {
-            width: 100% ;
-            height: 50px;
-            padding: 10px 14px 12px;
-            box-sizing: border-box;
-            text-align: center;
-            line-height: 150%;
-            vertical-align: top;
-            border: 1px solid var(--line-color);
-            border-radius: 6px;
-            background-color: var(--focus-bg-color);
-            transition: 0.5s ease color,0.5s ease box-shadow;
-            &:focus {
-                color: var(--focus-txt-color);
-                box-shadow: 0px 0px 12px var(--support-bg-color);
+    fieldset {
+        padding: 20px;
+        border: 1px solid var(--line-color);
+        border-radius: 12px;
+        text-align: center;
+        legend {
+            visibility: visible;
+            height: auto;
+            line-height: 1;
+        }
+        .field {
+            input[type="password"] {
+                width: 100% ;
+                height: 50px;
+                padding: 11px 14px 12px;
+                box-sizing: border-box;
+                text-align: center;
+                line-height: 150%;
+                vertical-align: top;
+                border: 1px solid var(--line-color);
+                border-radius: 6px;
+                background-color: var(--focus-bg-color);
+                transition: 0.5s ease color,0.5s ease box-shadow;
+                &:focus {
+                    color: var(--focus-txt-color);
+                    box-shadow: 0px 0px 12px var(--support-bg-color);
+                }
             }
         }
-    }
-    p.error_msg {
-        margin-top: 6px;
-        font-size: var(--name-f-size);
-        color: var(--point-color);
-    }
-    .success_msg {
-        margin-bottom: 24px;
-    }
-    .btn_set {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0px 12px;
-        margin-top: 12px;
-        text-align: right;
-        line-height: 1;
-        button {
-            width: 100%;
-            height: 50px;
+        p.error_msg {
+            margin-top: 6px;
+            font-size: var(--name-f-size);
+            color: var(--point-color);
+        }
+        .success_msg {
+            margin-bottom: 24px;
+        }
+        .btn_set {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0px 12px;
+            margin-top: 12px;
+            text-align: right;
             line-height: 1;
-            border-radius: 6px;
-            transition: 0.5s ease box-shadow;
-            &[type="submit"] {
-                font-weight: 500;
-                color: var(--focus-bg-color);
-                background-color: var(--point-color);
-                &:hover,&:focus {
-                    box-shadow: 0px 0px 12px var(--point-color);
+            button {
+                width: 100%;
+                height: 50px;
+                line-height: 1;
+                border-radius: 6px;
+                transition: 0.5s ease box-shadow;
+                &[type="submit"] {
+                    font-weight: 500;
+                    color: var(--focus-bg-color);
+                    background-color: var(--point-color);
+                    &:hover,&:focus {
+                        box-shadow: 0px 0px 12px var(--point-color);
+                    }
                 }
             }
         }
@@ -71,7 +73,7 @@ fieldset.auth_form {
 
     /* Mobile */
     @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        fieldset.auth_form {
+        form.auth_form {
             position: static;
             top: 0px;
             left: 0px;
@@ -81,11 +83,11 @@ fieldset.auth_form {
 
         /* 세로모드 */
         @media (orientation:portrait) {
-            fieldset.auth_form {
+            form.auth_form {
                 position: absolute;
+                top: 50%;
                 left: 20px;
                 right: 20px;
-                top: 50%;
                 width: auto;
                 transform: translateY(-50%);
             }

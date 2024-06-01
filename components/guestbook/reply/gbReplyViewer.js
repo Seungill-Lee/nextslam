@@ -10,8 +10,20 @@ export default function GbReplyViewer(props){
 
     return(
         <div className={scss.gb_reply_viewer}>
-            <div className={scss.photo}>
-                <Image src="/images/guestbook/profile_admin.png" alt="관리자" width={120} height={120} />
+            <div className={scss.profile}>
+                <div className={scss.photo}>
+                    <Image src="/images/guestbook/profile_admin.png" alt="관리자" width={120} height={120} />
+                </div>
+                {props.auth ? 
+                    <div className={scss.btn_set}>
+                        <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("PATCH")}`}>
+                            <GbIcon shape="Edit" />
+                        </button>
+                        <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("DELETE")}`}>
+                            <GbIcon shape="Delete" />
+                        </button>
+                    </div>
+                : ""}
             </div>
             <div className={scss.info}>
                 <div className={scss.date_time}>{gb.reply.dateTime}</div>
@@ -19,16 +31,6 @@ export default function GbReplyViewer(props){
                     {gb.reply.content}
                 </div>
             </div>
-            {props.auth ? 
-                <div className={scss.btn_set}>
-                    <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("PATCH")}`}>
-                        <GbIcon shape="Edit" /><span className={scss.txt}>수정</span>
-                    </button>
-                    <button type="button" onClick={() => `${targetId(gb._id)} ${changeReplyMode("DELETE")}`}>
-                        <GbIcon shape="Delete" /><span className={scss.txt}>삭제</span>
-                    </button>
-                </div>
-             : ""}
         </div>
     )
 }

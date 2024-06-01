@@ -7,17 +7,63 @@
     box-sizing: border-box;
     border: 1px solid var(--point-alpha-color);
     background-color: var(--point-alpha-color);
-    .photo {
-        display: flex;
-        align-items: center;
-        width: 70px;
-        height: 70px;
-        line-height: 0;
-        box-sizing: border-box;
-        overflow: hidden;
-        img {
-            width: 100%;
-            height: 100%;
+    .profile {
+        .photo {
+            display: flex;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            line-height: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .btn_set {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--point-alpha-color);
+            button {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3px;
+                line-height: 0;
+                text-align: center;
+                box-sizing: border-box;
+                transition: 0.5s ease border-color;
+                &:first-child:after {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0px;
+                    bottom: 0px;
+                    right: 0px;
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    background-color: var(--point-alpha-color);
+                }
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: var(--support-txt-color);
+                    transition: 0.5s ease fill;
+                }
+                &:hover,&:focus {
+                    svg {
+                        fill: var(--point-color);
+                    }
+                }
+                &:disabled {
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+            }
         }
     }
     .info {
@@ -34,46 +80,35 @@
             line-height: 150%;
         }
     }
-    
-    .btn_set {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        display: flex;
-        gap: 0px 8px;
-        button {
+}
+
+/* Tablet */
+@media all and (width <= 1366px) and (height <= 1366px)  {
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        .gb_reply_viewer {
             position: relative;
-            overflow: hidden;
             display: flex;
-            align-items: center;
-            padding: 3px;
-            line-height: 0;
-            text-align: center;
-            border-radius: 6px;
-            border: 1px solid var(--line-color);
-            box-sizing: border-box;
-            transition: 0.5s ease border-color;
-            svg {
-                width: 20px;
-                height: 20px;
-                fill: var(--support-txt-color);
-                transition: 0.5s ease fill;
-            }
-            span.txt {
-                position: absolute;
-                top: -999px;
-                left: -999px;
-            }
-            &:hover,&:focus {
-                border-color: var(--point-color);
-                svg {
-                    fill: var(--focus-txt-color);
+            gap: 0px 12px;
+            margin: 12px 0px 0px 40px;
+            padding: 12px;
+            .profile {
+                .photo {
+                    width: 60px;
+                    height: 60px;
                 }
             }
-            &:disabled {
-                opacity: 0.5;
-                pointer-events: none;
+            .info {
+                .content {
+                    margin-top: 6px;
+                }
             }
+        }
+
+        /* 세로모드 */
+        @media (orientation:portrait) {
+            
         }
     }
 }

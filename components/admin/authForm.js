@@ -12,8 +12,8 @@ export default function AuthForm(props) {
     const [state, formAction] = useFormState(handleSubmit,initState)
 
     return (
-        <form action={formAction}>
-            <fieldset className={scss.auth_form}>
+        <form className={scss.auth_form} action={formAction}>
+            <fieldset>
                 <legend>관리자 인증 폼</legend>
                 {props.auth ? 
                     <p className={scss.success_msg}>
