@@ -74,39 +74,3 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
         default: null
     }
 }
-
-
-// export async function handleSubmit(mode,gbId,gbOldPw,gbNewPw,previousState,formData) {
-//     let ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
-//     const gbID = gbId;
-//     const oldPassword = gbOldPw || "";
-//     const newPassword = gbNewPw;
-
-//     const data = {
-//         name: formData.get("name"),
-//         email: formData.get("email"),
-//         password: ncryptObject.encrypt(newPassword),
-//         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
-//         content: formData.get("content")
-//     }
-
-    
-//     const modifyData = {...data, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}
-    
-
-//     const options = {
-//         method: mode,
-//         headers: {
-//             "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify(mode == "PATCH" ? modifyData : data)
-//     }
-//     const delOpt = {
-//         method: "DELETE",
-//     }
-
-//     const resp = await fetch(process.env.PUBLIC_API_URL+`/guestbook/${mode != "POST" ? gbID : ""}`,mode == "DELETE" ? delOpt : options);
-//     const gbData = await resp.json();
-
-//     revalidatePath("/guestbook")
-// }
