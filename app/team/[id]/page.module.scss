@@ -67,6 +67,12 @@ ul.charater_list {
             grid-template-columns: repeat(1,1fr);
             gap: 30px;
             li {
+                .photo {
+                    img {
+                        height: get-vh(500px,$divceHeight);
+                        object-fit: cover;
+                    }
+                }
                 dl.info {
                     grid-template-columns: 125px auto;
                 }
@@ -84,7 +90,7 @@ ul.charater_list {
             li {
                 .photo {
                     img {
-                        height: get-vh(200px,$divceHeight);
+                        height: get-vh(225px,$divceHeight);
                     }
                 }
                 dl.info {
@@ -97,12 +103,12 @@ ul.charater_list {
         @media (orientation:portrait) {
             $divceWidth: 430px;
             $divceHeight: 932px;
-    
+
             ul.charater_list {
                 li {
                     .photo {
                         img {
-                            height: get-vh(200px,$divceHeight);
+                            height: get-vh(225px,$divceHeight);
                         }
                     }
                     dl.info {
