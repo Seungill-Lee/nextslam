@@ -1,5 +1,6 @@
 'use client'
 
+import GbReplyProfile from "./gbReplyProfile.js";
 import { handleSubmit } from "./gbReplyAction.js"
 import { useState, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
@@ -42,18 +43,22 @@ export default function GbReplyEditor(props){
     },[state])
 
     return (
-        <form action={formAction}>
-            <fieldset>
-                <legend>댓글 쓰기</legend>
-                <p className={scss.field}>
-                    <textarea cols="30" rows="10" name="content" placeholder="답변내용 입력" value={gbReplyContent ? gbReplyContent : ""} onChange={(e) => setGbReplyContent(e.target.value)} required></textarea>
-                </p>
-                <p className={scss.field}>
-                    <input type="password" name="password" placeholder="비밀번호 확인" ref={pwInput} value={gbReplyPassword ? gbReplyPassword : ""} onChange={(e) => setGbReplyPassword(e.target.value)} required />
-                </p>
-                <button type="button" onClick={()=> changeReplyMode("GET")}>취소하기</button>
-                <button type="submit">등록하기</button>
-            </fieldset>
-        </form>
+        <GbReplyProfile gb={gb} targetId={targetId} changeReplyMode={changeReplyMode}>
+            <form className={scss.editor} action={formAction}>
+                <fieldset>
+                    <legend>댓글 쓰기</legend>
+                    <div className={scss.field}>
+                        <textarea cols="30" rows="10" name="content" placeholder="답변내용 입력" value={gbReplyContent ? gbReplyContent : ""} onChange={(e) => setGbReplyContent(e.target.value)} required></textarea>
+                    </div>
+                    <div className={scss.field}>
+                        <input type="password" name="password" placeholder="비밀번호 확인" ref={pwInput} value={gbReplyPassword ? gbReplyPassword : ""} onChange={(e) => setGbReplyPassword(e.target.value)} required />
+                    </div>
+                    <div className={scss.btn_submit}>
+                        <button type="button" onClick={()=> changeReplyMode("GET")}>취소하기</button>
+                        <button type="submit">등록하기</button>
+                    </div>
+                </fieldset>
+            </form>
+        </GbReplyProfile>
     )
 }

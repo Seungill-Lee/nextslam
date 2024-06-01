@@ -1,0 +1,93 @@
+.gb_reply {
+    position: relative;
+    display: grid;
+    grid-template-columns: 70px auto;
+    gap: 0px 16px;
+    margin: 16px 0px 0px 50px;
+    padding: 16px;
+    box-sizing: border-box;
+    border: 1px solid var(--point-alpha-color);
+    background-color: var(--point-alpha-color);
+    .profile {
+        .photo {
+            display: flex;
+            align-items: center;
+            width: 70px;
+            height: 70px;
+            line-height: 0;
+            overflow: hidden;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .btn_set {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 8px;
+            border-radius: 6px;
+            border: 1px solid var(--point-alpha-color);
+            button {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 3px;
+                line-height: 0;
+                text-align: center;
+                transition: 0.5s ease border-color;
+                &:first-child:after {
+                    position: absolute;
+                    z-index: 2;
+                    top: 0px;
+                    bottom: 0px;
+                    right: 0px;
+                    content: '';
+                    display: block;
+                    width: 1px;
+                    background-color: var(--point-alpha-color);
+                }
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    fill: var(--support-txt-color);
+                    transition: 0.5s ease fill;
+                }
+                &:hover,&:focus {
+                    svg {
+                        fill: var(--point-color);
+                    }
+                }
+                &:disabled {
+                    opacity: 0.5;
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media all and (width <= 1366px) and (height <= 1366px)  {
+    .gb_reply {
+        gap: 0px 14px;
+        margin: 14px 0px 0px 60px;
+        padding: 14px;
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        .gb_reply {
+            grid-template-columns: 60px auto;
+            gap: 0px 12px;
+            margin: 12px 0px 0px 0px;
+            padding: 12px;
+            .profile {
+                .photo {
+                    width: 60px;
+                    height: 60px;
+                }
+            }
+        }
+    }
+}

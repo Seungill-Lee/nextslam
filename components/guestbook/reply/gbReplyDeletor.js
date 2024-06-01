@@ -1,12 +1,12 @@
 'use client'
 
-import scss from "./gbReplyDeletor.module.scss";
+import GbReplyProfile from "./gbReplyProfile.js";
 import { useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbReplyAction.js";
 import { useFormState } from 'react-dom';
+import scss from "./gbReplyDeletor.module.scss";
 
 export default function GbReplyDeletor(props){
-    const mode = props.mode;
     const gb = props.data;
     const targetId = props.targetId;
     const changeReplyMode = props.changeReplyMode;
@@ -39,15 +39,17 @@ export default function GbReplyDeletor(props){
     },[state])
 
     return(
-        <form className={scss.gb_deletor} action={formAction}>
-            <p className={scss.msg}>정말 삭제하시겠습니까??</p>
-            <div className={scss.field}>
-                <input type="password" name="password" placeholder="비빌번호 확인" value={gbReplyPassword || ""} onChange={(e) => setGbReplyPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required />
-            </div>
-            <div className={scss.btn_delete}>
-                <button type="button" onClick={() => `${targetId(gb.id)} ${changeReplyMode("GET")}`}>돌아가기</button>
-                <button type="submit">삭제하기</button>
-            </div>
-        </form>
+        <GbReplyProfile gb={gb} targetId={targetId} changeReplyMode={changeReplyMode}>
+            <form className={scss.deletor} action={formAction}>
+                <p className={scss.msg}>정말 삭제하시겠습니까??</p>
+                <div className={scss.field}>
+                    <input type="password" name="password" placeholder="비빌번호 확인" value={gbReplyPassword || ""} onChange={(e) => setGbReplyPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required />
+                </div>
+                <div className={scss.btn_delete}>
+                    <button type="button" onClick={() => `${targetId(gb.id)} ${changeReplyMode("GET")}`}>취소하기</button>
+                    <button type="submit">삭제하기</button>
+                </div>
+            </form>
+        </GbReplyProfile>
     )
 }

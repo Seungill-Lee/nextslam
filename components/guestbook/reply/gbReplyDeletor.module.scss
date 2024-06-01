@@ -1,0 +1,96 @@
+form.deletor {
+    text-align: center;
+    .field {
+        margin: 8px 0px;
+        line-height: 0;
+        input[type="password"],textarea {
+            font-size: var(--desc-f-size);
+            line-height: 150%;
+            border: 1px solid var(--point-alpha-color);
+            background-color: var(--focus-bg-color);
+            &:focus {
+                border-color: var(--point-color)
+            }
+        }
+        input[type="password"] {
+            width: 300px;
+            padding: 5px 12px 6px;
+            height: 40px;
+            text-align: center;
+        }
+    }
+    .btn_delete {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0px 8px;
+        line-height: 1;
+        button {
+            padding: 13px 14px 12px;
+            line-height: 1;
+            font-size: var(--desc-f-size);
+            border-radius: 6px;
+            transition: 0.5s ease box-shadow;
+            &[type="submit"] {
+                font-weight: 500;
+                color: var(--focus-bg-color);
+                background-color: var(--point-color);
+                &:hover,&:focus {
+                    box-shadow: 0px 0px 12px var(--point-color);
+                }
+            }
+            &[type="button"] {
+                color: var(--basic-txt-color);
+                background-color: var(--basic-bg-color);
+                &:hover,&:focus {
+                    box-shadow: 0px 0px 12px var(--support-bg-color);
+                }
+            }
+        }
+    }
+}
+
+/* Tablet */
+@media all and (width <= 1366px) and (height <= 1366px)  {
+    form.deletor {
+        .field {
+            input[type="password"] {
+                padding: 6px 11px;
+                height: 37px;
+            }
+        }
+        .btn_delete {
+            button {
+                padding: 12px 13px 10px;
+            }
+        }
+    }
+
+    /* Mobile */
+    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+        form.deletor {
+            .field {
+                input[type="password"] {
+                    padding: 4px 10px 5px;
+                    height: 34px;
+                }
+            }
+            .btn_delete {
+                button {
+                    padding: 11px 12px 10px;
+                }
+            }
+        }
+
+        /* 세로모드 */
+        @media (orientation:portrait) {
+            form.deletor {
+                .field {
+                    input[type="password"] {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
