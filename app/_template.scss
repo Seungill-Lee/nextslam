@@ -1,0 +1,22 @@
+p.guide {
+    margin: -4px 0px 20px;
+    font-size: var(--desc-f-size);
+    color: var(--label-txt-color);
+    line-height: 150%;
+    a {
+        color: var(--focus-txt-color);
+        text-decoration: underline 1px dotted var(--focus-txt-color);
+        text-underline-offset: 4px;
+        &:hover,&:focus {
+            color: var(--point-color);
+            text-decoration-color: var(--point-color);
+        }
+    }
+}
+
+/* Tablet */
+@media all and (width <= 1366px) and (height <= 1366px)  {
+    p.guide {
+        margin: -3px 0px 15px;
+    }
+}
