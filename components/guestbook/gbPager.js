@@ -19,19 +19,21 @@ export default function GbPager(props) {
         setTotalPageNum(Math.ceil(gbData.length/viewLen))
     },[gbData.length])
 
-    return(
-        <div className={scss.gb_pager}>
-            <button type="button" onClick={() => {
-                pageNum > 1 ? `${router.push("/guestbook?page_num="+(pageNum-1))}` : `${router.push("/guestbook?page_num="+(1))}`
-            }} disabled={pageNum == 1 ? true : false}>
-                <GbIcon shape="Prev" />
-            </button>
-            <div className={scss.page_num}><strong className={scss.current}>{pageNum}</strong> / <span className={scss.total}>{totalPageNum}</span></div>
-            <button type="button" onClick={() => {
-                pageNum < totalPageNum ? `${router.push("/guestbook?page_num="+(pageNum+1))}` : `${router.push("/guestbook?page_num="+totalPageNum)}`
-            }} disabled={pageNum == totalPageNum ? true : false}>
-                <GbIcon shape="Next" />
-            </button>
-        </div>
-    )
+    if(gbLen > 0) {
+        return(
+            <div className={scss.gb_pager}>
+                <button type="button" onClick={() => {
+                    pageNum > 1 ? `${router.push("/guestbook?page_num="+(pageNum-1))}` : `${router.push("/guestbook?page_num="+(1))}`
+                }} disabled={pageNum == 1 ? true : false}>
+                    <GbIcon shape="Prev" />
+                </button>
+                <div className={scss.page_num}><strong className={scss.current}>{pageNum}</strong> / <span className={scss.total}>{totalPageNum}</span></div>
+                <button type="button" onClick={() => {
+                    pageNum < totalPageNum ? `${router.push("/guestbook?page_num="+(pageNum+1))}` : `${router.push("/guestbook?page_num="+totalPageNum)}`
+                }} disabled={pageNum == totalPageNum ? true : false}>
+                    <GbIcon shape="Next" />
+                </button>
+            </div>
+        )
+    }
 }
