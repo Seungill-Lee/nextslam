@@ -55,7 +55,7 @@ export default function GbReplyEditor(props){
                     </div>
                     <div className={scss.btn_submit}>
                         <button type="button" onClick={()=> changeReplyMode("GET")}>취소하기</button>
-                        <button type="submit">등록하기</button>
+                        <button type="submit">{mode == "PATCH" ? "수정하기" : "등록하기"}</button>
                     </div>
                 </fieldset>
             </form>

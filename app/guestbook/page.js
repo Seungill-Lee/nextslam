@@ -18,7 +18,7 @@ export default async function Guestbook() {
     const session = await GetAuth();
     try {
         await client.connect();
-        const db = client.db('next_slam');
+        const db = client.db('nextslam');
         let gbData = await db.collection('guestbook').find().toArray();
         gbData.map((a)=>{
             delete a.password

@@ -20,7 +20,7 @@ export async function handleSubmit(mode,gbID,gbNewPw,previousState,formData) {
     }
 
     await client.connect();
-    const db = client.db('next_slam');
+    const db = client.db('nextslam');
     const collection = db.collection('guestbook');
 
     switch(mode) {
