@@ -6,7 +6,7 @@ import { getIronSession } from 'iron-session';
 export async function handleSubmit(previousState,formData) {
     const pwValue = formData.get("password");
     const masterPassword = process.env.MASTER_AUTH_PASSWORD;
-    const session = await getIronSession(cookies(), { password:"pFdmQwmWve4wDjCZGxx76WXGrK4EDqhn", cookieName:"HompageAdministor" })
+    const session = await getIronSession(cookies(), { password:process.env.AUTH_COOKIE_PASSWORD, cookieName:process.env.AUTH_COOKIE_NAME })
 
     if(!session.authLogin) {
         if(pwValue != masterPassword) {
