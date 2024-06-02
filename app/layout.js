@@ -13,9 +13,16 @@ export const metadata = {
         template: "%s | Next Slam",
         default: "Next Slam"
     },
-    author : "이승일 Seungill Lee",
-    generator : "Next.js 14",
-    description: "Next.js로 제작된 슬램덩크 팬사이트",
+    author : [{ name: "이승일 Seungill Lee", url: "https://seungill-lee.github.io/portfolio/" }],
+    generator : "Next.js",
+    keywords: ['Next.js', 'React', 'Slamdunk', '슬램덩크'],
+    description: "Next.js로 제작한 슬램덩크 팬사이트",
+    referrer: 'origin-when-cross-origin',
+    formatDetection: {
+        email: false,
+        address: false,
+        telephone: false,
+    }
 };
 
 export const viewport = {

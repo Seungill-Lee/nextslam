@@ -38,6 +38,8 @@ body {
     margin: 0px;
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: var(--base-f-size);
+    -webkit-text-size-adjust: none;
+    text-size-adjust : none;
     font-weight: 400;
     word-break: keep-all;
     line-height: 150%;
@@ -59,9 +61,11 @@ button {
     box-sizing: border-box;
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: var(--base-f-size);
+    -webkit-text-size-adjust: none;
+    text-size-adjust : none;
     font-weight: 400;
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     background-color: transparent;
     cursor: pointer;
     outline: 0px;
@@ -125,13 +129,15 @@ input[type="tel"],
 textarea {
     font-family: var(--libre-franklin), var(--noto-sans-kr), sans-serif;
     font-size: var(--base-f-size);
+    -webkit-text-size-adjust: none;
+    text-size-adjust : none;
     font-weight: 400;
     color: var(--basic-txt-color);
     border-radius: 0px;
     border-width: 0px;
     box-sizing: border-box;
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     background-color: transparent;
     outline: 0px;
 }
