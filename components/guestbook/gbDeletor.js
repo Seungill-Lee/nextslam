@@ -3,7 +3,7 @@
 import scss from "./gbDeletor.module.scss";
 import { useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 
 export default function GbDeletor(props) {
     const mode = props.mode;
@@ -18,7 +18,8 @@ export default function GbDeletor(props) {
     const [gbId,setGbId] = useState();
     const [gbPassword,setGbPassword] = useState();
     const gbSubmit = handleSubmit.bind(null,"DELETE",gbId,gbPassword);
-    const [state, formAction, isPending] = useFormState(gbSubmit,initialState);
+    const [state, formAction] = useFormState(gbSubmit,initialState);
+    const { isPending } = useFormStatus();
     const pwInput = useRef();
 
     useEffect(() => {

@@ -4,7 +4,7 @@ import scss from "./gbEditor.module.scss";
 import { useRouter } from 'next/navigation';
 import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
-import { useFormState } from 'react-dom';
+import { useFormState, useFormStatus } from 'react-dom';
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -24,7 +24,8 @@ export default function GbWrite(props) {
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
-    const [state, formAction, isPending] = useFormState(gbSubmit,initialState);
+    const [state, formAction] = useFormState(gbSubmit,initialState);
+    const { isPending } = useFormStatus();
     const pwInput = useRef();
     const router = useRouter();
 
