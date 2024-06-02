@@ -21,6 +21,9 @@ form.gb_deletor {
                 color: var(--focus-txt-color);
                 box-shadow: 0px 0px 12px var(--support-bg-color);
             }
+            &:disabled {
+                opacity: 0.5;
+            }
         }
     }
     .btn_delete {
@@ -50,6 +53,9 @@ form.gb_deletor {
                 &:hover,&:focus {
                     box-shadow: 0px 0px 12px var(--support-bg-color);
                 }
+            }
+            &:disabled {
+                opacity: 0.5;
             }
         }
     }

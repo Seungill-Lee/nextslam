@@ -24,7 +24,7 @@ export default function GbWrite(props) {
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
-    const [state, formAction] = useFormState(gbSubmit,initialState);
+    const [state, formAction, isPending] = useFormState(gbSubmit,initialState);
     const pwInput = useRef();
     const router = useRouter();
 
@@ -69,31 +69,32 @@ export default function GbWrite(props) {
                 <dl>
                     <div className={`${scss.field} ${scss.name}`}>
                         <dt><label htmlFor={`${Labeling}name`}>이름</label></dt>
-                        <dd><input type="text" minLength="2" maxLength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
+                        <dd><input type="text" minLength="2" maxLength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} disabled={isPending} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
-                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required /></dd>
+                        <dd><input type="password" name="password" id={`${Labeling}password`} value={gbPassword ? gbPassword : ""} onChange={(e) => setGbPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} disabled={isPending} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
-                        <dd><input type="email" name="email" id={`${Labeling}email`} value={gbEmail ? gbEmail : ""} onChange={(e) => setGbEmail(e.target.value)} required /></dd>
+                        <dd><input type="email" name="email" id={`${Labeling}email`} value={gbEmail ? gbEmail : ""} onChange={(e) => setGbEmail(e.target.value)} disabled={isPending} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.content}`}>
                         <dt><label htmlFor={`${Labeling}content`}>내용</label></dt>
-                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
+                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} disabled={isPending} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
-                            <button type="button" onClick={() => `${targetId("")} ${changeMode("GET")}`}>돌아가기</button>
-                            <button type="submit">수정하기</button>
+                            <button type="button" onClick={() => `${targetId("")} ${changeMode("GET")}`} disabled={isPending}>돌아가기</button>
+                            <button type="submit" disabled={isPending}>수정하기</button>
                         </>
                         :
-                        <button type="submit">등록하기</button>
+                        <button type="submit" disabled={isPending}>등록하기</button>
                     }
                 </div>
+                <p>{isPending ? 'Loading...' : 'Submit'}</p>
             </fieldset>
         </form>
     )
