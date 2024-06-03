@@ -57,12 +57,12 @@ export default function GbList(props) {
                             }
                             {props.auth && gbId == gb._id ? 
                                 {
-                                    "GET": gb.reply ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : "",
+                                    "GET": gb.reply && gbMode != "DELETE" ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : "",
                                     "POST": <GbReplyEditor mode="POST" data={gb} targetId={targetId} changeReplyMode={changeReplyMode} />,
                                     "PATCH": gb.reply ? <GbReplyEditor data={gb} mode="PATCH" targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                     "DELETE": gb.reply ? <GbReplyDeletor data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                 }[gbReplyMode]
-                                : gb.reply ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : ""
+                                : gb.reply && gbMode != "DELETE" ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : ""
                             }
                         </li> : ""
                     );

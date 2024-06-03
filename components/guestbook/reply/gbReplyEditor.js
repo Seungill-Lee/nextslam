@@ -1,10 +1,11 @@
 'use client'
 
+import scss from "./gbReplyEditor.module.scss";
 import GbReplyProfile from "./gbReplyProfile.js";
 import { handleSubmit } from "./gbReplyAction.js"
 import { useState, useEffect, useRef } from "react";
 import { useFormState } from "react-dom";
-import scss from "./gbReplyEditor.module.scss";
+import GbReplySubmitBtn from "./gbReplySubmitBtn.js"
 
 export default function GbReplyEditor(props){
     const mode = props.mode;
@@ -54,8 +55,8 @@ export default function GbReplyEditor(props){
                         <input type="password" name="password" placeholder="비밀번호 확인" ref={pwInput} value={gbReplyPassword ? gbReplyPassword : ""} onChange={(e) => setGbReplyPassword(e.target.value)} required />
                     </div>
                     <div className={scss.btn_submit}>
-                        <button type="button" onClick={()=> changeReplyMode("GET")}>취소하기</button>
-                        <button type="submit">{mode == "PATCH" ? "수정하기" : "등록하기"}</button>
+                        <GbReplySubmitBtn role="CANCEL" onClick={() => `${targetId("")} ${changeReplyMode("GET")}`} />
+                        <GbReplySubmitBtn role={mode} />
                     </div>
                 </fieldset>
             </form>

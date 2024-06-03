@@ -36,9 +36,6 @@
                         padding: 10px 14px 12px;
                         line-height: 150%;
                         vertical-align: top;
-                        &:disabled {
-                            opacity: 0.5;
-                        }
                     }
                     input {
                         height: 48px;
@@ -69,39 +66,12 @@
             margin-top: 12px;
             text-align: right;
             line-height: 1;
-            button {
-                padding: 13px 14px 12px;
-                line-height: 1;
-                border-radius: 6px;
-                transition: 0.5s ease box-shadow;
-                &[type="submit"] {
-                    font-weight: 500;
-                    color: var(--focus-bg-color);
-                    background-color: var(--point-color);
-                    &:hover,&:focus {
-                        box-shadow: 0px 0px 12px var(--point-color);
-                    }
-                }
-                &[type="button"] {
-                    color: var(--basic-txt-color);
-                    background-color: var(--basic-bg-color);
-                    &:hover,&:focus {
-                        box-shadow: 0px 0px 12px var(--support-bg-color);
-                    }
-                }
-                &:disabled {
-                    opacity: 0.5;
-                }
-            }
         }
     }
 }
 
 /* Tablet */
 @media all and (width <= 1366px) and (height <= 1366px)  {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
-
     .gb_editor {
         fieldset {
             dl {
@@ -121,19 +91,11 @@
                     }
                 }
             }
-            .btn_submit {
-                button {
-                    padding: 12px 13px 11px;
-                }
-            }
         }
     }
 
     /* Tablet 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 1024px;
-        $divceHeight: 1366px;
-
         .gb_editor {
             fieldset {
                 dl {
@@ -172,11 +134,6 @@
                                 height: 168px;
                             }
                         }
-                    }
-                }
-                .btn_submit {
-                    button {
-                        padding: 11px 12px;
                     }
                 }
             }

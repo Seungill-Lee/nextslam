@@ -1,10 +1,11 @@
 'use client'
 
+import scss from "./gbReplyDeletor.module.scss";
 import GbReplyProfile from "./gbReplyProfile.js";
 import { useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbReplyAction.js";
 import { useFormState } from 'react-dom';
-import scss from "./gbReplyDeletor.module.scss";
+import GbReplySubmitBtn from "./gbReplySubmitBtn.js"
 
 export default function GbReplyDeletor(props){
     const gb = props.data;
@@ -46,8 +47,8 @@ export default function GbReplyDeletor(props){
                     <input type="password" name="password" placeholder="비빌번호 확인" value={gbReplyPassword || ""} onChange={(e) => setGbReplyPassword(e.target.value)} title="영문+숫자+특수문자를 조합한 8~16자리" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$" ref={pwInput} required />
                 </div>
                 <div className={scss.btn_delete}>
-                    <button type="button" onClick={() => `${targetId(gb.id)} ${changeReplyMode("GET")}`}>취소하기</button>
-                    <button type="submit">삭제하기</button>
+                    <GbReplySubmitBtn role="CANCEL" onClick={() => `${targetId("")} ${changeReplyMode("GET")}`} />
+                    <GbReplySubmitBtn role="DELETE" />
                 </div>
             </form>
         </GbReplyProfile>
