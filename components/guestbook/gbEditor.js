@@ -4,8 +4,8 @@ import scss from "./gbEditor.module.scss";
 import { useRouter } from 'next/navigation';
 import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
-import { useFormState } from 'react-dom';
-import { GbPending } from './gbPending.js';
+import { useFormState } from "react-dom";
+import GbSubmitBtn from "./gbSubmitBtn.js";
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -88,11 +88,11 @@ export default function GbWrite(props) {
                 <div className={scss.btn_submit}>
                     {props.mode == "PATCH" ? 
                         <>
-                            <button type="button" onClick={() => `${targetId("")} ${changeMode("GET")}`}>돌아가기</button>
-                            <button type="submit" disabled={ GbPending }>수정하기</button>
+                            <GbSubmitBtn role="RETURN" onClick={() => `${targetId("")} ${changeMode("GET")}`} />
+                            <GbSubmitBtn role="PATCH" />
                         </>
                         :
-                        <button type="submit" disabled={ GbPending }>등록하기</button>
+                        <GbSubmitBtn role="POST" />
                     }
                 </div>
             </fieldset>
