@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useId, useState, useEffect, useRef } from 'react';
 import { handleSubmit } from "./gbAction.js";
 import { useFormState } from 'react-dom';
+import { GbPending } from './gbPending.js';
 
 export default function GbWrite(props) {
     const Labeling = useId();
@@ -88,10 +89,10 @@ export default function GbWrite(props) {
                     {props.mode == "PATCH" ? 
                         <>
                             <button type="button" onClick={() => `${targetId("")} ${changeMode("GET")}`}>돌아가기</button>
-                            <button type="submit">수정하기</button>
+                            <button type="submit" disabled={ GbPending }>수정하기</button>
                         </>
                         :
-                        <button type="submit">등록하기</button>
+                        <button type="submit" disabled={ GbPending }>등록하기</button>
                     }
                 </div>
             </fieldset>
