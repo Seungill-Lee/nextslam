@@ -28,7 +28,7 @@ export default function STItem() {
                                 <a href="/" onClick={(e) => {setPlayID(a.id); {playing != "Ready" ? setPlaying("Ready") : null};  e.preventDefault()}} className={playID == a.id ? scss["active"] : ""}>
                                     <div className={scss.album_cover}>
                                         {a.coverImgSrc ?
-                                            <Image src={a.coverImgSrc} alt={a.albumInfo["name"] ? a.albumInfo["name"] : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
+                                            <Image src={a.coverImgSrc} alt={a.albumInfo["name"] ? a.albumInfo["name"] : ""} width={100} height={100} className={scss.ac_thumbnail} priority={true} /> : <EmptyCover className={scss.empty} />
                                         }
                                         {playID == a.id ? 
                                             {

@@ -11,7 +11,7 @@ export default function Home() {
                 이 사이트는 <a href="https://nextjs.org/" target="_blank" title="새 창 열림">Next.js</a>를 공부하기 위한 목적으로 만들어졌습니다.
             </p>
             <div className={scss.banner_photo}>
-                <Image src="/images/photo_home_visual.jpg" alt="" width={1460} height={1020} />
+                <Image src="/images/photo_home_visual.jpg" alt="" width={1460} height={1020} priority={true} />
             </div>
         </div>
     );
