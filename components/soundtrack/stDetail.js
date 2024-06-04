@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useAtomValue } from "jotai";
 import { bgmPlayerID } from "../atom.js"
 import scss from "./stDetail.module.scss";
@@ -13,7 +13,6 @@ export default function StDetail() {
     const playID = useAtomValue(bgmPlayerID)
     const stDetail = useRef();
     const detailInner = useRef();
-    const [coverImgIs,loadingCoverImg] = useState(false);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -29,21 +28,12 @@ export default function StDetail() {
         })
     },[])
 
-    useEffect(() => {
-        if(playID > 0 && data[playID-1].coverImgSrc) {
-            loadingCoverImg(true)
-            console.log(data[playID-1].coverImgSrc)
-        } else {
-            loadingCoverImg(false)
-        }
-    },[playID])
-
     return (
-        <div className={scss.st_detail} style={{"background":coverImgIs && data[playID-1].albumInfo["bgColor"] ? data[playID-1].albumInfo["bgColor"] : ""}} ref={stDetail}>
+        <div className={scss.st_detail} style={{"background":playID > 0 && data[playID-1].albumInfo["bgColor"] ? data[playID-1].albumInfo["bgColor"] : ""}} ref={stDetail}>
             <div className={scss.detail_inner} ref={detailInner}>
                 <div className={scss.cover}>
-                    {coverImgIs && data[playID-1].coverImgSrc ?
-                        <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
+                    {playID > 0 && data[playID-1].coverImgSrc ?
+                        <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} priority={true} /> : <EmptyCover className={scss.empty} />
                     }
                 </div>
                 <div  className={scss.info}>
