@@ -1,10 +1,10 @@
 'use client'
 
+import Link from 'next/link';
 import Image from "next/image";
-import scss from "./stList.module.scss";
-import { useState } from "react";
 import { useAtom } from "jotai";
 import { bgmPlayerID, bgmPlaying } from "../atom.js"
+import scss from "./stList.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 import SoundWaveIcon from "./soundWaveIcon.js";
@@ -15,7 +15,6 @@ import StDetail from "./stDetail.js";
 export default function STItem() {
     const [playID,setPlayID] = useAtom(bgmPlayerID);
     const [playing,setPlaying] = useAtom(bgmPlaying); //Play, Pause, Error, Ready, Stop
-    const [coverImgSrc,setCoverImgSrc] = useState();
 
     //console.log(playing)
 
@@ -26,7 +25,7 @@ export default function STItem() {
                     data.map((a,i) => {
                         return (
                             <li key={i}>
-                                <a href="/" onClick={(e) => {setPlayID(a.id); {playing != "Ready" ? setPlaying("Ready") : null}; {setCoverImgSrc(a.coverImgSrc)} e.preventDefault()}} className={playID == a.id ? scss["active"] : ""}>
+                                <a href="/" onClick={(e) => {setPlayID(a.id); {playing != "Ready" ? setPlaying("Ready") : null};  e.preventDefault()}} className={playID == a.id ? scss["active"] : ""}>
                                     <div className={scss.album_cover}>
                                         {a.coverImgSrc ?
                                             <Image src={a.coverImgSrc} alt={a.albumInfo["name"] ? a.albumInfo["name"] : ""} width={100} height={100} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
@@ -55,7 +54,7 @@ export default function STItem() {
                     })
                 }
             </ul>
-            <StDetail coverImgSrc={coverImgSrc} />
+            <StDetail />
         </div>
     )
 }
