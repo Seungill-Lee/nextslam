@@ -1,10 +1,9 @@
 'use client'
 
-import Link from 'next/link';
 import Image from "next/image";
+import scss from "./stList.module.scss";
 import { useAtom } from "jotai";
 import { bgmPlayerID, bgmPlaying } from "../atom.js"
-import scss from "./stList.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 import SoundWaveIcon from "./soundWaveIcon.js";

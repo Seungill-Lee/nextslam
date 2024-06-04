@@ -1,11 +1,10 @@
 'use client'
 
-import Link from 'next/link';
 import Image from "next/image";
+import scss from "./stDetail.module.scss";
 import { useEffect, useRef } from "react";
 import { useAtomValue } from "jotai";
 import { bgmPlayerID } from "../atom.js"
-import scss from "./stDetail.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 
