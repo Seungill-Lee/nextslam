@@ -1,15 +1,14 @@
 'use client'
 
-import Link from 'next/link';
 import Image from "next/image";
+import scss from "./stDetail.module.scss";
 import { useEffect, useRef } from "react";
 import { useAtomValue } from "jotai";
 import { bgmPlayerID } from "../atom.js"
-import scss from "./stDetail.module.scss";
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 
-export default function StDetail() {
+export default function StDetail(props) {
     const playID = useAtomValue(bgmPlayerID)
     const stDetail = useRef();
     const detailInner = useRef();
@@ -32,8 +31,8 @@ export default function StDetail() {
         <div className={scss.st_detail} style={{"background":playID > 0 && data[playID-1].albumInfo["bgColor"] ? data[playID-1].albumInfo["bgColor"] : ""}} ref={stDetail}>
             <div className={scss.detail_inner} ref={detailInner}>
                 <div className={scss.cover}>
-                    {playID > 0 && data[playID-1].coverImgSrc ?
-                        <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
+                    {playID > 0 && props.coverImgSrc ?
+                        <Image src={props.coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                     }
                 </div>
                 <div  className={scss.info}>
