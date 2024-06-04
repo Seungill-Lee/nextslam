@@ -11,7 +11,7 @@ export default function Character(props) {
                     return (
                         <li key={i}>
                             <div className={scss.photo}>
-                                <Image src={"/images/character/photo_sdc_"+a.id+".jpg"} alt={a.korName} width={638} height={360} priority={true} />
+                                <Image src={"/images/character/photo_sdc_"+a.id+".jpg"} alt={a.korName} width={638} height={360} />
                             </div>
                             <dl className={scss.info}>
                                 <>
