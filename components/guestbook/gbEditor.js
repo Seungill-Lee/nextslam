@@ -27,8 +27,13 @@ export default function GbWrite(props) {
     const [gbContent, setGbContent] = useState();
     const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState);
-    const pwInput = useRef();
     const router = useRouter();
+
+    //input Ref
+    const nameInput = useRef();
+    const pwInput = useRef();
+    const emailInput = useRef();
+    const contArea = useRef();
 
     useEffect(() => {
         if(gb && mode == "PATCH") {
@@ -42,11 +47,28 @@ export default function GbWrite(props) {
     },[])
 
     useEffect(() => {
-        console.log(state)
         if(state?.success == false) {
             alert(state?.message);
-            setGbPassword("");
-            pwInput.current.focus();
+
+            switch (state?.errorInput) {
+                case "name":
+                    setGbName("")
+                    nameInput.current.focus();
+                    break;
+                case "password":
+                    setGbPassword("")
+                    pwInput.current.focus();
+                    break;
+                case "email":
+                    setGbEmail("")
+                    emailInput.current.focus();
+                    break;
+                case "content":
+                    setGbContent("")
+                    contArea.current.focus();
+                    break;
+                default: null
+            }
         } else if(state?.success == true) {
             if(mode == "PATCH") {
                 targetId(gbId)
@@ -58,7 +80,7 @@ export default function GbWrite(props) {
 
     return(
         <form className={scss.gb_editor} onSubmit={() => {
-            if(mode == "POST") {
+            if(mode == "POST" && state?.success == true) {
                 setGbId("");
                 setGbName("")
                 setGbPassword("");
@@ -72,7 +94,7 @@ export default function GbWrite(props) {
                 <dl>
                     <div className={`${scss.field} ${scss.name}`}>
                         <dt><label htmlFor={`${Labeling}name`}>이름</label></dt>
-                        <dd><input type="text" minLength="2" maxLength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} required /></dd>
+                        <dd><input type="text" minLength="2" maxLength="8" name="name" id={`${Labeling}name`} value={gbName ? gbName : ""} onChange={(e) => setGbName(e.target.value)} ref={nameInput} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.password}`}>
                         <dt><label htmlFor={`${Labeling}password`}>비밀번호</label></dt>
@@ -80,11 +102,11 @@ export default function GbWrite(props) {
                     </div>
                     <div className={`${scss.field} ${scss.email}`}>
                         <dt><label htmlFor={`${Labeling}email`}>이메일</label></dt>
-                        <dd><input type="email" name="email" id={`${Labeling}email`} value={gbEmail ? gbEmail : ""} onChange={(e) => setGbEmail(e.target.value)} required /></dd>
+                        <dd><input type="email" name="email" id={`${Labeling}email`} value={gbEmail ? gbEmail : ""} onChange={(e) => setGbEmail(e.target.value)} ref={emailInput} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.content}`}>
                         <dt><label htmlFor={`${Labeling}content`}>내용</label></dt>
-                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} required></textarea></dd>
+                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} ref={contArea} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>

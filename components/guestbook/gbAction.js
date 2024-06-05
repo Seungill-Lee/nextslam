@@ -13,6 +13,7 @@ const client = new MongoClient(url);
 
 //Input Pattern
 const pwPattern = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+const emailPattern = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
 export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
     const ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
@@ -24,8 +25,8 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
 
     const data = {
         name: formData.get("name"),
-        email: formData.get("email"),
         password: ncryptObject.encrypt(newPassword),
+        email: formData.get("email"),
         dateTime: moment().format("YYYY-MM-DD HH:mm:ss"),
         content: formData.get("content")
     }
@@ -36,57 +37,107 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
 
     switch(mode) {
         case "POST":
+            if(data.name.length < 2 || data.name.length > 8) {
+                return {
+                    success: false,
+                    errorInput: "name",
+                    message: "이름 길이가 적절치 않습니다."
+                }
+            }
             if(!pwPattern.test(newPassword)) {
                 return {
                     success: false,
-                    message: "유효하지 않은 비밀번호 패턴 입니다"
+                    errorInput: "password",
+                    message: "유효하지 않은 비밀번호 패턴 입니다."
+                }
+            }
+            if(!emailPattern.test(data.email)) {
+                return {
+                    success: false,
+                    errorInput: "email",
+                    message: "유효하지 않은 이메일 패턴 입니다."
+                }
+            }
+            if(data.content.length < 30 || data.content.length > 1000) {
+                return {
+                    success: false,
+                    errorInput: "content",
+                    message: "내용 길이가 적절치 않습니다."
                 }
             }
             await collection.insertOne(data);
             revalidatePath("/guestbook");
             break;
         case "PATCH":
-            oldData = await collection.findOne({"_id": new ObjectId(gbID)});
-            oldPassword = oldData.password;
+            if(data.name.length < 2 || data.name.length > 8) {
+                return {
+                    success: false,
+                    errorInput: "name",
+                    message: "이름 길이가 적절치 않습니다."
+                }
+            }
             if(!pwPattern.test(newPassword)) {
                 return {
                     success: false,
                     errorInput: "password",
-                    message: "유효하지 않은 비밀번호 패턴 입니다"
+                    message: "유효하지 않은 비밀번호 패턴 입니다."
                 }
             } else {
-                if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
-                    const {password, ...pwExData} = data;
-                    const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
-                    await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
-                    revalidatePath("/guestbook")
-                    return {
-                        success: true,
-                        message: ""
-                    }
-                } else {
+                oldData = await collection.findOne({"_id": new ObjectId(gbID)});
+                oldPassword = oldData.password;
+                if(ncryptObject.decrypt(oldPassword) != newPassword && newPassword != masterPassword) {
                     return {
                         success: false,
+                        errorInput: "password",
                         message: "비밀번호가 틀렸습니다."
                     }
                 }
             }
-            
-        case "DELETE":
-            oldData = await collection.findOne({"_id": new ObjectId(gbID)});
-            oldPassword = oldData.password;
-            if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
-                await collection.deleteOne({"_id": new ObjectId(gbID)});
-                revalidatePath("/guestbook")
-                return {
-                    success: true,
-                    message: ""
-                }
-            } else {
+            if(!emailPattern.test(data.email)) {
                 return {
                     success: false,
-                    message: "비밀번호가 틀렸습니다."
+                    errorInput: "email",
+                    message: "유효하지 않은 이메일 패턴 입니다."
                 }
+            }
+            if(data.content.length < 30 || data.content.length > 1000) {
+                return {
+                    success: false,
+                    errorInput: "content",
+                    message: "내용 길이가 적절치 않습니다."
+                }
+            }
+            const {password, ...pwExData} = data;
+            const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
+            await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
+            revalidatePath("/guestbook")
+            return {
+                success: true,
+                message: ""
+            }
+        case "DELETE":
+            if(!pwPattern.test(newPassword)) {
+                return {
+                    success: false,
+                    errorInput: "password",
+                    message: "유효하지 않은 비밀번호 패턴 입니다."
+                }
+            } else {
+                oldData = await collection.findOne({"_id": new ObjectId(gbID)});
+                oldPassword = oldData.password;
+                if(ncryptObject.decrypt(oldPassword) != newPassword && newPassword != masterPassword) {
+                    return {
+                        success: false,
+                        errorInput: "password",
+                        message: "비밀번호가 틀렸습니다."
+                    }
+                }
+            }
+            await collection.deleteOne({"_id": new ObjectId(gbID)});
+            revalidatePath("/guestbook")
+            return {
+                success: true,
+                message: ""
             }
         default: null
     }

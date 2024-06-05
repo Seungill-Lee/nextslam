@@ -62,7 +62,7 @@ export default function GbList(props) {
                                     "PATCH": gb.reply ? <GbReplyEditor data={gb} mode="PATCH" targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                     "DELETE": gb.reply ? <GbReplyDeletor data={gb} targetId={targetId} changeReplyMode={changeReplyMode} /> : "",
                                 }[gbReplyMode]
-                                : gb.reply && gbMode != "DELETE" ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : ""
+                                : gb.reply ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : ""
                             }
                         </li> : ""
                     );
