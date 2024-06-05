@@ -30,7 +30,7 @@ export default function GbDeletor(props) {
 
     useEffect(() => {
         if(state?.success == false) {
-            alert("비밀번호가 틀렸습니다.");
+            alert(state?.message);
             setGbPassword("");
             pwInput.current.focus();
         }

@@ -16,6 +16,7 @@ export default function GbWrite(props) {
     const changeMode = props.changeMode;
     let initialState = {
         success: null,
+        errorInput: '',
         message: '',
     }
 
@@ -41,12 +42,13 @@ export default function GbWrite(props) {
     },[])
 
     useEffect(() => {
-        if(mode == "PATCH") {
-            if(state?.success == false) {
-                alert("비밀번호가 틀렸습니다.");
-                setGbPassword("");
-                pwInput.current.focus();
-            } else if(state?.success == true) {
+        console.log(state)
+        if(state?.success == false) {
+            alert(state?.message);
+            setGbPassword("");
+            pwInput.current.focus();
+        } else if(state?.success == true) {
+            if(mode == "PATCH") {
                 targetId(gbId)
                 updateTargetId(gbId)
                 changeMode("GET")

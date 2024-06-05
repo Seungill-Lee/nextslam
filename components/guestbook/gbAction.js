@@ -11,6 +11,9 @@ const password = encodeURIComponent(process.env.DB_PASSWORD);
 const url = `mongodb+srv://${username}:${password}@cluster0.qhvgogq.mongodb.net/`;
 const client = new MongoClient(url);
 
+//Input Pattern
+const pwPattern = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^&*?_]).{8,16}$/;
+
 export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
     const ncryptObject = new ncrypt(process.env.NCRYPT_SECRET_KEY);
     const gbID = gbId || "";
@@ -33,25 +36,39 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
 
     switch(mode) {
         case "POST":
+            if(!pwPattern.test(newPassword)) {
+                return {
+                    success: false,
+                    message: "유효하지 않은 비밀번호 패턴 입니다"
+                }
+            }
             await collection.insertOne(data);
             revalidatePath("/guestbook");
             break;
         case "PATCH":
             oldData = await collection.findOne({"_id": new ObjectId(gbID)});
             oldPassword = oldData.password;
-            if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
-                const {password, ...pwExData} = data;
-                const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
-                await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
-                revalidatePath("/guestbook")
-                return {
-                    success: true,
-                    message: ""
-                }
-            } else {
+            if(!pwPattern.test(newPassword)) {
                 return {
                     success: false,
-                    message: "비밀번호가 틀렸습니다."
+                    errorInput: "password",
+                    message: "유효하지 않은 비밀번호 패턴 입니다"
+                }
+            } else {
+                if(ncryptObject.decrypt(oldPassword) == newPassword || newPassword == masterPassword) {
+                    const {password, ...pwExData} = data;
+                    const modifyData = {...pwExData, dateTime:moment().format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
+                    await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
+                    revalidatePath("/guestbook")
+                    return {
+                        success: true,
+                        message: ""
+                    }
+                } else {
+                    return {
+                        success: false,
+                        message: "비밀번호가 틀렸습니다."
+                    }
                 }
             }
             
