@@ -23,6 +23,18 @@
                     line-height: 150%;
                     background-color: var(--label-bg-color);
                     transition: 0.5s ease font-weight;
+                    span.content_length {
+                        font-size: var(--datetime-f-size);
+                        color: var(--support-txt-color);
+                        white-space: nowrap;
+                        strong {
+                            font-weight: 500;
+                            &.pass {
+                                font-weight: 700;
+                                color: var(--pass-color);
+                            }
+                        }
+                    }
                 }
                 dd {
                     background-color: var(--focus-bg-color);
@@ -59,6 +71,7 @@
             }
         }
         .btn_submit {
+            position: relative;
             display: flex;
             justify-content: flex-end;
             align-items: center;
@@ -145,7 +158,7 @@
                 fieldset {
                     dl {
                         .field {
-                            grid-template-columns: 80px auto;
+                            grid-template-columns: 90px auto;
                             grid-column: 1 / span 2;
                             dd {
                                 textarea {

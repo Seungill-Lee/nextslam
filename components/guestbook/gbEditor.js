@@ -25,6 +25,7 @@ export default function GbWrite(props) {
     const [gbPassword, setGbPassword] = useState();
     const [gbEmail, setGbEmail] = useState();
     const [gbContent, setGbContent] = useState();
+    const [gbContentLen, setContentLen] = useState(0);
     const gbSubmit = handleSubmit.bind(null,mode,gbId,gbPassword);
     const [state, formAction] = useFormState(gbSubmit,initialState);
     const router = useRouter();
@@ -105,8 +106,11 @@ export default function GbWrite(props) {
                         <dd><input type="email" name="email" id={`${Labeling}email`} value={gbEmail ? gbEmail : ""} onChange={(e) => setGbEmail(e.target.value)} ref={emailInput} required /></dd>
                     </div>
                     <div className={`${scss.field} ${scss.content}`}>
-                        <dt><label htmlFor={`${Labeling}content`}>내용</label></dt>
-                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요." id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => setGbContent(e.target.value)} ref={contArea} required></textarea></dd>
+                        <dt>
+                            <label htmlFor={`${Labeling}content`}>내용</label><br />
+                            <span className={`${scss.content_length}`}>( <strong className={gbContentLen >= 30 && gbContentLen <= 1000 ? scss['pass'] : "" }>{gbContentLen}</strong>/1000 )</span>
+                        </dt>
+                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요. &#10;(최소 30자)" id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => {{setGbContent(e.target.value)} {setContentLen(e.target.value.length)}}} ref={contArea} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
