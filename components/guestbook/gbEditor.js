@@ -44,6 +44,7 @@ export default function GbWrite(props) {
             setGbPassword(null);
             setGbEmail(gb.email);
             setGbContent(gb.content);
+            setContentLen(gb.content.length);
         }
     },[])
 
