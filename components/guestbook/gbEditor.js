@@ -110,7 +110,7 @@ export default function GbWrite(props) {
                             <label htmlFor={`${Labeling}content`}>내용</label><br />
                             <span className={`${scss.content_length}`}>( <strong className={gbContentLen >= 30 && gbContentLen <= 1000 ? scss['pass'] : "" }>{gbContentLen}</strong>/1000 )</span>
                         </dt>
-                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요. &#10;(최소 30자)" id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => {{setGbContent(e.target.value)} {setContentLen(e.target.value.length)}}} ref={contArea} required></textarea></dd>
+                        <dd><textarea cols="30" rows="10" minLength="30" maxLength="1000" name="content" placeholder="내용을 입력해주세요. (최소 30자)" id={`${Labeling}content`} value={gbContent ? gbContent : ""} onChange={(e) => {{setGbContent(e.target.value)} {setContentLen(e.target.value.length)}}} ref={contArea} required></textarea></dd>
                     </div>
                 </dl>
                 <div className={scss.btn_submit}>
