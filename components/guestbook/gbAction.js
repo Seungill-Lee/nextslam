@@ -67,7 +67,10 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
             }
             await collection.insertOne(data);
             revalidatePath("/guestbook");
-            break;
+            return {
+                success: true,
+                message: ""
+            }
         case "PATCH":
             if(data.name.length < 2 || data.name.length > 8) {
                 return {

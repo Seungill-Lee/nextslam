@@ -76,21 +76,20 @@ export default function GbWrite(props) {
                 targetId(gbId)
                 updateTargetId(gbId)
                 changeMode("GET")
-            }
-        }
-    },[state])
-
-    return(
-        <form className={scss.gb_editor} onSubmit={() => {
-            if(mode == "POST" && state?.success == true) {
+            } else if (mode == "POST") {
                 setGbId("");
                 setGbName("")
                 setGbPassword("");
                 setGbEmail("")
                 setGbContent("")
+                setContentLen(0);
                 router.push("/guestbook");
             }
-        }} action={formAction}>
+        }
+    },[state])
+
+    return(
+        <form className={scss.gb_editor} action={formAction}>
             <fieldset>
                 <legend>방명록 작성폼</legend>
                 <dl>
