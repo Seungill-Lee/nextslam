@@ -22,6 +22,7 @@ $divceHeight: 1440px;
     }
     .cover {
         box-sizing: border-box;
+        line-height: 0;
         img {
             width: 100%;
             height: auto;
@@ -32,7 +33,7 @@ $divceHeight: 1440px;
         }
     }
     .info {
-        margin-top: 25px;
+        margin-top: 26px;
         ul {
             color: var(--support-txt-color);
             li {

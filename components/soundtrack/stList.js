@@ -13,7 +13,7 @@ import StDetail from "./stDetail.js";
 
 export default function STItem() {
     const [playID,setPlayID] = useAtom(bgmPlayerID);
-    const [playing,setPlaying] = useAtom(bgmPlaying); //Play, Pause, Error, Ready, Stop
+    const [playing,setPlaying] = useAtom(bgmPlaying); //Play, Pause, Error, Ready, Start, Stop
 
     //console.log(playing)
 
