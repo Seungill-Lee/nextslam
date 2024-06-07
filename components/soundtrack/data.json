@@ -44,7 +44,7 @@
         "artist": "BAAD",
         "playerUrl": "https://music.youtube.com/watch?v=u9GaMpzDQnw&si=lSB5GMX0iRo4bBdQ",
         "time": "3:52",
-        "fcoverImgSrc": "/images/soundtrack/albumCover/op1.jpg",
+        "coverImgSrc": "/images/soundtrack/albumCover/op1.jpg",
         "albumInfo": {
             "name": "1기 오프닝",
             "bgColor": "linear-gradient(45deg, #722C2E 0%, #3A211D 100%)",

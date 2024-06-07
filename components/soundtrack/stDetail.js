@@ -33,7 +33,7 @@ export default function StDetail() {
             <div className={scss.detail_inner} ref={detailInner}>
                 <div className={scss.cover}>
                 {(() => {
-                    if(playID > 0 && data[playID-1].coverImgSrc ) {
+                    if(playID > 0 && data[playID-1].coverImgSrc) {
                         return(
                             <>
                                 {playing == "Play" || playing == "Pause" ?
