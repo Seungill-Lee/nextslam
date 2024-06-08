@@ -84,7 +84,7 @@ export default function BgmPlayer() {
                         <span className={scss.btn_ctrl_set}>
                             <button type="button" className={`${scss.btn_repeat} ${targetRepeat ? scss.only1 : ""}`} onClick={() => !targetRepeat ? stateTargetRepeat(true) : stateTargetRepeat(false)}><BpIcon shape="Repeat" alt={!targetRepeat ? "Target Repeat" : "All Repeat"} /></button>
                             <button type="button" className={scss.btn_playlist} onClick={() => {router.replace("/soundtrack")}} disabled={pathname == "/soundtrack" ? true : false}><BpIcon shape="Playlist" /></button>
-                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying("Stop"); updateCurrentTime(0); setPlayID(0);}}><BpIcon shape="Close" /></button>
+                            <button type="button" className={scss.btn_close} onClick={() => {setPlaying("Stop"); updateCurrentTime(0); setPlayID(0); stateTargetRepeat(false)}}><BpIcon shape="Close" /></button>
                         </span>
                     </div>
                 </> : null
