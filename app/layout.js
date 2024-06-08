@@ -17,12 +17,13 @@ export const metadata = {
     generator : "Next.js",
     keywords: ['Next.js', 'React', 'Slamdunk', '슬램덩크'],
     description: "Next.js로 제작한 슬램덩크 팬사이트",
-    referrer: 'origin-when-cross-origin',
+    referrer: "origin-when-cross-origin",
     formatDetection: {
         email: false,
         address: false,
         telephone: false,
-    }
+    },
+    googleSiteVerification : "6d589bbpgf9SE3u5SiquJMJUxRIAm9_Qyd0uCqdZF_o"
 };
 
 export const viewport = {
