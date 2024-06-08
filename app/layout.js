@@ -22,8 +22,7 @@ export const metadata = {
         email: false,
         address: false,
         telephone: false,
-    },
-    googleSiteVerification : "6d589bbpgf9SE3u5SiquJMJUxRIAm9_Qyd0uCqdZF_o"
+    }
 };
 
 export const viewport = {
