@@ -11,7 +11,7 @@ export const metadata = {
         siteName: 'Next Slam',
         images: [
             {
-                url: '/images/photo_og_nextslam.jpg',
+                url: process.env.SITE_URL+'/images/photo_og_nextslam.jpg',
                 width: 1200,
                 height: 630,
             },
