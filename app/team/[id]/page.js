@@ -2,7 +2,40 @@ import Link from 'next/link';
 import Image from "next/image";
 import scss from "./page.module.scss";
 import data from '/components/team/data.json';
- 
+
+export function generateMetadata({params},parent) {
+    // read route params
+    const teamId = data.team.find(x => x.id == params.id).id
+    const orgTemaName = data.team.find(x => x.id == params.id).orgName;
+    const korTemaName = data.team.find(x => x.id == params.id).korName;
+   
+    return {
+        title: 
+            orgTemaName == "Kainan" ?
+                `${korTemaName}대부속고(Team ${orgTemaName})` : 
+                `${korTemaName}(Team ${orgTemaName})`,
+            description: "고교 내 주요 등장인물 소개(Introducing the main characters in the team)",
+        openGraph: {
+            title: 
+                orgTemaName == "Kainan" ?
+                    `${korTemaName}대부속고(Team ${orgTemaName})` : 
+                    `${korTemaName}(Team ${orgTemaName})`,
+            description: "고교 내 주요 등장인물 소개(Introducing the main characters in the team)",
+            url: process.env.SITE_URL+"/team/"+teamId,
+            siteName: 'Next Slam',
+            images: [
+                {
+                    url: '/images/photo_og_nextslam.jpg',
+                    width: 1200,
+                    height: 630,
+                },
+            ],
+            locale: 'ko_KR',
+            type: 'website',
+        }
+    }
+}
+
 export default function Character(props) {
     return (
         <ul className={scss.charater_list}>

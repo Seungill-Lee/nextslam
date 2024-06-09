@@ -2,7 +2,23 @@ import StList from "/components/soundtrack/stList.js";
 import scss from "./page.module.scss";
 
 export const metadata = {
-    title: "사운드트랙",
+    title: "사운드트랙(Soundtrack)",
+    description: "슬램덩크 수록곡 모음(List of songs from Slamdunk)",
+    openGraph: {
+        title: "사운드트랙(Soundtrack)",
+        description: "슬램덩크 수록곡 모음(List of songs from Slamdunk)",
+        url: process.env.SITE_URL+"/soundtrack",
+        siteName: 'Next Slam',
+        images: [
+            {
+                url: '/images/photo_og_nextslam.jpg',
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: 'ko_KR',
+        type: 'website',
+    }
 };
 
 export default function Developer() {

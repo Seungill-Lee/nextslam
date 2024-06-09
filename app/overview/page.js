@@ -2,7 +2,23 @@ import Image from "next/image";
 import scss from "./page.module.scss";
 
 export const metadata = {
-    title: "개요",
+    title: "개요(Overview)",
+    description: "슬램덩크 요약 정보(Slamdunk Summary Information)",
+    openGraph: {
+        title: "개요(Overview)",
+        description: "슬램덩크 요약 정보(Slamdunk Summary Information)",
+        url: process.env.SITE_URL+"/overview",
+        siteName: 'Next Slam',
+        images: [
+            {
+                url: '/images/photo_og_nextslam.jpg',
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: 'ko_KR',
+        type: 'website',
+    },
 };
 
 export default function Overview() {

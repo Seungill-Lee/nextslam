@@ -5,7 +5,23 @@ import GbList from "/components/guestbook/gbList.js";
 import { GetAuth } from "/components/admin/getAuth.js";
 
 export const metadata = {
-    title: "방명록",
+    title: "방명록(Guestbook)",
+    description: "여러분의 댓글이 저에게 힘이 됩니다.(Your comments give a boost to Webmaster.)",
+    openGraph: {
+        title: "방명록(Guestbook)",
+        description: "여러분의 댓글이 저에게 힘이 됩니다.(Your comments give a boost to Webmaster.)",
+        url: process.env.SITE_URL+"/guestbook",
+        siteName: 'Next Slam',
+        images: [
+            {
+                url: '/images/photo_og_nextslam.jpg',
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: 'ko_KR',
+        type: 'website',
+    }
 };
 
 // Connection URL

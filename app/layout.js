@@ -22,6 +22,40 @@ export const metadata = {
         email: false,
         address: false,
         telephone: false,
+    },
+    robots: {
+        index: false,
+        follow: true,
+        nocache: true,
+        googleBot: {
+          index: true,
+          follow: false,
+          noimageindex: true,
+          'max-video-preview': -1,
+          'max-image-preview': 'large',
+          'max-snippet': -1,
+        },
+    },
+    verification: {
+        google: '6d589bbpgf9SE3u5SiquJMJUxRIAm9_Qyd0uCqdZF_o',
+    },
+    openGraph: {
+        title: {
+            template: "%s | Next Slam",
+            default: "Next Slam"
+        },
+        description: 'Next.js로 제작한 슬램덩크 팬사이트',
+        url: process.env.SITE_URL,
+        siteName: 'Next Slam',
+        images: [
+            {
+                url: '/images/photo_og_nextslam.jpg',
+                width: 1200,
+                height: 630,
+            },
+        ],
+        locale: 'ko_KR',
+        type: 'website',
     }
 };
 
