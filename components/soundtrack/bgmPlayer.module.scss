@@ -310,70 +310,67 @@
             }
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        $divceWidth: 932px;
-        $divceHeight: 430px;
-    
-        #bgm_player {
-            height: 80px;
-            bottom: -84px;
-            padding: 0px 20px;
-            .main_controls {
-                gap: 0px 30px;
-                span.btn_ctrl_set {
-                    gap: 0px 15px;
-                }
-                span.play_time {
-                    display: none;
-                }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    #bgm_player {
+        height: 80px;
+        bottom: -84px;
+        padding: 0px 20px;
+        .main_controls {
+            gap: 0px 30px;
+            span.btn_ctrl_set {
+                gap: 0px 15px;
             }
-            .playing_info {
-                gap: 0px 12px;
-                .album_cover {
-                    width: 48px;
-                    height: 48px;
-                }
-                ul {
-                    li {
-                        line-height: 1;
-                        &.title {
-                            font-weight: 500;
-                        }
-                        &.artist {
-                            opacity: 0.8;
-                            font-size: var(--name-f-size);
-                            margin-top: 8px;
-                        }
+            span.play_time {
+                display: none;
+            }
+        }
+        .playing_info {
+            gap: 0px 12px;
+            .album_cover {
+                width: 48px;
+                height: 48px;
+            }
+            ul {
+                li {
+                    line-height: 1;
+                    &.title {
+                        font-weight: 500;
                     }
-                }
-            }
-            .sub_controls {
-                span.btn_ctrl_set {
-                    gap: 0px 15px;
+                    &.artist {
+                        opacity: 0.8;
+                        font-size: var(--name-f-size);
+                        margin-top: 8px;
+                    }
                 }
             }
         }
-    
-        /* 세로모드 */
-        @media (orientation:portrait) {
-            #bgm_player {
-                height: 100px;
-                bottom: -104px;
-                padding-top: 34px;
-                .main_controls {
-                    span.btn_ctrl_set {
-                        gap: 0px 12px;
-                    }
+        .sub_controls {
+            span.btn_ctrl_set {
+                gap: 0px 15px;
+            }
+        }
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        #bgm_player {
+            height: 100px;
+            bottom: -104px;
+            padding-top: 34px;
+            .main_controls {
+                span.btn_ctrl_set {
+                    gap: 0px 12px;
                 }
-                .playing_info {
-                    left: 20px;
-                    right: 20px;
-                    ul {
-                        li.artist {
-                            margin-top: 0px;
-                        }
+            }
+            .playing_info {
+                left: 20px;
+                right: 20px;
+                ul {
+                    li.artist {
+                        margin-top: 0px;
                     }
                 }
             }

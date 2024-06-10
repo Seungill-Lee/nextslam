@@ -76,48 +76,48 @@ $divceHeight: 1440px;
             }
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        $divceWidth: 932px;
-        $divceHeight: 430px;
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    $divceWidth: 932px;
+    $divceHeight: 430px;
+
+    .home {
+        h2 {
+            font-size: get-vw(44px,$divceWidth);
+        }
+        p.intro_msg {
+            margin: get-vw(20px,$divceWidth) 0px get-vw(30px,$divceWidth);
+            font-size: get-vw(18px,$divceWidth);
+            line-height: 160%;
+        }
+        .banner_photo {
+            padding: 0px 60px;
+            img {
+                width: 100%;
+                height: auto;
+                max-height: none;
+            }
+        }
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        $divceWidth: 430px;
+        $divceHeight: 932px;
 
         .home {
             h2 {
-                font-size: get-vw(44px,$divceWidth);
+                font-size: get-vw(34px,$divceWidth);
             }
             p.intro_msg {
                 margin: get-vw(20px,$divceWidth) 0px get-vw(30px,$divceWidth);
-                font-size: get-vw(18px,$divceWidth);
+                font-size: get-vw(16px,$divceWidth);
                 line-height: 160%;
             }
             .banner_photo {
-                padding: 0px 60px;
-                img {
-                    width: 100%;
-                    height: auto;
-                    max-height: none;
-                }
-            }
-        }
-
-        /* Mobile 세로모드 */
-        @media (orientation:portrait) {
-            $divceWidth: 430px;
-            $divceHeight: 932px;
-
-            .home {
-                h2 {
-                    font-size: get-vw(34px,$divceWidth);
-                }
-                p.intro_msg {
-                    margin: get-vw(20px,$divceWidth) 0px get-vw(30px,$divceWidth);
-                    font-size: get-vw(16px,$divceWidth);
-                    line-height: 160%;
-                }
-                .banner_photo {
-                    padding: 0px;
-                }
+                padding: 0px;
             }
         }
     }

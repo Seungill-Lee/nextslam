@@ -69,7 +69,7 @@ footer#footer {
 }
 
 /* Full HD */
-@media all and (max-width:1920px) {
+@media all and (width <= 1920px) {
     /* Wrapper */
     #wrapper {
         padding-left: 321px;
@@ -130,51 +130,51 @@ footer#footer {
             min-height: calc(100dvh - 100px);
         }
     }
+    
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        /* Header */
-        header#header {
-            h1 {
-                height: 59px;
-                svg {
-                    width: auto;
-                    height: 19px;
-                }
-            }
-        }
-
-        /* Contents */
-        main#contents {
-            padding: 99px 20px 60px;
-            h2 {
-                margin-bottom: 25px;
-            }
-        }
-
-        /* Footer */
-        footer#footer {
-            height: 80px;
-            padding: 0px 20px;
-            &:before {
-                left: 20px;
-                right: 20px;
-                height: 1px;
-            }
-            p.copyright {
-                font-size: var(--name-f-size);
-                color: var(--support-txt-color);
-            }
-        }
-
-        /* Mobile 세로모드 */
-        @media (orientation:portrait) {
-            /* Contents */
-            main#contents {
-                min-height: calc(100vh - 80px);
-                min-height: calc(100dvh - 80px);
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    /* Header */
+    header#header {
+        h1 {
+            height: 59px;
+            svg {
+                width: auto;
+                height: 19px;
             }
         }
     }
-    
+
+    /* Contents */
+    main#contents {
+        padding: 99px 20px 60px;
+        h2 {
+            margin-bottom: 25px;
+        }
+    }
+
+    /* Footer */
+    footer#footer {
+        height: 80px;
+        padding: 0px 20px;
+        &:before {
+            left: 20px;
+            right: 20px;
+            height: 1px;
+        }
+        p.copyright {
+            font-size: var(--name-f-size);
+            color: var(--support-txt-color);
+        }
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        /* Contents */
+        main#contents {
+            min-height: calc(100vh - 80px);
+            min-height: calc(100dvh - 80px);
+        }
+    }
 }

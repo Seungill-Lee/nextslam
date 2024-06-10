@@ -255,79 +255,76 @@ ul.team_list {
             }
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        $divceWidth: 932px;
-        $divceHeight: 430px;
-
-        ul.team_list {
-            gap: 20px;
-            padding: 15px 0px 10px;
-            margin: -15px 0px 10px;
-            li {
-                a {
-                    figure {
-                        position: relative;
-                        figcaption {
-                            position: absolute;
-                            top: 0px;
-                            left: 0px;
-                            visibility: hidden;
-                            margin-top: 0px;
-                        }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    ul.team_list {
+        gap: 20px;
+        padding: 15px 0px 10px;
+        margin: -15px 0px 10px;
+        li {
+            a {
+                figure {
+                    position: relative;
+                    figcaption {
+                        position: absolute;
+                        top: 0px;
+                        left: 0px;
+                        visibility: hidden;
+                        margin-top: 0px;
                     }
                 }
             }
-            &.reduce {
-                top: 60px;
-                gap: 20px;
-                li {
-                    a {
-                        figure {
-                            .tm_photo {
-                                display: none;
+        }
+        &.reduce {
+            top: 60px;
+            gap: 20px;
+            li {
+                a {
+                    figure {
+                        .tm_photo {
+                            display: none;
+                        }
+                        figcaption {
+                            padding: 8px 0px;
+                            span {
+                                &.tm_logo {
+                                    height: 32px;
+                                }
+                                &.tm_txt {
+                                    margin-top: 4px;
+                                }
                             }
-                            figcaption {
-                                padding: 8px 0px;
-                                span {
-                                    &.tm_logo {
+                            &.shohoku {
+                                span.tm_logo {
+                                    img {
+                                        width: 76px;
                                         height: 32px;
                                     }
-                                    &.tm_txt {
-                                        margin-top: 4px;
+                                }
+                            }
+                            &.ryonan {
+                                span.tm_logo {
+                                    img {
+                                        width: 60px;
+                                        height: 30px;
                                     }
                                 }
-                                &.shohoku {
-                                    span.tm_logo {
-                                        img {
-                                            width: 76px;
-                                            height: 32px;
-                                        }
+                            }
+                            &.shoyo {
+                                span.tm_logo {
+                                    img {
+                                        width: 75px;
+                                        height: 21px;
                                     }
                                 }
-                                &.ryonan {
-                                    span.tm_logo {
-                                        img {
-                                            width: 60px;
-                                            height: 30px;
-                                        }
-                                    }
-                                }
-                                &.shoyo {
-                                    span.tm_logo {
-                                        img {
-                                            width: 75px;
-                                            height: 21px;
-                                        }
-                                    }
-                                }
-                                &.kainan {
-                                    span.tm_logo {
-                                        img {
-                                            width: 66px;
-                                            height: 30px;
-                                        }
+                            }
+                            &.kainan {
+                                span.tm_logo {
+                                    img {
+                                        width: 66px;
+                                        height: 30px;
                                     }
                                 }
                             }
@@ -336,17 +333,17 @@ ul.team_list {
                 }
             }
         }
+    }
 
-        /* 세로모드 */
-        @media (orientation:portrait) {
-            ul.team_list {
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        ul.team_list {
+            gap: 10px;
+            &:last-child {
+                margin-bottom: -35px;
+            }
+            &.reduce {
                 gap: 10px;
-                &:last-child {
-                    margin-bottom: -35px;
-                }
-                &.reduce {
-                    gap: 10px;
-                }
             }
         }
     }

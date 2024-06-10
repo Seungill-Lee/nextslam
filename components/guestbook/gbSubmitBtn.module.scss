@@ -28,11 +28,11 @@ button.btn {
     button.btn {
         padding: 12px 13px 11px;
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        button.btn {
-            padding: 11px 12px;
-        }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    button.btn {
+        padding: 11px 12px;
     }
 }

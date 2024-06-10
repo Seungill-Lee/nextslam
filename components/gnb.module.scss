@@ -126,62 +126,62 @@ nav#gnb {
             background-color: var(--modal-bg-color);
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        button#btn_gnb {
-            top: 20px;
-            right: 20px;
-            width: 22px;
-            height: 19px;
-            span {
-                &.bar {
-                    width: 22px;
-                    height: 2px;
-                    &:nth-child(2) {
-                        top: 8px;
-                    }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    button#btn_gnb {
+        top: 20px;
+        right: 20px;
+        width: 22px;
+        height: 19px;
+        span {
+            &.bar {
+                width: 22px;
+                height: 2px;
+                &:nth-child(2) {
+                    top: 8px;
                 }
             }
-            &.on {
-                span.bar {
-                    &:nth-child(1) {
-                        top: 6px;
-                        width: 16px;
-                    }
-                    &:nth-child(2) {
-                        top: 6px;
-                        width: 16px;
+        }
+        &.on {
+            span.bar {
+                &:nth-child(1) {
+                    top: 6px;
+                    width: 16px;
+                }
+                &:nth-child(2) {
+                    top: 6px;
+                    width: 16px;
+                }
+            }
+        }
+    }
+    nav#gnb {
+        ul {
+            li {
+                margin-top: 0px;
+                padding: 5px 20px;
+                &:first-child {
+                    padding-top: 5px;
+                }
+                a {
+                    padding: 13px 12px 12px;
+                    border-radius: 12px;
+                    line-height: 1;
+                    &.active {
+                        text-decoration: none;
+                        background-color: var(--point-alpha-color);
                     }
                 }
             }
         }
-        nav#gnb {
-            ul {
-                li {
-                    margin-top: 0px;
-                    padding: 5px 20px;
-                    &:first-child {
-                        padding-top: 5px;
-                    }
-                    a {
-                        padding: 13px 12px 12px;
-                        border-radius: 12px;
-                        line-height: 1;
-                        &.active {
-                            text-decoration: none;
-                            background-color: var(--point-alpha-color);
-                        }
-                    }
-                }
-            }
-            &.on {
-                height: 275px;
-                padding-bottom: 20px;
-            }
+        &.on {
+            height: 275px;
+            padding-bottom: 20px;
         }
-        #bg_modal_gnb {
-            inset: 60px 0px 0px;
-        }
+    }
+    #bg_modal_gnb {
+        inset: 60px 0px 0px;
     }
 }

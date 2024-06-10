@@ -16,14 +16,14 @@ ul.gb_list {
             padding: 20px 0px;
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        ul.gb_list {
-            margin-top: 25px;
-            li {
-                padding: 16px 0px;
-            }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    ul.gb_list {
+        margin-top: 25px;
+        li {
+            padding: 16px 0px;
         }
     }
 }

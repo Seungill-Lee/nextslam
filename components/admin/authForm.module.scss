@@ -67,29 +67,27 @@ form.auth_form {
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
+
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    form.auth_form {
+        position: static;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        transform: translate(0%,0%);
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
         form.auth_form {
-            position: static;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            transform: translate(0%,0%);
-        }
-
-        /* 세로모드 */
-        @media (orientation:portrait) {
-            form.auth_form {
-                position: absolute;
-                top: 50%;
-                left: 20px;
-                right: 20px;
-                width: auto;
-                transform: translateY(-50%);
-            }
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            width: auto;
+            transform: translateY(-50%);
         }
     }
 }

@@ -53,21 +53,21 @@ form.gb_deletor {
             }
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        form.gb_deletor {
-            padding: 20px 0px;
-            p.msg {
-                font-size: 16px;
-            }
-            .field {
-                margin: 16px 0px;
-                input[type="password"] {
-                    width: 300px;
-                    height: 43px;
-                    padding: 9px 12px;
-                }
+/* Mobile */
+@media all and (width <= 932px) and (height <= 932px) {
+    form.gb_deletor {
+        padding: 20px 0px;
+        p.msg {
+            font-size: 16px;
+        }
+        .field {
+            margin: 16px 0px;
+            input[type="password"] {
+                width: 300px;
+                height: 43px;
+                padding: 9px 12px;
             }
         }
     }

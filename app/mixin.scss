@@ -1,0 +1,17 @@
+@mixin FullHD {
+    @media all and (width <= 1920px) {
+        @content;
+    }
+}
+
+@mixin Tablet {
+    @media all and (width <= 1366px) and (height <= 1366px) {
+        @content;
+    }
+}
+
+@mixin Mobile {
+    @media all and (width <= 932px) and (height <= 932px) {
+        @content;
+    }
+} 

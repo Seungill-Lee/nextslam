@@ -64,7 +64,7 @@
 }
 
 /* Mobile */
-@media all and (max-width:932px) {
+@media all and (width <= 932px) and (height <= 932px) {
     .overview {
         .banner_photo {
             img {
