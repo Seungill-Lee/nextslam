@@ -12,7 +12,6 @@
     }
 }
 
-
 @mixin Mobile {
     @media all and (width <= $MobileMax) and (height <= $MobileMax) {
         @content;
