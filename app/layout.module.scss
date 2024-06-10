@@ -1,7 +1,9 @@
+@import "/app/mixin";
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 /* Wrapper */
 #wrapper {
@@ -68,8 +70,7 @@ footer#footer {
     }
 }
 
-/* Full HD */
-@media all and (width <= 1920px) {
+@include FullHD {
     /* Wrapper */
     #wrapper {
         padding-left: 321px;
@@ -81,8 +82,7 @@ footer#footer {
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     /* Wrapper */
     #wrapper {
         padding-left: 0px;
@@ -133,8 +133,7 @@ footer#footer {
     
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     /* Header */
     header#header {
         h1 {

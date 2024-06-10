@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 ul.gb_list {
     margin-top: 40px;
     border-top: 1px dashed var(--line-color);
@@ -8,8 +10,7 @@ ul.gb_list {
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     ul.gb_list {
         margin-top: 30px;
         li {
@@ -18,8 +19,7 @@ ul.gb_list {
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     ul.gb_list {
         margin-top: 25px;
         li {

@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 #bgm_player {
     position: fixed;
     z-index: 99;
@@ -204,11 +206,7 @@
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
-
+@include Tablet {
     #bgm_player {
         .playing_info {
             gap: 0px 15px;
@@ -237,11 +235,8 @@
         }
     }
 
-    /* Tablet 세로모드 */
+    /* 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 1024px;
-        $divceHeight: 1366px;
-
         #bgm_player {
             padding-top: 34px;
             .main_controls {
@@ -312,8 +307,7 @@
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     #bgm_player {
         height: 80px;
         bottom: -84px;

@@ -1,7 +1,8 @@
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 .not_found {
     display: flex;

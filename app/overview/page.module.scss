@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 .overview {
     max-width: 1024px;
     margin: 0px auto;
@@ -35,8 +37,7 @@
     }
 }
 
-/* Tablet */
-@media all and (max-width:1366px) {
+@include Tablet {
     .overview {
         h3 {
             margin: 30px 0px 15px;
@@ -63,8 +64,7 @@
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     .overview {
         .banner_photo {
             img {

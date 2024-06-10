@@ -1,7 +1,9 @@
+@import "/app/mixin";
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 .soundtrack {
     display: grid;
@@ -138,11 +140,7 @@ $divceHeight: 1440px;
     }
 }
 
-/* Tablet */
-@media all and (max-width:1366px) {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
-
+@include Tablet {
     .soundtrack {
         > ul.st_list {
             > li {
@@ -206,18 +204,10 @@ $divceHeight: 1440px;
             }
         }
     }
-
-    /* 세로모드 */
-    @media all and (max-width:1024px) and (orientation:portrait) {
-        
-    }
 }
 
 /* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
-    $divceWidth: 932px;
-    $divceHeight: 430px;
-
+@include Mobile {
     .soundtrack {
         > ul.st_list {
             > li {

@@ -1,7 +1,9 @@
+@import "/app/mixin";
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 html {
     height: 100vh;
@@ -165,8 +167,7 @@ textarea {
     }
 }
 
-/* Full HD */
-@media all and (width <= 1920px) {
+@include FullHD {
     :root {
         --tit-f-size: 36px;
         --stit-f-size: 24px;
@@ -177,8 +178,7 @@ textarea {
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px) {
+@include Tablet {
     :root {
         --tit-f-size: 34px;
         --stit-f-size: 22px;
@@ -189,8 +189,7 @@ textarea {
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     :root {
         --tit-f-size: 30px;
         --stit-f-size: 20px;

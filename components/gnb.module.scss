@@ -1,3 +1,4 @@
+@import "/app/mixin";
 
 /* GNB */
 button#btn_gnb {
@@ -25,8 +26,7 @@ nav#gnb {
     visibility: hidden;
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     button#btn_gnb {
         position: absolute;
         top: 25px;
@@ -128,8 +128,7 @@ nav#gnb {
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     button#btn_gnb {
         top: 20px;
         right: 20px;

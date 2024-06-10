@@ -1,7 +1,9 @@
+@import "/app/mixin";
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 .home {
     text-align: center;
@@ -27,10 +29,9 @@ $divceHeight: 1440px;
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
+@include Tablet {
+    $divceWidth: $TabletMax;
+    $divceHeight: $TabletMin;
 
     .home {
         h2 {
@@ -55,8 +56,8 @@ $divceHeight: 1440px;
 
     /* Tablet 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 1024px;
-        $divceHeight: 1366px;
+        $divceWidth: $TabletMin;
+        $divceHeight: $TabletMax;
 
         .home {
             h2 {
@@ -78,10 +79,9 @@ $divceHeight: 1440px;
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
-    $divceWidth: 932px;
-    $divceHeight: 430px;
+@include Mobile {
+    $divceWidth: $MobileMax;
+    $divceHeight: $MobileMin;
 
     .home {
         h2 {
@@ -104,8 +104,8 @@ $divceHeight: 1440px;
 
     /* 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 430px;
-        $divceHeight: 932px;
+        $divceWidth: $MobileMin;
+        $divceHeight: $MobileMax;
 
         .home {
             h2 {

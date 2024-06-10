@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 p.guide {
     margin: -4px 0px 20px;
     font-size: var(--desc-f-size);
@@ -15,7 +17,7 @@ p.guide {
 }
 
 /* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     p.guide {
         margin: -3px 0px 15px;
     }

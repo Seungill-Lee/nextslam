@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 .gb_editor {
     fieldset {
         padding: 24px;
@@ -85,8 +87,7 @@
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     .gb_editor {
         fieldset {
             dl {
@@ -109,7 +110,7 @@
         }
     }
 
-    /* Tablet 세로모드 */
+    /* 세로모드 */
     @media (orientation:portrait) {
         .gb_editor {
             fieldset {
@@ -128,8 +129,7 @@
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     .gb_editor {
         fieldset {
             padding: 20px;
@@ -155,7 +155,7 @@
         }
     }
 
-    /* Mobile 세로모드 */
+    /* 세로모드 */
     @media (orientation:portrait) {
         .gb_editor {
             fieldset {

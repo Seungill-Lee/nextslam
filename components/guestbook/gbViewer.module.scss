@@ -1,3 +1,5 @@
+@import "/app/mixin";
+
 .gb_viewer {
     .profile {
         display: flex;
@@ -75,8 +77,7 @@
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
+@include Tablet {
     .gb_viewer {
         .btn_set {
             top: 20px;
@@ -84,8 +85,7 @@
     }
 }
 
-/* Mobile */
-@media all and (width <= 932px) and (height <= 932px) {
+@include Mobile {
     .gb_viewer {
         .profile {
             gap: 0px 10px;
