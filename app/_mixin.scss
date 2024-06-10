@@ -7,7 +7,7 @@
 }
 
 @mixin Tablet {
-    @media all and (width <= $TabletMax) and (height <= $TabletMax) {
+    @media all and (width <= $TabletMax) {
         @content;
     }
 }

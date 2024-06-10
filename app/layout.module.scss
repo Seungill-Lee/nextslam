@@ -71,6 +71,9 @@ footer#footer {
 }
 
 @include FullHD {
+    $divceWidth: $FullHDMax;
+    $divceHeight: $FullHDMin;
+
     /* Wrapper */
     #wrapper {
         padding-left: 321px;
@@ -79,6 +82,12 @@ footer#footer {
     /* Header */
     header#header {
         width: 321px;
+        padding: get-vh(90px,$divceHeight) 29px;
+    }
+
+    /* Contents */
+    main#contents {
+        padding: get-vh(87px,$divceHeight) 60px get-vh(90px,$divceHeight);
     }
 }
 

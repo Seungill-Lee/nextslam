@@ -1,7 +1,9 @@
+@import "/app/mixin";
+@import "/app/variables";
 @import "/app/vwvh";
 
-$divceWidth: 2560px;
-$divceHeight: 1440px;
+$divceWidth: $QuadHDMax;
+$divceHeight: $QuadHDMin;
 
 ul.charater_list {
     display: grid;
@@ -40,10 +42,9 @@ ul.charater_list {
     }
 }
 
-/* Tablet */
-@media all and (width <= 1366px) and (height <= 1366px)  {
-    $divceWidth: 1366px;
-    $divceHeight: 1024px;
+@include Tablet {
+    $divceWidth: $TabletMax;
+    $divceHeight: $TabletMin;
 
     ul.charater_list {
         grid-template-columns: repeat(2,1fr);
@@ -58,10 +59,10 @@ ul.charater_list {
         }
     }
 
-    /* Tablet 세로모드 */
+    /* 세로모드 */
     @media (orientation:portrait) {
-        $divceWidth: 1024px;
-        $divceHeight: 1366px;
+        $divceWidth: $TabletMin;
+        $divceHeight: $TabletMax;
 
         ul.charater_list {
             grid-template-columns: repeat(1,1fr);
@@ -79,41 +80,40 @@ ul.charater_list {
             }
         }
     }
+}
 
-    /* Mobile */
-    @media (min-aspect-ratio:16/9) or (max-aspect-ratio:9/16) {
-        $divceWidth: 932px;
-        $divceHeight: 430px;
-    
+@include Mobile {
+    $divceWidth: $MobileMax;
+    $divceHeight: $MobileMin;
+
+    ul.charater_list {
+        gap: 20px;
+        li {
+            .photo {
+                img {
+                    height: get-vh(200px,$divceHeight);
+                }
+            }
+            dl.info {
+                grid-template-columns: 90px auto;
+            }
+        }
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        $divceWidth: $MobileMin;
+        $divceHeight: $MobileMax;
+
         ul.charater_list {
-            gap: 20px;
             li {
                 .photo {
                     img {
-                        height: get-vh(225px,$divceHeight);
+                        height: get-vh(250px,$divceHeight);
                     }
                 }
                 dl.info {
                     grid-template-columns: 90px auto;
-                }
-            }
-        }
-    
-        /* Mobile 세로모드 */
-        @media (orientation:portrait) {
-            $divceWidth: 430px;
-            $divceHeight: 932px;
-
-            ul.charater_list {
-                li {
-                    .photo {
-                        img {
-                            height: get-vh(225px,$divceHeight);
-                        }
-                    }
-                    dl.info {
-                        grid-template-columns: 90px auto;
-                    }
                 }
             }
         }
