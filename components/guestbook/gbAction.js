@@ -27,7 +27,7 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
         name: formData.get("name"),
         password: ncryptObject.encrypt(newPassword),
         email: formData.get("email"),
-        dateTime: moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss"),
+        dateTime: moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss"), //utc 시간을 kst로 변경
         content: formData.get("content")
     }
 
@@ -111,7 +111,7 @@ export async function handleSubmit(mode,gbId,gbNewPw,previousState,formData) {
                 }
             }
             const {password, ...pwExData} = data;
-            const modifyData = {...pwExData, dateTime:moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
+            const modifyData = {...pwExData, dateTime:moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};  //utc 시간을 kst로 변경
             await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
             revalidatePath("/guestbook")
             return {
