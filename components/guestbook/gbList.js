@@ -55,7 +55,7 @@ export default function GbList(props) {
                                 }[gbMode]
                                 : <GbViewer data={gb} targetId={targetId} changeMode={changeMode} auth={props.auth} changeReplyMode={changeReplyMode} />
                             }
-                            {props.auth && gbId == gb._id ? 
+                            {gbId == gb._id ? 
                                 {
                                     "GET": gb.reply && gbMode != "DELETE" ? <GbReplyViewer data={gb} targetId={targetId} auth={props.auth} changeReplyMode={changeReplyMode} /> : "",
                                     "POST": <GbReplyEditor mode="POST" data={gb} targetId={targetId} changeReplyMode={changeReplyMode} />,
