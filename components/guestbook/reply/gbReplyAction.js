@@ -15,7 +15,7 @@ export async function handleSubmit(mode,gbID,gbNewPw,previousState,formData) {
     const masterPassword = process.env.MASTER_AUTH_PASSWORD;
 
     const replyData = {
-        "reply.dateTime": moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss") || "", //utc 시간을 kst로 변경
+        "reply.dateTime": moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss") || "",
         "reply.content": formData.get("content") || ""
     }
 
@@ -41,7 +41,7 @@ export async function handleSubmit(mode,gbID,gbNewPw,previousState,formData) {
             break;
         case "PATCH":
             if(newPassword == masterPassword) {
-                const modifyData = {...replyData, "reply.dateTime":moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"}; //utc 시간을 kst로 변경
+                const modifyData = {...replyData, "reply.dateTime":moment().add(9, 'h').format("YYYY-MM-DD HH:mm:ss")+"(수정됨)"};
                 await collection.updateOne({"_id": new ObjectId(gbID)},{$set: modifyData});
                 revalidatePath("/guestbook");
                 return {
