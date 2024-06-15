@@ -1,0 +1,53 @@
+@import "/app/mixin";
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    line-height: 0;
+    transform: translate(-50%,-50%);
+    .ico svg {
+        width: 400px;
+        height: 400px;
+        fill: var(--point-color);
+    }
+    .txt {
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        width: 100%;
+        line-height: 1;
+        text-align: center;
+        transform: translateY(-50%);
+    }
+}
+
+
+@include Mobile {
+    .loading {
+        position: relative;
+        top: 0px;
+        left: 0px;
+        width: 300px;
+        height: 300px;
+        margin: 0px auto;
+        transform: translate(0%,0%);
+        .ico svg {
+            width: 300px;
+            height: 300px;
+        }
+    }
+
+    /* 세로모드 */
+    @media (orientation:portrait) {
+        /* Contents */
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+}

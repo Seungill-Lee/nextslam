@@ -7,7 +7,7 @@ import { bgmPlayerID, bgmPlaying } from "../atom.js"
 import data from './data.json';
 import EmptyCover from "./emptyCover.js";
 import SoundWaveIcon from "./soundWaveIcon.js";
-import LoadingIcon from "./loadingIcon.js";
+import PlayReadyIcon from "./playReadyIcon.js";
 import PlayErrorIcon from "./playErrorIcon.js";
 import StDetail from "./stDetail.js";
 
@@ -32,11 +32,11 @@ export default function STItem() {
                                         {playID == a.id ? 
                                             {
                                                 Play: <SoundWaveIcon className={scss.ico_sound_wave} playIs={true} />,
-                                                // Play: <LoadingIcon className={scss.ico_loading} />,
+                                                // Play: <PlayReadyIcon className={scss.ico_loading} />,
                                                 Pause: <SoundWaveIcon className={scss.ico_sound_wave} playIs={false} />,
                                                 Stop: "",
-                                                Start: <LoadingIcon className={scss.ico_loading} />,
-                                                Ready: <LoadingIcon className={scss.ico_loading} />,
+                                                Start: <PlayReadyIcon className={scss.ico_loading} />,
+                                                Ready: <PlayReadyIcon className={scss.ico_loading} />,
                                                 Error : <PlayErrorIcon className={scss.ico_error} />
                                             }[playing]
                                          : ""}
