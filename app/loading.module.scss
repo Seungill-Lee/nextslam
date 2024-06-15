@@ -11,6 +11,9 @@
     .ico svg {
         width: 400px;
         height: 400px;
+        path {
+            stroke: var(--point-color);
+        }
     }
     .txt {
         position: absolute;
