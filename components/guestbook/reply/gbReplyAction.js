@@ -2,7 +2,6 @@
 
 import { MongoClient, ObjectId } from 'mongodb'
 import moment from 'moment';
-import 'moment/locale/ko';
 import { revalidatePath } from 'next/cache';
 
 // Connection URL
