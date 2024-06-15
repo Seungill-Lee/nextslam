@@ -37,7 +37,7 @@ export default function StDetail() {
                         return(
                             <>
                                 {playing == "Play" || playing == "Pause" ?
-                                    <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} priority={true} /> : <EmptyCover className={scss.empty} />
+                                    <Image src={data[playID-1].coverImgSrc} alt={data[playID-1].albumInfo["name"] ? data[playID-1].albumInfo["name"] : ""} width={500} height={500} className={scss.ac_thumbnail} /> : <EmptyCover className={scss.empty} />
                                 }
                             </>
                         )
