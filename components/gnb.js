@@ -23,7 +23,7 @@ export default function GNB() {
                 <span className={scss.bar}></span>
                 <span className={scss.bar}></span>
                 <span className={scss.bar}></span>
-                <span className={scss.txt}>Gnb Open</span>
+                <span className={scss.txt}>{gnbOpen ? "Close the GNB" : "Open the GNB"}</span>
             </button>
             <nav id={scss.gnb} className={gnbOpen ? scss.on : ""}>
                 <ul>
