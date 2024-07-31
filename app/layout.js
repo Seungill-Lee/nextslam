@@ -101,7 +101,7 @@ export default function RootLayout({ children }) {
 
                     <footer id={scss.footer}>
                         <p className={scss.copyright}>
-                            Copyrightⓒ 2024 <a href="https://seungill-lee.github.io/portfolio/" target="_blank" title="새 창으로 열림">Seungill Lee</a>. All right reserved. <br />
+                            Copyrightⓒ 2024 <a href="https://seungill-lee.vercel.app/" target="_blank" title="새 창으로 열림">Seungill Lee</a>. All right reserved. <br />
                             Powered by <a href="https://www.mongodb.com/ko-kr" target="_blank" title="새 창으로 열림">MongoDB</a> and <a href="https://vercel.com/home" target="_blank" title="새 창으로 열림">Vercel</a>.
                         </p>
                     </footer>
