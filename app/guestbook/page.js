@@ -46,7 +46,7 @@ export default async function Guestbook() {
             <div className={scss.guestbook}>
                 <h2>방명록</h2>
                 <p className={scss.guide}>
-                    비공개 문의는 <a href="https://seungill-lee.github.io/portfolio/#contact_us" target="_blank" title="새 창 열림">Contact Us</a>를 이용해 주세요.
+                    비공개 문의는 <a href="https://seungill-lee.vercel.app/contact-us" target="_blank" title="새 창 열림">Contact Us</a>를 이용해 주세요.
                 </p>
                 <GbEditor mode="POST" />
                 <GbList data={gbData.reverse()} auth={session.authLogin} />
